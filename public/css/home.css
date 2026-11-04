@@ -122,7 +122,7 @@ body {
   width: 40%;
 }
 
-.imgCard{
+.imgCard {
   width: 85%;
 }
 
@@ -130,8 +130,9 @@ body {
   display: flex;
   flex-direction: column;
   width: 60%;
+  height: 45vh;
   justify-content: center;
-  gap: 25px;
+  gap: 15px;
 }
 
 .tituloCard {
@@ -139,7 +140,7 @@ body {
   font-style: italic;
   text-transform: uppercase;
   letter-spacing: -1px;
-  font-size: 50px;
+  font-size: 40px;
   color: #f2f4f7;
 }
 
@@ -147,4 +148,51 @@ body {
   font-family: "Inter", sans-serif;
   color: #f2f4f7;
   font-size: 31px;
+}
+
+.divSobreBatman {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.tituloSobreBatman {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  text-align: center;
+}
+
+.textoTitulo {
+  justify-content: space-between;
+  font-family: "Bangers", cursive;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #f2f4f7;
+}
+
+.textoSubTitulo {
+  font-family: "Inter", sans-serif;
+  color: #9aa5b1;
+}
+
+.divConteudoSobreBatman{
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+}
+
+.divImgSobreBatman{
+  width: 40%;
+}
+.imgSobreBatman{
+  width: 100%;
+}
+.textoConteudoBatman{
+  display: flex;
+  flex-direction: column;
 }
