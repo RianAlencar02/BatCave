@@ -161,6 +161,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  gap: 5vh;
 }
 
 .tituloSobreBatman {
@@ -188,18 +189,19 @@ body {
 .divConteudoSobreBatman {
   display: flex;
   width: 90%;
-  height: 350px;
   flex-direction: row;
+  gap: 1vw;
 }
 
 .divImgSobreBatman {
-  width: 40%;
+  width: 45%;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgSobreBatman {
   width: 100%;
 }
-
 
 .textoConteudoSobreBatman {
   display: flex;
@@ -208,16 +210,29 @@ body {
   flex-direction: column;
   height: 100%;
   width: 100%;
+  gap: 1.5vh;
 }
 
 .tituloVermelho {
   color: #c62839;
-  font-family: 'Oswald', sans-serif;
-  font-size: 30px;
+  font-family: "Oswald", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
 .textoSobreBatman {
   color: #f2f4f7;
-  font-family: 'Oswald', sans-serif;
-  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3vw;
+}
+.textoSobreBatman p {
+  margin-bottom: 20px;
+}
+
+
+.fraseSobreBatman {
+  color: #f2f4f7;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3vw;
+  font-weight: bolder;
 }
