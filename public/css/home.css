@@ -113,14 +113,17 @@ body {
   width: 90%;
   background-color: #191d24;
   border-radius: 20px;
-  gap: 20px;
 }
 
-.imgCard {
+.divImgCard {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40%;
+}
+
+.imgCard{
+  width: 85%;
 }
 
 .divTextoCard {
