@@ -329,3 +329,126 @@ body {
   font-size: 1.5vw;
   margin-top: 15px;
 }
+
+.divSobreMim {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+  gap: 3vh;
+}
+
+.cardSobreMim {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: #191d24;
+}
+.internoSobreMim {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border-radius: 15px;
+  gap: 25px;
+  background-color: #0b0b0d;
+}
+.imgSobreMim {
+  height: 75%;
+  margin-left: 2vw;
+  justify-content: flex-start;
+}
+.informacoesSobreMim {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  border-left: 2px #23364d solid;
+}
+
+.divNomeSobreMim {
+  padding-left: 1vw;
+  margin-top: 1vw;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px #23364d solid;
+}
+
+.subTituloSobreMim {
+  font-family: "Bangers", cursive;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #f2f4f7;
+}
+
+.descricaoSobreMim {
+  color: #f2f4f7;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3vw;
+  padding-bottom: 10px;
+}
+
+.divTecnologiasSobreMim {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+  padding-left: 1vw;
+  margin-top: 0.5vw;
+  border-bottom: 2px #23364d solid;
+  gap: 2vh;
+}
+
+.divImgsTecnologias {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+.imgTecnologia {
+  width: 6vw;
+}
+
+.imgSql {
+  width: 10vw;
+  height: 5vh;
+}
+
+.divRedesSociaisSobreMim {
+  display: flex;
+  flex-direction: row;
+  padding: 35px;
+  gap: 2vw;
+  align-items: center;
+  text-decoration: none;
+}
+
+.cardRedeSocial {
+  display: flex;
+  align-items: center;
+  height: 8vh;
+  width: 30%;
+  background-color: #c62839;
+  flex-direction: row;
+  border-radius: 15px;
+  text-decoration: none;
+  gap: 1vw;
+}
+
+.imgRedeSocial {
+  width: 6vh;
+  margin-left: 30px;
+}
+
+.textoRedeSocial {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5vw;
+  color: #f2f4f7;
+}
