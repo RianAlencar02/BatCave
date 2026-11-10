@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BatCave - Login</title>
+    <title>BatCave - Cadastro</title>
     <link rel="stylesheet" href="./css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,33 @@
 
     <div class="divPaiHome">
         <div class="divMetadeImg"></div>
-        <div class="divMetadeFormulario"></div>
+        <div class="divMetadeFormulario">
+            <div class="divFormulario">
+                <span class="tituloCadastro">Cadastre-se</span>
+                <div class="campo">
+                    <label class="labelCadastro" for="inputNome">Nome:</label>
+                    <input type="text" class="inputCadastro" id="inputNome">
+                </div>
+
+                <div class="campo">
+                    <label class="labelCadastro" for="inputEmail">Email:</label>
+                    <input type="email" class="inputCadastro" id="inputEmail">
+                </div>
+
+                <div class="campo">
+                    <label class="labelCadastro" for="inputSenha">Senha:</label>
+                    <input type="password" class="inputCadastro" id="inputSenha">
+                </div>
+
+                <div class="campo">
+                    <label class="labelCadastro" for="inputConfirmarSenha">Confirmar senha:</label>
+                    <input type="password" class="inputCadastro" id="inputConfirmarSenha">
+                </div>
+                <a href="./index.html" class="botaoCadastrar">
+                    <span >Cadastrar</span>
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 
