@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0b0b0d;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 12vh;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px #23364d solid;
+}
+
+.imgLogo {
+  width: 10vw;
+}
+
+.opcoesNavBar {
+  display: flex;
+  gap: 5vw;
+}
+
+.opcoaoNavBar {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+  text-decoration: none;
+  /* remove o sublinhado que a tag a causa no texto*/
+}
+
+.opcaoSelecionada {
+  color: #c62839;
+  border-bottom: 0.2vw #c62839 solid;
+}
+
+.butoesNavBar {
+  font-family: "Oswald", sans-serif;
+  display: flex;
+  width: 35%;
+  height: 70%;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.botaoCadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 90%;
+  text-decoration: none;
+  color: #f2f4f7;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+.botaoLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 90%;
+  background-color: #c62839;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+.divPaiHome {
+  display: flex;
+  height: 92vh; /* tela inteira menos a navbar */
+}
+.divMetadeImg {
+  flex: 1; /* Serve para pegar uma "parte" do que está disponivel. Com 2 divs flex 1, ambas estão compartilhando e usando um espaço do total disponivel*/
+  background-image: url("../assets/imgs/imgLogin.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.divMetadeFormulario {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divFormulario {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.tituloLogin {
+  font-family: "Oswald", sans-serif;
+  color: #c62839;
+  font-size: 35px;
+}
+
+.inputNome {
+  display: flex;
+  margin-bottom: 0px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 80%;
+  gap: 2px;
+}
+
+.labelLogin {
+  font-family: "Inter", sans-serif;
+  color: #f2f4f7;
+  font-size: 1.3rem;
+}
+
+.inputLogin {
+  height: 35px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+
+.botaoFazerLogin {
+  font-family: "Inter", sans-serif;
+  font-size: 1.3rem;
+  color: #f2f4f7;
+  padding: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border-radius: 15px;
+  background-color: #c62839;
+
+  border: #23364d 3px solid;
+  text-decoration: none;
+}

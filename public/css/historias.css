@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0b0b0d;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 12vh;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px #23364d solid;
+}
+
+.imgLogo {
+  width: 10vw;
+}
+
+.opcoesNavBar {
+  display: flex;
+  gap: 5vw;
+}
+
+.opcoaoNavBar {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+  text-decoration: none;
+  /* remove o sublinhado que a tag a causa no texto*/
+}
+
+.opcaoSelecionada {
+  color: #c62839;
+  border-bottom: 0.2vw #c62839 solid;
+}
+
+.butoesNavBar {
+  font-family: "Oswald", sans-serif;
+  display: flex;
+  width: 35%;
+  height: 70%;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.botaoCadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 90%;
+  text-decoration: none;
+  color: #f2f4f7;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+.botaoLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 90%;
+  background-color: #c62839;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+.containerHistorias {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+.divTituloHistorias {
+  color: #c62839;
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.divResumo {
+  width: 95vw;
+}
+
+.textoResumo {
+  font-family: "Oswald", sans-serif;
+  color: #f2f4f7;
+  font-size: 25px;
+}
+
+.divListaHistorias {
+  display: flex;
+  width: 95vw;
+  flex-direction: column;
+  background-color: #1a2230;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.divFiltrosHistorias {
+  width: 93vw;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.spanFiltro {
+  font-family: "Oswald", sans-serif;
+  color: #f2f4f7;
+  font-size: 20px;
+}
+
+.selectFiltro {
+  border-radius: 5px;
+}
+
+.containerCardsHistoria {
+  margin-top: 15px;
+  display: flex;
+  width: 95%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.cardHistoria {
+  display: flex;
+  flex-direction: column;
+  width: 32%;
+}
+
+.imgCard {
+  background-image: url("../assets/imgs/historias/bannerBatmanAbs.jpeg");
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px 15px 0 0;
+}
+
+.corpoCard {
+  display: flex;
+  background-color: #0b0b0d;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.linhaTipoAno {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  justify-content: space-between;
+}
+
+.spanTipoMidia {
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 10px;
+  background-color: #32171e;
+  color: #ff8999;
+  font-family: "Inter", sans-serif;
+}
+
+.spanAnoHistoria {
+  font-size: 10px;
+  font-family: "Inter", sans-serif;
+  color: #c62839;
+  font-weight: bold;
+}
+
+.colunaTituloCriador {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.spanTitulo {
+  font-family: "Oswald", sans-serif;
+  color: #f2f4f7;
+  font-size: 25px;
+}
+
+.spanCriador {
+  font-family: "Oswald", sans-serif;
+  color: #9aa5b1;
+  font-size: 15px;
+  opacity: 75%;
+}
+
+.resumoHistoria {
+  display: flex;
+  width: 95%;
+  font-family: "Inter", sans-serif;
+  color: #9aa5b1;
+  text-align: start;
+  font-size: 15px;
+}
+
+.botaoVerDetalhes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  width: 95%;
+  color: #f2f4f7;
+  background-color: #c62839;
+  font-family: "Inter", sans-serif;
+}
