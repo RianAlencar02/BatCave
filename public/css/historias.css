@@ -240,4 +240,6 @@ body {
   color: #f2f4f7;
   background-color: #c62839;
   font-family: "Inter", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
 }

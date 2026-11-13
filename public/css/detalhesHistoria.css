@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0b0b0d;
+}
+
+/* Navbar (padrão das demais páginas do projeto) */
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 12vh;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px #23364d solid;
+}
+
+.imgLogo {
+  width: 10vw;
+}
+
+.opcoesNavBar {
+  display: flex;
+  gap: 5vw;
+}
+
+.opcoaoNavBar {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+  text-decoration: none;
+  /* remove o sublinhado que a tag a causa no texto*/
+}
+
+.opcaoSelecionada {
+  color: #c62839;
+  border-bottom: 0.2vw #c62839 solid;
+}
+
+.butoesNavBar {
+  font-family: "Oswald", sans-serif;
+  display: flex;
+  width: 35%;
+  height: 70%;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.botaoCadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 90%;
+  text-decoration: none;
+  color: #f2f4f7;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+.botaoLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 90%;
+  background-color: #c62839;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+/* Banner hero */
+
+.bannerDetalhes {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-bottom: 1px #23364d solid;
+}
+
+.imgBannerDetalhes {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position:center;
+}
+
+/* Detalhes principais (2 colunas) */
+
+.containerDetalhes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 90vw;
+  margin: 40px auto 0 auto;
+}
+
+.divCapaHistoria {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.imgCapaHistoria {
+  width: 100%;
+  max-width: 430px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.divInformacoesHistoria {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.divCabecalhoHistoria {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tagTipo {
+  width: fit-content;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  background-color: #32171e;
+  color: #ff8999;
+}
+
+.tituloDetalhes {
+  font-family: "Oswald", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  color: #c62839;
+}
+
+.linhaMeta {
+  display: flex;
+  gap: 25px;
+}
+
+.spanMeta {
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  color: #f2f4f7;
+}
+
+.notaHistoria {
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  color: #f2f4f7;
+}
+
+/* Botões de ação */
+
+.containerBotoesAcao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.botaoAcao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  background-color: #22252a;
+  color: #f2f4f7;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.botaoAcao:hover {
+  background-color: #c62839;
+  color: #f2f4f7;
+}
+
+.iconeBotao {
+  font-size: 20px;
+}
+
+/* Card de informações */
+
+.cardInformacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px 30px;
+  background-color: #1a2230;
+  border-radius: 15px;
+}
+
+.tituloCardInformacoes {
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.listaInformacoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 40px;
+}
+
+.itemInformacao {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+}
+
+.itemInformacao strong {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Sinopse */
+
+.secaoSinopse {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 90vw;
+  margin: 40px auto 0 auto;
+  padding: 25px 0;
+  border-top: 1px #23364d solid;
+  border-bottom: 1px #23364d solid;
+}
+
+.tituloSinopse {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.textoSinopse {
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  color: #f2f4f7;
+}
+
+/* Comentário do editor */
+
+.containerEditor {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  width: 90vw;
+  margin: 40px auto 60px auto;
+  background-color: #191D24;
+  padding: 20px;
+}
+
+.infoEditor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  padding-right: 40px;
+  border-right: 1px #23364d solid;
+}
+
+.tituloEditor {
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.imgAvatarEditor {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nomeEditor {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.textoEditor {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 45px;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+}
+
+/* Responsividade */
+
+@media screen and (max-width: 900px) {
+  .containerDetalhes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .divCapaHistoria,
+  .divInformacoesHistoria {
+    width: 100%;
+  }
+
+  .tituloDetalhes {
+    font-size: 35px;
+  }
+
+  .listaInformacoes {
+    grid-template-columns: 1fr;
+  }
+
+  .containerEditor {
+    flex-direction: column;
+  }
+
+  .infoEditor {
+    padding-right: 0;
+    padding-bottom: 25px;
+    border-right: none;
+    border-bottom: 1px #23364d solid;
+  }
+
+  .textoEditor {
+    padding-top: 0;
+  }
+}
