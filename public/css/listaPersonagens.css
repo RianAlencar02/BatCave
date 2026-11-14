@@ -110,6 +110,7 @@ body {
 .divListaPersonagens {
   background-color: #191d24;
   display: flex;
+  padding: 5px;
   flex-direction: column;
   width: 95vw;
   border-radius: 20px;
@@ -152,10 +153,16 @@ body {
   flex-direction: column;
   gap: 25px;
 }
+.divImgCard {
+  height: 100%;
+  flex: 0 0 25%;   /* Serve para travar a largura da div, que a imagem preenche */
+}
 .imgCard {
-  justify-content: flex-start;
+  object-fit: cover;
+  width: 100%;
   height: 100%;
   border-radius: 10px 0px 0px 10px;
+  object-position: top; 
 }
 
 .infosPersonagem {
