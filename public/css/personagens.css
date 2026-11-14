@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0b0b0d;
+}
+
+/* Navbar (padrão das demais páginas do projeto) */
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 12vh;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px #23364d solid;
+}
+
+.imgLogo {
+  width: 10vw;
+}
+
+.opcoesNavBar {
+  display: flex;
+  gap: 5vw;
+}
+
+.opcoaoNavBar {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+  text-decoration: none;
+  /* remove o sublinhado que a tag a causa no texto*/
+}
+
+.opcaoSelecionada {
+  color: #c62839;
+  border-bottom: 0.2vw #c62839 solid;
+}
+
+.butoesNavBar {
+  font-family: "Oswald", sans-serif;
+  display: flex;
+  width: 35%;
+  height: 70%;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+}
+
+.botaoCadastro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 90%;
+  text-decoration: none;
+  color: #f2f4f7;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+.botaoLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 90%;
+  background-color: #c62839;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+/* Conteúdo da página de Personagens */
+
+.containerPersonagens {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.divTituloPersonagens {
+  color: #c62839;
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.divResumo {
+  width: 95vw;
+}
+
+.textoResumo {
+  font-family: "Oswald", sans-serif;
+  color: #f2f4f7;
+  font-size: 25px;
+}
+
+.divListaPersonagens {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 90vw;
+}
+
+.cardPersonagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 260px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.cardPersonagem:hover {
+  filter: brightness(1.15);
+}
+
+.tituloCardPersonagem {
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  color: #f2f4f7;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Imagens mapeadas pelo conteúdo (os nomes dos arquivos estão trocados) */
+
+.cardBatman {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../assets/imgs/personagens/imgPersonagensBatman.png");
+  }
+  
+  .cardAliados {
+    background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../assets/imgs/personagens/imgPersonagensAliados.jpg");
+    background-position: bottom;
+}
+
+.cardViloes {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../assets/imgs/personagens/imgPersonagensViloes.webp");
+}

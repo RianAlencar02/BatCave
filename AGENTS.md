@@ -37,7 +37,9 @@ Nunca deletar arquivo algum. Caso sejá necessário, avisar qual arquivo o desen
 ## Regra geral: 
 Ao iniciar, sempre executar "npm i" para instalar as dependências do projeto.
 Após a instalação de dependências, executar "npm start" para iniciar o projeto.
+Caso a especificação pedida envolver somente o front-end (HTML e CSS), ignorar o npm start e fazer somente o que foi exigido, sem verificar ligação com banco ou dependencias.
 Seguir o padrão de estrutura do projeto.
 Seguir sempre o padrão do código que estiver analisando.
 Seguir todas as orientações deste arquivo. 
 Caso haja a necessidade de alguma informação, analise o projeto e siga os padrões já adotados no mesmo. 
+Sempre que, eu exigir algo ou pedir uma nova função, você deve guardar meus prompts em um arquivo .md dentro de "DOCUMENTOS_DE_APOIO/prompts", e também guardar todas as respostas que me enviar no mesmo arquivo, sempre especificando o prompt e a resposta.
