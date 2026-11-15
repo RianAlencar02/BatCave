@@ -78,8 +78,6 @@ body {
   border-radius: 10px;
 }
 
-/* Conteúdo da página de Personagens */
-
 .containerPersonagens {
   display: flex;
   justify-content: center;
@@ -143,8 +141,6 @@ body {
   color: #f2f4f7;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 }
-
-/* Imagens mapeadas pelo conteúdo (os nomes dos arquivos estão trocados) */
 
 .cardBatman {
   background-image:

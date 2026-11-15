@@ -313,39 +313,3 @@ body {
   color: #f2f4f7;
 }
 
-/* Responsividade */
-
-@media screen and (max-width: 900px) {
-  .containerDetalhes {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .divCapaHistoria,
-  .divInformacoesHistoria {
-    width: 100%;
-  }
-
-  .tituloDetalhes {
-    font-size: 35px;
-  }
-
-  .listaInformacoes {
-    grid-template-columns: 1fr;
-  }
-
-  .containerEditor {
-    flex-direction: column;
-  }
-
-  .infoEditor {
-    padding-right: 0;
-    padding-bottom: 25px;
-    border-right: none;
-    border-bottom: 1px #23364d solid;
-  }
-
-  .textoEditor {
-    padding-top: 0;
-  }
-}
