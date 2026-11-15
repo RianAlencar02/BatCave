@@ -21,45 +21,60 @@
             <img src="../assets/imgs/dashboard/imgLogoDashboard.png" class="imgNavDash"
                 alt="Imagem da NavBar Administrativa">
             <nav class="opcoesNavBar">
-                <a class="opcaoNavBar opcaoSelecionada" href="">Dashboard</a>
-                <a class="opcaoNavBar" href="">Usuários</a>
-                <a class="opcaoNavBar" href="">Histórias</a>
-                <a class="opcaoNavBar" href="">Personagens</a>
+                <a class="opcaoNavBar opcaoSelecionada" href="./dashboard.html">Dashboard</a>
+                <a class="opcaoNavBar" href="./usuarios.html">Usuários</a>
+                <a class="opcaoNavBar" href="./historias.html">Histórias</a>
+                <a class="opcaoNavBar" href="./personagens.html">Personagens</a>
             </nav>
-            <a class="opcaoSair" href="">Sair</a>
+            <a class="opcaoSair" href="./loginAdm.html">Sair</a>
         </div>
         <div class="conteudoDashboard">
             <div class="linhaKpi">
                 <div class="kpiDashboard">
-                    <span>Total de usuários</span>
-                    <span>10</span>
+                    <span class="tituloKpi">Total de usuários</span>
+                    <span class="dadoKpi">10</span>
                 </div>
                 <div class="kpiDashboard">
-                    <span>Total de histórias</span>
-                    <span>10</span>
+                    <span class="tituloKpi">Total de histórias</span>
+                    <span class="dadoKpi">10</span>
                 </div>
                 <div class="kpiDashboard">
-                    <span>Total de personagens:</span>
-                    <span>10</span>
+                    <span class="tituloKpi">Total de personagens:</span>
+                    <span class="dadoKpi">10</span>
                 </div>
                 <div class="kpiDashboard">
-                    <span>Quizes concluidos:</span>
-                    <span>10</span>
+                    <span class="tituloKpi">Quizes concluidos:</span>
+                    <span class="dadoKpi">10</span>
                 </div>
             </div>
             <div class="containerGraficos">
                 <div class="graficoDashboard">
-                    <span>Histórias mais bem avaliadas:</span>
-                    
+                    <span class="tituloKpi">Histórias mais bem avaliadas:</span>
+                    <div class="containerItens">
+                        <div class="item">
+                            <img src="../assets/imgs/historias/bannerBatmanAbs.jpeg" class="imgItem" alt="">
+                            <span class="dadoKpi">Batman Absoluto</span>
+                            <div class="colunaAvaliacao">
+                                <span class="dadoKpi">4.8</span>
+                                <span class="textoAvaliacoes">12 avaliações</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="graficoDashboard">
-                    <span>Favoritos por tipo:</span>
+                    <span class="tituloKpi">Favoritos por tipo:</span>
                     <div>
                         <canvas id="graficoTipo"></canvas>
                     </div>
                 </div>
                 <div class="graficoDashboard">
-                    <span>Personagens mais favoritados:</span>
+                    <span class="tituloKpi">Personagens mais favoritados:</span>
+                    <div class="containerItens">
+                        <div class="itemFavoritos">
+                            <img src="../assets/imgs/personagens/imgRobinDick.webp" class="imgItem" alt="">
+                            <span class="dadoKpi">Robin (Dick Grayson)</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,18 +98,18 @@
             labels: tipos,
             datasets: [
                 {
-                    label: "Favoritos",
+                    label: "Favoritados",
                     data: favoritos,
                     backgroundColor: ["#c62839", "#3a6ea5", "#9aa5b1"],
-                    borderRadius: 8,     
+                    borderRadius: 8,
                 },
             ],
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,  
+            maintainAspectRatio: false,
             plugins: {
-                legend: { display: false }, 
+                legend: { display: false },
                 tooltip: {
                     backgroundColor: "#0b0b0d",
                     borderColor: "#23364d",

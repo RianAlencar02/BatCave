@@ -57,20 +57,19 @@ body {
   opacity: 50%;
 }
 
-
-.divPaiDashboard{
+.divPaiDashboard {
   display: flex;
   flex-direction: row;
 }
 
-.conteudoDashboard{
+.conteudoDashboard {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 25px;
 }
 
-.linhaKpi{
+.linhaKpi {
   display: flex;
   flex-direction: row;
   height: 30%;
@@ -78,32 +77,96 @@ body {
   align-items: center;
 }
 
-.kpiDashboard{
+.kpiDashboard {
   display: flex;
   flex-direction: column;
   border: #23364d 2px solid;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  text-align: center;
   width: 20%;
   height: 60%;
-
 }
 
-.containerGraficos{
+.tituloKpi {
+  font-family: "Oswald", sans-serif;
+  color: #f2f4f7;
+}
+
+.dadoKpi {
+  font-family: "Oswald", sans-serif;
+  color: #f2f4f7;
+}
+
+.containerGraficos {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
 }
 
-.graficoDashboard{
+.graficoDashboard {
   display: flex;
+  border-radius: 10px;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   width: 32%;
   height: 80%;
-  background-color: #191D24;
-  border: #23364d 2px solid; 
+  background-color: #191d24;
+  border: #23364d 2px solid;
 }
+.containerItens {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  width: 95%;
+  padding: 5px;
+  border: #23364d 2px solid;
+  border-radius: 10px;
+}
+
+.imgItem {
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.colunaAvaliacao {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 5px;
+}
+
+.textoAvaliacoes {
+  font-size: 13px;
+  color: #9aa5b1;
+}
+
+.itemFavoritos {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  width: 95%;
+  padding: 5px;
+  gap: 30px;
+  text-align: center;
+  border: #23364d 2px solid;
+  border-radius: 10px;
+}
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BatCave - Dashboard - Usuários</title>
+    <link rel="stylesheet" href="../css/dashboardListas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600&family=Oswald:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="divPaiDashboard">
+        <div class="navBarAdm">
+            <img src="../assets/imgs/dashboard/imgLogoDashboard.png" class="imgNavDash"
+                alt="Imagem da NavBar Administrativa">
+            <nav class="opcoesNavBar">
+                <a class="opcaoNavBar" href="./dashboard.html">Dashboard</a>
+                <a class="opcaoNavBar opcaoSelecionada" href="./usuarios.html">Usuários</a>
+                <a class="opcaoNavBar" href="./historias.html">Histórias</a>
+                <a class="opcaoNavBar" href="./personagens.html">Personagens</a>
+            </nav>
+            <a class="opcaoSair" href="./loginAdm.html">Sair</a>
+        </div>
+        <div class="conteudoDashboard">
+            <div class="cardTela">
+                <h1 class="tituloTela">Usuários</h1>
+                <div class="cardLista">
+                    <div class="barraAcoes">
+                        <div class="grupoFiltros">
+                            <input class="campoBusca" type="text" placeholder="Buscar por nome...">
+                            <select class="selectFiltro">
+                                <option>Mais recentes</option>
+                                <option>Mais antigos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tabelaListagem listaUsuarios">
+                        <div class="linhaCabecalho">
+                            <div class="celula colNome">Nome</div>
+                            <div class="celula colEmail">Email</div>
+                            <div class="celula colDetalhes">Detalhes</div>
+                        </div>
+                        <div class="linhaItem">
+                            <div class="celula colNome">
+                                <span class="avatarUsuario">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="8" r="4" fill="#0b0b0d"></circle>
+                                        <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" fill="#0b0b0d"></path>
+                                    </svg>
+                                </span>
+                                <span class="nomeLinha">Rian</span>
+                            </div>
+                            <div class="celula colEmail">rian.crash@gmail.com</div>
+                            <div class="celula colDetalhes">
+                                <a class="botaoDetalhes" href="#">Detalhes</a>
+                            </div>
+                        </div>
+                        <div class="linhaItem">
+                            <div class="celula colNome">
+                                <span class="avatarUsuario">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="8" r="4" fill="#0b0b0d"></circle>
+                                        <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" fill="#0b0b0d"></path>
+                                    </svg>
+                                </span>
+                                <span class="nomeLinha">Rian</span>
+                            </div>
+                            <div class="celula colEmail">rian.crash@gmail.com</div>
+                            <div class="celula colDetalhes">
+                                <a class="botaoDetalhes" href="#">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

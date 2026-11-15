@@ -36,8 +36,7 @@ Nunca deletar arquivo algum. Caso sejá necessário, avisar qual arquivo o desen
 
 ## Regra geral: 
 Ao iniciar, sempre executar "npm i" para instalar as dependências do projeto.
-Após a instalação de dependências, executar "npm start" para iniciar o projeto.
-Caso a especificação pedida envolver somente o front-end (HTML e CSS), ignorar o npm start e fazer somente o que foi exigido, sem verificar ligação com banco ou dependencias.
+Após a instalação de dependências, sempre perguntar se é necessário utilizar "npm start", comando para inicializar o projeto.
 Seguir o padrão de estrutura do projeto.
 Seguir sempre o padrão do código que estiver analisando.
 Seguir todas as orientações deste arquivo. 

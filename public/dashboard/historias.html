@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BatCave - Dashboard - Histórias</title>
+    <link rel="stylesheet" href="../css/dashboardListas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600&family=Oswald:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="divPaiDashboard">
+        <div class="navBarAdm">
+            <img src="../assets/imgs/dashboard/imgLogoDashboard.png" class="imgNavDash"
+                alt="Imagem da NavBar Administrativa">
+            <nav class="opcoesNavBar">
+                <a class="opcaoNavBar" href="./dashboard.html">Dashboard</a>
+                <a class="opcaoNavBar" href="./usuarios.html">Usuários</a>
+                <a class="opcaoNavBar opcaoSelecionada" href="./historias.html">Histórias</a>
+                <a class="opcaoNavBar" href="./personagens.html">Personagens</a>
+            </nav>
+            <a class="opcaoSair" href="./loginAdm.html">Sair</a>
+        </div>
+        <div class="conteudoDashboard">
+            <div class="cardTela">
+                <h1 class="tituloTela">Histórias</h1>
+                <div class="cardLista">
+                    <div class="barraAcoes">
+                        <a class="botaoNovo" href="#">+ Nova história</a>
+                        <div class="grupoFiltros">
+                            <input class="campoBusca" type="text" placeholder="Buscar por nome...">
+                            <select class="selectFiltro">
+                                <option>Todos os tipos</option>
+                                <option>Filme</option>
+                                <option>Quadrinhos</option>
+                                <option>Jogos</option>
+                            </select>
+                            <select class="selectFiltro">
+                                <option>Mais recentes</option>
+                                <option>Mais antigos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tabelaListagem listaHistorias">
+                        <div class="linhaCabecalho">
+                            <div class="celula colNome">Nome</div>
+                            <div class="celula colTipo">Tipo</div>
+                            <div class="celula colNota">Nota</div>
+                            <div class="celula colDetalhes">Detalhes</div>
+                        </div>
+                        <div class="linhaItem">
+                            <div class="celula colNome">
+                                <img class="thumbLinha" src="../assets/imgs/historias/bannerBatmanCapuzVermelho.avif"
+                                    alt="Batman Contra o Capuz Vermelho">
+                                <span class="nomeLinha">Batman Contra o Capuz Vermelho</span>
+                            </div>
+                            <div class="celula colTipo">
+                                <span class="badgeTipo">Filme</span>
+                            </div>
+                            <div class="celula colNota">4.8</div>
+                            <div class="celula colDetalhes">
+                                <a class="botaoDetalhes" href="#">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
