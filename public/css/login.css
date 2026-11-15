@@ -149,3 +149,10 @@ body {
   border: #23364d 3px solid;
   text-decoration: none;
 }
+
+.linkAcessoAdm {
+  color: #f2f4f7;
+  font-family: "Oswald", sans-serif;
+  opacity: 25%;
+  text-decoration: none;
+}
