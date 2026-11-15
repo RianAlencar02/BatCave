@@ -11,20 +11,107 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600&family=Oswald:wght@300;400;700&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
-    <div class="navBarAdm">
-        <img src="../assets/imgs/dashboard/imgLogoDashboard.png" class="imgNavDash" alt="Imagem da NavBar Administrativa"> 
-        <nav class="opcoesNavBar">
-            <a class="opcaoNavBar opcaoSelecionada" href="">Dashboard</a>
-            <a class="opcaoNavBar" href="">Usuários</a>
-            <a class="opcaoNavBar" href="">Histórias</a>
-            <a class="opcaoNavBar" href="">Personagens</a>
-        </nav>
-        <a class="opcaoSair" href="">Sair</a>
+    <div class="divPaiDashboard">
+        <div class="navBarAdm">
+            <img src="../assets/imgs/dashboard/imgLogoDashboard.png" class="imgNavDash"
+                alt="Imagem da NavBar Administrativa">
+            <nav class="opcoesNavBar">
+                <a class="opcaoNavBar opcaoSelecionada" href="">Dashboard</a>
+                <a class="opcaoNavBar" href="">Usuários</a>
+                <a class="opcaoNavBar" href="">Histórias</a>
+                <a class="opcaoNavBar" href="">Personagens</a>
+            </nav>
+            <a class="opcaoSair" href="">Sair</a>
+        </div>
+        <div class="conteudoDashboard">
+            <div class="linhaKpi">
+                <div class="kpiDashboard">
+                    <span>Total de usuários</span>
+                    <span>10</span>
+                </div>
+                <div class="kpiDashboard">
+                    <span>Total de histórias</span>
+                    <span>10</span>
+                </div>
+                <div class="kpiDashboard">
+                    <span>Total de personagens:</span>
+                    <span>10</span>
+                </div>
+                <div class="kpiDashboard">
+                    <span>Quizes concluidos:</span>
+                    <span>10</span>
+                </div>
+            </div>
+            <div class="containerGraficos">
+                <div class="graficoDashboard">
+                    <span>Histórias mais bem avaliadas:</span>
+                    
+                </div>
+                <div class="graficoDashboard">
+                    <span>Favoritos por tipo:</span>
+                    <div>
+                        <canvas id="graficoTipo"></canvas>
+                    </div>
+                </div>
+                <div class="graficoDashboard">
+                    <span>Personagens mais favoritados:</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="divPaiDashboard"></div>
 </body>
 
 </html>
+
+<script>
+    const ctx = document.getElementById("graficoTipo");
+
+    const tipos = ["Quadrinhos", "Filmes", "Jogos"];
+    const favoritos = [11, 7, 4];
+
+    Chart.defaults.font.family = "Inter, sans-serif";
+    Chart.defaults.color = "#9aa5b1";
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: tipos,
+            datasets: [
+                {
+                    label: "Favoritos",
+                    data: favoritos,
+                    backgroundColor: ["#c62839", "#3a6ea5", "#9aa5b1"],
+                    borderRadius: 8,     
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,  
+            plugins: {
+                legend: { display: false }, 
+                tooltip: {
+                    backgroundColor: "#0b0b0d",
+                    borderColor: "#23364d",
+                    borderWidth: 1,
+                    padding: 12,
+                },
+            },
+            scales: {
+                x: {
+                    grid: { display: false },
+                    ticks: { color: "#f2f4f7", font: { size: 14 } },
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: { color: "#23364d" },
+                },
+            },
+        },
+    });
+</script>
