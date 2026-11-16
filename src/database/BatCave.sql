@@ -1,115 +1,140 @@
-
+DROP DATABASE IF EXISTS BatCave;
 CREATE DATABASE BatCave;
-
 USE BatCave;
 
+
 CREATE TABLE usuario (
-    idUsuario INT PRIMARY KEY,
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nomeUsuario VARCHAR(45),
-    emailUsuario VARCHAR(100),
-    senhaUsuario VARCHAR(10)
+    emailUsuario VARCHAR(45),
+    senhaUsuario VARCHAR(20),
+    dataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE adm (
+    idAdm INT PRIMARY KEY AUTO_INCREMENT,
+    nomeAdm VARCHAR(45),
+    emailAdm VARCHAR(50),
+    senhaAdm VARCHAR(20)
 );
 
 CREATE TABLE historia (
-    idHistoria INT PRIMARY KEY,
-    nomeHistoria VARCHAR(100),
-    anoHistoria DATE,
-    tipoHistoria VARCHAR(10),
+    idHistoria INT PRIMARY KEY AUTO_INCREMENT,
+    tituloHistoria VARCHAR(100),
+    resumoHistoria VARCHAR(100),
+    anoHistoria YEAR,
+    tipoHistoria VARCHAR(20),
     criadorHistoria VARCHAR(45),
-    generoHistoria VARCHAR(45),
+    generoHistoria VARCHAR(30),
     universoHistoria VARCHAR(45),
-    imgCapaHistoria VARCHAR(100),
-    imgHorizontalHistoria VARCHAR(100),
-    sinopseHistoria VARCHAR(1500),
-    resumoHistoria VARCHAR(100)
+    sinopseHistoria VARCHAR(500),
+    bannerHistoria VARCHAR(250),
+    capaHistoria VARCHAR(250)
 );
 
 CREATE TABLE personagem (
-    idPersonagem INT PRIMARY KEY,
-    nomePersonagem VARCHAR(50),
-    generoPersonagem VARCHAR(10),
+    idPersonagem INT PRIMARY KEY AUTO_INCREMENT,
+    nomePersonagem VARCHAR(45),
     resumoPersonagem VARCHAR(100),
-    identidadeSecretaPersonagem VARCHAR(50),
-    primeiraAparicaoPersonagem VARCHAR(100),
+    identidadeSecreta VARCHAR(45),
     categoriaPersonagem VARCHAR(45),
-    biografiaPersonagem VARCHAR(1500),
-    imgCapaPersonagem VARCHAR(100),
-    imgHorizontalPersonagem VARCHAR(100)
-);
-
-CREATE TABLE comentarioEditor (
-    idcomentarioEditor INT PRIMARY KEY,
-    comentario VARCHAR(1000),
-    idHistoria INT,
-    idPersonagem INT,
-    FOREIGN KEY (idHistoria) REFERENCES historia(idHistoria),
-    FOREIGN KEY (idPersonagem) REFERENCES personagem(idPersonagem)
-);
-
-CREATE TABLE adm (
-    idAdm INT PRIMARY KEY,
-    nomeAdm VARCHAR(45),
-    emailAdm VARCHAR(100),
-    senhaAdm VARCHAR(10)
+    primeiraAparicaoPersonagem VARCHAR(50),
+    criadoresPersonagem VARCHAR(100),
+    generoPersonagem VARCHAR(15),
+    afiliacoesPersonagem VARCHAR(150),
+    fraseMarcantePersonagem VARCHAR(100),
+    biografiaPersonagem VARCHAR(500),
+    bannerPersonagem VARCHAR(250),
+    capaPersonagem VARCHAR(250)
 );
 
 CREATE TABLE historiasFavoritadas (
-    status BOOLEAN,
-    idUsuario INT,
-    idHistoria INT,
-    PRIMARY KEY (idUsuario, idHistoria),
-    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
-    FOREIGN KEY (idHistoria) REFERENCES historia(idHistoria)
+    idHistoriasFavoritadas INT,
+    fkUsuario INT,
+    fkHistoria INT,
+    PRIMARY KEY (idHistoriasFavoritadas, fkUsuario, fkHistoria),
+    CONSTRAINT fk_historiasFavoritadas_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+    CONSTRAINT fk_historiasFavoritadas_historia FOREIGN KEY (fkHistoria) REFERENCES historia(idHistoria)
 );
+
+
+CREATE TABLE avaliacaoHistoria (
+    idAvaliacaoHistoria INT,
+    fkUsuario INT,
+    fkHistoria INT,
+    notaAvaliacao INT,
+    PRIMARY KEY (idAvaliacaoHistoria,fkUsuario, fkHistoria),
+    CONSTRAINT fk_avaliacaoHistoria_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+    CONSTRAINT fk_avaliacaoHistoria_historia FOREIGN KEY (fkHistoria) REFERENCES historia(idHistoria)
+);
+
+
+
 
 CREATE TABLE personagensFavoritados (
     idPersonagensFavoritados INT,
-    status BOOLEAN,
-    idUsuario INT,
-    idPersonagem INT,
-    PRIMARY KEY (idPersonagensFavoritados, idUsuario, idPersonagem),
-    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
-    FOREIGN KEY (idPersonagem) REFERENCES personagem(idPersonagem)
+    fkUsuario INT,
+    fkPersonagem INT,
+    PRIMARY KEY (idPersonagensFavoritados, fkUsuario, fkPersonagem),
+    CONSTRAINT fk_personagensFavoritados_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+    CONSTRAINT fk_personagensFavoritados_personagem FOREIGN KEY (fkPersonagem) REFERENCES personagem(idPersonagem)
+);
+
+CREATE TABLE comentarioEditor (
+    idComentarioEditor INT PRIMARY KEY AUTO_INCREMENT,
+    textoComentarioEditor VARCHAR(500),
+    fkAdm INT,
+    fkPersonagem INT,
+    fkHistoria INT,
+    CONSTRAINT fk_comentarioEditor_adm FOREIGN KEY (fkAdm) REFERENCES adm(idAdm),
+    CONSTRAINT fk_comentarioEditor_personagem FOREIGN KEY (fkPersonagem) REFERENCES personagem(idPersonagem),
+    CONSTRAINT fk_comentarioEditor_historia FOREIGN KEY (fkHistoria) REFERENCES historia(idHistoria)
 );
 
 CREATE TABLE quiz (
-    idQuiz INT PRIMARY KEY,
-    nomeQuiz VARCHAR(100),
-    idHistoria INT,
-    idPersonagem INT,
-    FOREIGN KEY (idHistoria) REFERENCES historia(idHistoria),
-    FOREIGN KEY (idPersonagem) REFERENCES personagem(idPersonagem)
+    idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+    fkHistoria INT,
+    fkPersonagem INT,
+    CONSTRAINT fk_quiz_historia FOREIGN KEY (fkHistoria) REFERENCES historia(idHistoria),
+    CONSTRAINT fk_quiz_personagem FOREIGN KEY (fkPersonagem) REFERENCES personagem(idPersonagem)
 );
 
-CREATE TABLE perguntaQuiz (
-    idPerguntaQuiz INT PRIMARY KEY,
-    descricaoPergunta VARCHAR(45),
-    idQuiz INT NOT NULL,
-    FOREIGN KEY (idQuiz) REFERENCES quiz(idQuiz)
+CREATE TABLE pergunta (
+    idPergunta INT AUTO_INCREMENT,
+    textoPergunta VARCHAR(100),
+    fkQuiz INT,
+    PRIMARY KEY (idPergunta, fkQuiz),
+    CONSTRAINT fk_pergunta_quiz FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz)
 );
 
-CREATE TABLE alternativaPergunta (
-    idAlternativaPergunta INT PRIMARY KEY,
-    descricaoResposta VARCHAR(100),
+CREATE TABLE alternativas (
+    idAlternativas INT PRIMARY KEY AUTO_INCREMENT,
+    textoAlternativa VARCHAR(100),
     alternativaCorreta TINYINT,
-    idPerguntaQuiz INT NOT NULL,
-    FOREIGN KEY (idPerguntaQuiz) REFERENCES perguntaQuiz(idPerguntaQuiz)
-);
-
-CREATE TABLE avaliacaoHistoria (
-    notaAvaliacao TINYINT,
-    idHistoria INT,
-    idUsuario INT,
-    PRIMARY KEY (idHistoria, idUsuario),
-    FOREIGN KEY (idHistoria) REFERENCES historia(idHistoria),
-    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+    fkPergunta INT,
+    fkQuizPergunta INT,
+    CONSTRAINT fk_alternativas_pergunta FOREIGN KEY (fkPergunta) REFERENCES pergunta(idPergunta),
+    CONSTRAINT fk_alternativas_quiz FOREIGN KEY (fkQuizPergunta) REFERENCES quiz(idQuiz)
 );
 
 CREATE TABLE tentativa (
-    idTentativa INT,
-    idUsuario INT,
-    idAlternativaPergunta INT,
-    PRIMARY KEY (idTentativa, idUsuario, idAlternativaPergunta),
-    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario),
-    FOREIGN KEY (idAlternativaPergunta) REFERENCES alternativaPergunta(idAlternativaPergunta)
+    idTentativa INT PRIMARY KEY AUTO_INCREMENT,
+    pontuacao INT,
+    fkUsuario INT,
+    fkQuiz INT,
+    CONSTRAINT fk_tentativa_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
+    CONSTRAINT fk_tentativa_quiz FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz)
+);
+
+CREATE TABLE alternativaEscolhida (
+    fkTentativa INT,
+    fkAlternativas INT,
+    fkPergunta INT,
+    fkQuizPergunta INT,
+    PRIMARY KEY (fkTentativa, fkAlternativas, fkPergunta, fkQuizPergunta),
+    CONSTRAINT fk_alternativaEscolhida_tentativa FOREIGN KEY (fkTentativa) REFERENCES tentativa(idTentativa),
+    CONSTRAINT fk_alternativaEscolhida_alternativas FOREIGN KEY (fkAlternativas) REFERENCES alternativas(idAlternativas),
+    CONSTRAINT fk_alternativaEscolhida_pergunta FOREIGN KEY (fkPergunta) REFERENCES pergunta(idPergunta),
+    CONSTRAINT fk_alternativaEscolhida_quiz FOREIGN KEY (fkQuizPergunta) REFERENCES quiz(idQuiz)
 );

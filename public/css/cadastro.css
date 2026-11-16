@@ -150,3 +150,8 @@ body {
   border: #23364d 3px solid;
   text-decoration: none;
 }
+
+.erro{
+  color: #c62839;
+  font-size: 20px;
+}

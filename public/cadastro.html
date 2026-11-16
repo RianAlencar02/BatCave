@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -40,28 +40,33 @@
                 <div class="campo">
                     <label class="labelCadastro" for="inputNome">Nome:</label>
                     <input type="text" class="inputCadastro" id="inputNome">
+                    <span class="erro" id="erroNome"></span>
+
                 </div>
 
                 <div class="campo">
                     <label class="labelCadastro" for="inputEmail">Email:</label>
                     <input type="email" class="inputCadastro" id="inputEmail">
+                    <span class="erro" id="erroEmail"></span>
                 </div>
 
                 <div class="campo">
                     <label class="labelCadastro" for="inputSenha">Senha:</label>
                     <input type="password" class="inputCadastro" id="inputSenha">
+                    <span class="erro" id="erroSenha"></span>
                 </div>
 
                 <div class="campo">
                     <label class="labelCadastro" for="inputConfirmarSenha">Confirmar senha:</label>
                     <input type="password" class="inputCadastro" id="inputConfirmarSenha">
+                    <span class="erro" id="erroConfirmar"></span>
                 </div>
-                <a href="./index.html" class="botaoCadastrar">
-                    <span >Cadastrar</span>
-                </a>
+                <button class="botaoCadastrar" type="button" onclick="cadastrar()">Cadastrar</span>
+
             </div>
         </div>
     </div>
 </body>
 
 </html>
+<script src="js/scriptCadastro.js"></script>
