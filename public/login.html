@@ -40,16 +40,17 @@
                 <div class="campo">
                     <label class="labelLogin" for="inputEmail">Email:</label>
                     <input type="email" class="inputLogin" id="inputEmail">
+                    <span class="erro" id="erroEmail"></span>
+
                 </div>
 
                 <div class="campo">
                     <label class="labelLogin" for="inputSenha">Senha:</label>
                     <input type="password" class="inputLogin" id="inputSenha">
+                    <span class="erro" id="erroSenha"></span>
                 </div>
 
-                <a href="./index.html" class="botaoFazerLogin">
-                    <span >Login</span>
-                </a>
+                <button class="botaoFazerLogin" onclick="logar()">Login</button>
                 <a href="./dashboard/loginAdm.html" class="linkAcessoAdm"><span>Acesso administrativo</span></a>
             </div>
         </div>
@@ -58,3 +59,4 @@
 </body>
 
 </html>
+<script src="./js/scriptLogin.js"></script>

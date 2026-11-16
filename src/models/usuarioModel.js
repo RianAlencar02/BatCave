@@ -7,14 +7,14 @@ function cadastrar(nomeUsuario, emailUsuario, senhaUsuario) {
   return database.executar(querySQL);
 }
 
-function login(emailUsuario, senhaUsuario) {
+function logar(emailUsuario, senhaUsuario) {
   // Preparando a query para logar.
-  let querySQL = `SELECT idUsuario, nomeUsuario, emailUsuario FROM usuario WHERE emailUsuario = ${emailUsuario} AND senhaUsuario = ${senhaUsuario}`;
+  let querySQL = `SELECT idUsuario, nomeUsuario, emailUsuario FROM usuario WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = '${senhaUsuario}'`;
   console.log("Executando a query de login (SELECT): \n" + querySQL);
   return database.executar(querySQL);
 }
 
 module.exports = {
   cadastrar,
-  login
+  logar
 };

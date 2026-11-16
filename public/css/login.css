@@ -156,3 +156,8 @@ body {
   opacity: 25%;
   text-decoration: none;
 }
+
+.erro{
+  color: #c62839;
+  font-size: 20px;
+}
