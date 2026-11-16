@@ -25,11 +25,15 @@
                 <a class="opcoaoNavBar" href="./personagens.html">Personagens</a>
                 <a class="opcoaoNavBar" href="./curiosidades.html">Curiosidades</a>
             </div>
-            <div class="butoesNavBar">
+            <div class="butoesNavBar" id="deslogado">
                 <a class="botaoCadastro" href="./cadastro.html">Cadastre-se</a>
                 <a class="botaoLogin" href="./login.html">Login</a>
             </div>
+            <div class="usuarioLogado" id="logado" style="display: none;">
+                <a href="./perfilLogin.html" class="nomeUsuario" id="nomeUsuario"></a><img src="./assets/icon/iconUsuario.png" class="imgLogado" alt="">
+            </div>
         </nav>
+        <script src="./js/navBar.js"></script>
     </header>
 
     <div class="divPaiHome">
@@ -182,7 +186,7 @@
                         <div class="divRedesSociaisSobreMim">
                             <span class="subTituloSobreMim">Redes Sociais</span>
                             <a class="cardRedeSocial" href="https://www.linkedin.com/in/rian-alencar/">
-                                <img  class="imgRedeSocial" src="./assets/imgs/imgLinkedin.png" alt="">
+                                <img class="imgRedeSocial" src="./assets/imgs/imgLinkedin.png" alt="">
                                 <span class="textoRedeSocial"> Rian Alencar Souza </span>
                             </a>
                             <a class="cardRedeSocial" href="https://www.instagram.com/rianz_z12/">

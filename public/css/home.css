@@ -76,6 +76,29 @@ body {
   border-radius: 10px;
 }
 
+.usuarioLogado {
+  display: flex;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  width: 35%;
+  height: 70%;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.nomeUsuario {
+  color: #c62839;
+  text-decoration: none;
+  font-size: 25px;
+  display: flex;
+}
+
+.imgLogado {
+  width: 50px;
+}
+
 .bannerHome {
   width: 100%;
   height: 85vh;
