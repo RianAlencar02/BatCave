@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BatCave - Detalhes da História</title>
     <link rel="stylesheet" href="./css/detalhesHistoria.css">
+    <link rel="stylesheet" href="./css/navBar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -25,20 +26,26 @@
                 <a class="opcoaoNavBar" href="./personagens.html">Personagens</a>
                 <a class="opcoaoNavBar" href="./curiosidades.html">Curiosidades</a>
             </div>
-            <div class="butoesNavBar">
+            <div class="butoesNavBar" id="deslogado">
                 <a class="botaoCadastro" href="./cadastro.html">Cadastre-se</a>
                 <a class="botaoLogin" href="./login.html">Login</a>
             </div>
+            <div class="usuarioLogado" id="logado" style="display: none;">
+                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span> <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
+            </div>
         </nav>
+        <script src="./js/navBar.js"></script>
     </header>
 
     <div class="bannerDetalhes">
-        <img class="imgBannerDetalhes" src="./assets/imgs/DetalhesHistoria/bannerDetalhes.png" alt="Banner de Batman Absoluto">
+        <img class="imgBannerDetalhes" src="./assets/imgs/DetalhesHistoria/bannerDetalhes.png"
+            alt="Banner de Batman Absoluto">
     </div>
 
     <div class="containerDetalhes">
         <div class="divCapaHistoria">
-            <img class="imgCapaHistoria" src="./assets/imgs/DetalhesHistoria/capaDetalhes.webp" alt="Capa de Batman Absoluto">
+            <img class="imgCapaHistoria" src="./assets/imgs/DetalhesHistoria/capaDetalhes.webp"
+                alt="Capa de Batman Absoluto">
         </div>
         <div class="divInformacoesHistoria">
             <div class="divCabecalhoHistoria">

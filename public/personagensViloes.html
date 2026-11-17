@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BatCave - Personagens</title>
     <link rel="stylesheet" href="./css/listaPersonagens.css">
+    <link rel="stylesheet" href="./css/navBar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -25,11 +26,15 @@
                 <a class="opcoaoNavBar opcaoSelecionada" href="./personagens.html">Personagens</a>
                 <a class="opcoaoNavBar" href="./curiosidades.html">Curiosidades</a>
             </div>
-            <div class="butoesNavBar">
+            <div class="butoesNavBar" id="deslogado">
                 <a class="botaoCadastro" href="./cadastro.html">Cadastre-se</a>
                 <a class="botaoLogin" href="./login.html">Login</a>
             </div>
+            <div class="usuarioLogado" id="logado" style="display: none;">
+                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span> <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
+            </div>
         </nav>
+        <script src="./js/navBar.js"></script>
     </header>
     <div class="containerPersonagens">
         <div class="divTituloPersonagens">

@@ -1,4 +1,3 @@
-
 .navBar {
   display: flex;
   flex-direction: row;
@@ -66,4 +65,34 @@
   font-size: 20px;
   border: 2px #23364d solid;
   border-radius: 10px;
+}
+.divNomeIcone {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.usuarioLogado {
+  display: flex;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  width: 35%;
+  height: 70%;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.nomeUsuario {
+  color: #c62839;
+  text-decoration: none;
+  font-size: 25px;
+  display: flex;
+}
+
+.imgLogado {
+  width: 50px;
 }

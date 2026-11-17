@@ -9,76 +9,7 @@ body {
 
 /* Navbar (padrão das demais páginas do projeto) */
 
-.navBar {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 12vh;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px #23364d solid;
-}
 
-.imgLogo {
-  width: 10vw;
-}
-
-.opcoesNavBar {
-  display: flex;
-  gap: 5vw;
-}
-
-.opcoaoNavBar {
-  font-family: "Oswald", sans-serif;
-  font-size: 20px;
-  color: #f2f4f7;
-  text-decoration: none;
-  /* remove o sublinhado que a tag a causa no texto*/
-}
-
-.opcaoSelecionada {
-  color: #c62839;
-  border-bottom: 0.2vw #c62839 solid;
-}
-
-.butoesNavBar {
-  font-family: "Oswald", sans-serif;
-  display: flex;
-  width: 35%;
-  height: 70%;
-  justify-content: space-around;
-  text-align: center;
-  align-items: center;
-}
-
-.botaoCadastro {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
-  height: 90%;
-  text-decoration: none;
-  color: #f2f4f7;
-  font-size: 20px;
-  border: 2px #23364d solid;
-  border-radius: 10px;
-}
-
-.botaoLogin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40%;
-  height: 90%;
-  background-color: #c62839;
-  color: #f2f4f7;
-  text-decoration: none;
-  font-size: 20px;
-  border: 2px #23364d solid;
-  border-radius: 10px;
-}
-
-/* Conteúdo da página de Personagens */
 
 .containerPersonagens {
   display: flex;
