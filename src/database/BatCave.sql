@@ -138,3 +138,42 @@ CREATE TABLE alternativaEscolhida (
     CONSTRAINT fk_alternativaEscolhida_pergunta FOREIGN KEY (fkPergunta) REFERENCES pergunta(idPergunta),
     CONSTRAINT fk_alternativaEscolhida_quiz FOREIGN KEY (fkQuizPergunta) REFERENCES quiz(idQuiz)
 );
+
+-- INSERT : Historia
+INSERT INTO historia (tituloHistoria, resumoHistoria, anoHistoria, tipoHistoria, criadorHistoria, generoHistoria, universoHistoria, sinopseHistoria, bannerHistoria, capaHistoria) VALUES
+(
+    'Batman Absoluto',
+    'Um Bruce Wayne da classe trabalhadora enfrenta uma Gotham brutal sem sua fortuna.',
+    2024,
+    'Quadrinho',
+    'Scott Snyder e Nick Dragotta',
+    'Ação / Suspense',
+    'Universo Absoluto',
+    'Sem a mansão, sem o dinheiro e sem o mordomo, esta versão reimaginada apresenta um Bruce Wayne engenheiro civil que usa pura brutalidade, engenhosidade e um traje tático improvisado para combater a violenta gangue dos Animais e a corrupção sistêmica de Gotham.',
+	'./assets/imgs/historias/bannerBatmanAbs.jpeg',
+    './assets/imgs/detalhesHistoria/capaDetalhes.webp'
+),
+(
+    'Batman Contra o Capuz Vermelho',
+    'Um vigilante letal domina o crime de Gotham e força Batman a encarar seu maior fracasso.',
+    2010,
+    'Filme',
+    'Brandon Vietti e Judd Winick',
+    'Ação / Drama',
+    'DC Universe Animated Original Movies',
+    'Cinco anos após a trágica morte de Jason Todd nas mãos do Coringa, um misterioso e implacável vigilante conhecido como Capuz Vermelho assume o controle do submundo de Gotham. Ao tentar detê-lo, Batman descobre uma verdade devastadora que coloca seu código moral à prova.',
+    './assets/imgs/historias/bannerBatmanCapuzVermelho.avif',
+    './assets/imgs/detalhesHistoria/capaContraCapuz.jpg'
+),
+(
+    'Batman: Arkham Knight',
+    'O Espantalho reúne os maiores vilões de Gotham para destruir o Cavaleiro das Trevas.',
+    2015,
+    'Jogo',
+    'Rocksteady Studios',
+    'Ação / Aventura',
+    'Arkhamverse',
+    'Um ano após a morte do Coringa, o Espantalho ameaça detonar uma toxina do medo letal em Gotham, forçando a evacuação da cidade. Com a ajuda de um exército militar liderado pelo misterioso Cavaleiro de Arkham, os vilões unem forças para acabar definitivamente com o Batman.',
+	'./assets/imgs/historias/bannerBatmanArkham.jpg',
+    './assets/imgs/detalhesHistoria/bannerBatmanArkham.jpg'
+);
