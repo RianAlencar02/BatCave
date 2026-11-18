@@ -29,6 +29,7 @@ function listarPersonagens() {
     divParaCards.innerHTML = cardPersonagens;
     }).catch(function (erro){
         console.log("Erro ao exibir cards de personagem. ", erro)
+        divParaCards.innerHTML = "<h2 style='color:#f2f4f7'> Nenhum personagem encontrado.</h2>"
     });
 }
 

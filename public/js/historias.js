@@ -34,6 +34,7 @@ function listarHistorias() {
     containerCardsHistoria.innerHTML = cardsHistoria;
     }).catch(function (erro){
         console.log("Erro ao exibir cards de história. ", erro)
+        containerCardsHistoria.innerHTML = "<h2 style='color:#f2f4f7'> Nenhuma histótira encontrada. </h2>"
     });
 }
 
