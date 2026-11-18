@@ -138,6 +138,10 @@ CREATE TABLE alternativaEscolhida (
     CONSTRAINT fk_alternativaEscolhida_pergunta FOREIGN KEY (fkPergunta) REFERENCES pergunta(idPergunta),
     CONSTRAINT fk_alternativaEscolhida_quiz FOREIGN KEY (fkQuizPergunta) REFERENCES quiz(idQuiz)
 );
+
+INSERT INTO adm (nomeAdm, emailAdm, senhaAdm) VALUES
+('Rian', 'rian@adm.com', 'rian123');
+
 INSERT INTO historia (tituloHistoria, resumoHistoria, anoHistoria, tipoHistoria, criadorHistoria, generoHistoria, universoHistoria, sinopseHistoria, bannerHistoria, capaHistoria) VALUES
 (	'Batman Absoluto',
     'Um Bruce Wayne da classe trabalhadora enfrenta uma Gotham brutal sem sua fortuna.',
@@ -172,3 +176,109 @@ INSERT INTO historia (tituloHistoria, resumoHistoria, anoHistoria, tipoHistoria,
     './assets/imgs/detalhesHistoria/bannerBatmanArkham.jpg'
 );
 
+
+INSERT INTO comentarioEditor(fkAdm, fkHistoria, textoComentarioEditor) VALUES
+(1, 1, '"O que faz um morcego ser um morcego, é como ele desafia o impossível". O Batman Absoluto é uma história consideravelmente nova, e eu só fui dar a chance de leitura recentemente, mas assim que eu comecei a ler, foi paixão
+a primeira vista. Ver um Bruce Wayne 100% novo, com sua mãe e amigos, dá um sentimento reconfortante, de ver que nessa versão, o Bruce tem por quem lutar e que essa cruzada é por quem ele ama também. Ao mesmo tempo, 
+o Batman desta história é ABSURDO, e não é só por ele ter 2,06 metros e pesar 191kg, mas também pela violência e maneira que ele luta, um Bruce Wayne sem sua fortuna, ainda pode ser o Batman, tudo que ele precisa é de si mesmo e 
+de um preparo absoluto, e isso me fez gostar muito dessa história. Eu recomendo essa história para qualquer pessoa que queira ver uma versão nova do Batman, desconectado de tudo que conhecemos. Ansioso pela animação que foi
+anunciada.');
+
+INSERT INTO personagem (
+    nomePersonagem,
+    resumoPersonagem,
+    identidadeSecreta,
+    categoriaPersonagem,
+    primeiraAparicaoPersonagem,
+    criadoresPersonagem,
+    generoPersonagem,
+    afiliacoesPersonagem,
+    fraseMarcantePersonagem,
+    biografiaPersonagem,
+    bannerPersonagem,
+    capaPersonagem
+) VALUES
+(
+    'LEGO Batman',
+    'A versão irreverente, egocêntrica e mestre construtora do Cavaleiro das Trevas.',
+    'Bruce Wayne',
+    'Herói',
+    'LEGO Batman: The Videogame (2008)',
+    'Traveller''s Tales / Phil Lord e Christopher Miller',
+    'Masculino',
+    'Bat-Família, Liga da Justiça',
+    'Eu só trabalho com preto. E às vezes com cinza bem escuro.',
+    'Construído peça por peça no universo de blocos, este Bruce Wayne combina as habilidades de detetive e artes marciais do Batman tradicional com um ego gigantesco, paixão por heavy metal e talentos de Mestre Construtor. Apesar de agir como um lobo solitário arrogante que recusa ajuda, sua jornada em Gotham revela que seu maior medo é perder uma nova família, levando-o a finalmente aceitar aliados como Robin, Batgirl e Alfred para salvar a cidade da Zona Fantasma.',
+    './assets/imgs/personagens/imgLegoBatman.jpe',
+    './assets/imgs/personagens/CapaLegoBatman.jpe'
+),
+(
+    'Batman Que Ri',
+    'Uma versão corrompida de Bruce Wayne infectada pela toxina do Coringa da Terra -22.',
+    'Bruce Wayne',
+    'Vilão',
+    'Dark Days: The Casting #1 (2017)',
+    'Scott Snyder e Greg Capullo',
+    'Masculino',
+    'Cavaleiros das Trevas, Legião do Mal, Perpétua',
+    'Um Batman que ri é um Batman que sempre vence.',
+    'Originário da Terra -22 no Multiverso das Trevas, este Bruce Wayne cedeu ao seu limite após o Coringa destruir Gotham e forçá-lo a matá-lo. Ao quebrar sua regra de ouro, Bruce inalou uma toxina letal liberada pelo coração do palhaço, reescrevendo sua mente para fundir seu intelecto estratégico perfeito com a loucura sádica de seu maior inimigo. Ele exterminou toda a Bat-Família e a Liga da Justiça de seu mundo antes de liderar uma invasão sombria ao multiverso.',
+    './assets/imgs/personagens/imgBatmanQueRi.jpe',
+    ''
+),
+(
+    'Robin (Dick Grayson)',
+    'O primeiro Parceiro Dinâmico e acrobata prodígio que se tornou o líder Asa Noturna.',
+    'Richard John Grayson',
+    'Herói',
+    'Detective Comics #38 (1940)',
+    'Bob Kane, Bill Finger e Jerry Robinson',
+    'Masculino',
+    'Bat-Família, Novos Titãs, Liga da Justiça',
+    'Sempre há uma saída, mesmo no escuro.',
+    'Jovem trapezista da família circense dos Graysons Voadores, Dick testemunhou o assassinato de seus pais pelo mafioso Tony Zucco. Adotado por Bruce Wayne, tornou-se o primeiro Robin, trazendo luz, humor e agilidade acrobática para equilibrar a cruzada sombria do Batman. Ao atingir a maturidade, Dick forjou sua própria identidade independente como Asa Noturna em Blüdhaven, consolidando-se como um dos maiores estrategistas e líderes morais de todo o universo DC.',
+    './assets/imgs/personagens/imgRobinDick.webp',
+    ''
+),
+(
+    'Capuz Vermelho',
+    'O ex-segundo Robin ressuscitado que aplica justiça letal no submundo de Gotham.',
+    'Jason Peter Todd',
+    'Anti-Herói',
+    'Batman #357 (1983) / Batman #635 (2005)',
+    'Gerry Conway, Don Newton, Judd Winick e Doug Mahnke',
+    'Masculino',
+    'Bat-Família, Os Foragidos',
+    'Você não pode controlar o crime, Bruce. Só pode direcioná-lo.',
+    'Criado nas ruas perigosas do Beco do Crime, Jason Todd foi acolhido por Bruce Wayne após tentar roubar os pneus do Batmóvel, tornando-se o segundo Robin. Impulsivo e marcado pela revolta contra a impunidade, foi brutalmente assassinado pelo Coringa. Ressuscitado anos depois através do Poço de Lázaro e treinado pela Liga dos Assassinos, retornou a Gotham como o vigilante Capuz Vermelho, usando armas de fogo e métodos letais para controlar o crime onde o código de Batman falha.',
+    './assets/imgs/personagens/imgCapuz.jpg',
+    ''
+),
+(
+    'Coringa',
+    'O Palhaço Príncipe do Crime e a antítese caótica absoluta do Cavaleiro das Trevas.',
+    'Desconhecida',
+    'Vilão',
+    'Batman #1 (1940)',
+    'Bill Finger, Bob Kane e Jerry Robinson',
+    'Masculino',
+    'Gangue do Coringa, Liga da Injustiça',
+    'Tudo o que é preciso é um dia ruim para reduzir o mais são dos homens à lunático.',
+    'Desfigurado após cair em um tanque de produtos químicos na fábrica Ace Chemicals, o Coringa emergiu com pele branca, cabelos verdes e um sorriso permanente que mascara uma mente brilhante e psicótica. Sem superpoderes, ele utiliza armas temáticas mortais, seu famoso gás do riso e um imprevisível senso de humor sádico. Obcecado por provar que qualquer pessoa pode enlouquecer após um único dia ruim, ele representa o caos puro contra a ordem imposta pelo Batman.',
+    './assets/imgs/personagens/imgCoringa.webp',
+    ''
+),
+(
+    'Duas-Caras',
+    'Ex-promotor público de Gotham obcecado pela dualidade, sorte e o lance de uma moeda.',
+    'Harvey Dent',
+    'Vilão',
+    'Detective Comics #66 (1942)',
+    'Bill Finger e Bob Kane',
+    'Masculino',
+    'Máfia de Gotham',
+    'Você morre como um herói, ou vive o bastante para se tornar o vilão.',
+    'Outrora o incorruptível promotor público de Gotham City e maior aliado legal do Batman e do Comissário Gordon, Harvey Dent teve metade de seu rosto desfigurado por ácido arremessado pelo mafioso Sal Maroni durante um julgamento. O trauma fraturou sua psique, despertando uma personalidade criminosa obcecada pelo número dois e pela dualidade entre o bem e o mal. Hoje, todas as suas decisões de vida ou morte são ditadas pelo cara ou coroa de sua icônica moeda de prata riscada.',
+    './assets/imgs/personagens/imgDuasCaras.jpeg',
+    ''
+);

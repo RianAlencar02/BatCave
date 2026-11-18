@@ -31,25 +31,26 @@
                 <a class="botaoLogin" href="./login.html">Login</a>
             </div>
             <div class="usuarioLogado" id="logado" style="display: none;">
-                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span> <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
+                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span>
+                    <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
             </div>
         </nav>
         <script src="./js/navBar.js"></script>
     </header>
 
     <div class="bannerDetalhes">
-        <img class="imgBannerDetalhes" src="./assets/imgs/personagens/imgRobinDick.webp" alt="Banner de Robin">
+        <img class="imgBannerDetalhes" id="bannerPersonagem" src="">
     </div>
 
     <div class="containerDetalhes">
         <div class="divImgPersonagem">
-            <img class="imgPersonagem" src="./assets/imgs/personagens/imgRobinCapa.jpg" alt="Robin (Dick Grayson)">
+            <img class="imgPersonagem" id="capaPersonagem" src="">
         </div>
         <div class="divInformacoesPersonagem">
             <div class="divCabecalhoPersonagem">
-                <span class="tituloDetalhes">Robin (Dick Grayson)</span>
-                <span class="spanMeta">Identidade secreta: Dick Grayson</span>
-                <span class="spanMeta">Herói</span>
+                <span id="tituloPersonagem" class="tituloDetalhes"></span>
+                <span class="spanMeta">Identidade secreta: <span id="identidadePersonagem"> </span></span>
+                <span id="categoriaPersonagem" class="spanMeta"></span>
             </div>
 
             <div class="containerBotoesAcao">
@@ -60,51 +61,38 @@
             <div class="cardInformacoes">
                 <span class="tituloCardInformacoes">Informações:</span>
                 <div class="listaInformacoes">
-                    <span class="itemInformacao"><strong>Primeira Aparição:</strong> Detective Comics #38</span>
-                    <span class="itemInformacao"><strong>Criadores:</strong> Bob Kane, Bill Finger e Jerry
-                        Robinson.</span>
-                    <span class="itemInformacao"><strong>Gênero:</strong> Masculino</span>
-                    <span class="itemInformacao"><strong>Principais Afiliações:</strong> Bat-família, Jovens
-                        Titãs</span>
+                    <span class="itemInformacao"><strong>Primeira Aparição:</strong> <span id="primeiraAparicao">
+                        </span></span>
+                    <span class="itemInformacao"><strong>Criadores:</strong> <span id="criadorPersonagem">
+                        </span></span>
+                    <span class="itemInformacao"><strong>Gênero:</strong> <span id="generoPersonagem"> </span> </span>
+                    <span class="itemInformacao"><strong>Principais Afiliações:</strong> <span id="afiliacaoPersonagem">
+                        </span></span>
                 </div>
             </div>
 
-            <span class="citacaoPersonagem">"Você nunca saberá se pode voar a menos que corra o risco de cair."</span>
+            <span id="citacaoPersonagem" class="citacaoPersonagem"></span>
         </div>
     </div>
 
     <div class="secaoBiografia">
         <span class="tituloBiografia">Biografia</span>
-        <span class="textoBiografia">Richard "Dick" Grayson nasceu em uma família de acrobatas de circo conhecidos
-            como os "Haley's Circus' Flying Graysons". Após presenciar a tragédia que tirou a vida de seus pais —
-            manipulada pelo criminoso Tony Zucco —, o jovem Dick foi acolhido por Bruce Wayne. Identificando-se com a
-            dor do garoto, Bruce o treinou para se tornar o primeiro Robin, o Garoto Prodígio, trazendo luz e otimismo
-            para as sombras sombrias de Gotham City.</span>
-        <span class="textoBiografia">Ao longo dos anos, Robin não apenas serviu como o parceiro ideal do Batman, mas
-            também fundou e liderou os Jovens Titãs, provando sua capacidade como líder nato e estrategista brilhante.
-            Conforme crescia, Dick buscou sair da sombra do Cavaleiro das Trevas para moldar sua própria identidade,
-            assumindo o manto de Asa Noturna (Nightwing) e transferindo sua atuação para a corrupta cidade de
-            Blüdhaven.</span>
-        <span class="textoBiografia">Com uma agilidade acrobática incomparável, domínio absoluto de artes marciais e um
-            carisma transformador, Dick Grayson representa a evolução perfeita do legado do Batman: um herói
-            extremamente habilidoso que conseguiu superar o trauma de seu passado sem perder sua humanidade e
-            esperança.</span>
+        <span class="textoBiografia" id="biografiaPersonagem">
+        </span>
     </div>
 
-    <div class="containerEditor">
+    <div id="containerEditor" class="containerEditor">
         <div class="infoEditor">
             <span class="tituloEditor">Comentário do editor</span>
             <img class="imgAvatarEditor" src="./assets/imgs/imgRianAlencar.jpe" alt="Avatar do editor">
             <span class="nomeEditor">Rian Alencar Souza</span>
         </div>
         <div class="textoEditor">
-            <p>Robin é muito mais do que um parceiro de plantão do Batman: ele é a prova de que o legado do Cavaleiro
-                das Trevas pode superar as próprias trevas que o originaram. A trajetória de Dick Grayson — do circo
-                para Gotham, de Robin para Nightwing — é uma das mais completas dos quadrinhos.</p>
-            <p>Se você ainda não conheceu essa história, este é o personagem ideal para começar. Esperança, agilidade e
-                humanidade em um único herói.</p>
+            <p id="comenEditor">
         </div>
     </div>
+    <script src="./js/detalhesPersonagem.js"></script>
+
 </body>
 
 </html>

@@ -8,7 +8,7 @@ function listarHistorias() {
     })
     .then(function (historias) {
       let cardsHistoria = "";
-      historias.forEach(function (historia) {
+      historias.forEach(function (historia) { // Pegando todas as historias, e usando forEach, elas são percorridas e as informações de cada um são incrementadas no card.
         cardsHistoria += `
              <div class="cardHistoria">
             <div class="imgCard">

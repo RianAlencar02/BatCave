@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/navBar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="./js/personagens.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600&family=Oswald:wght@300;400;700&display=swap"
         rel="stylesheet">
@@ -31,7 +32,8 @@
                 <a class="botaoLogin" href="./login.html">Login</a>
             </div>
             <div class="usuarioLogado" id="logado" style="display: none;">
-                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span> <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
+                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span>
+                    <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
             </div>
         </nav>
         <script src="./js/navBar.js"></script>
@@ -49,29 +51,7 @@
             <div class="barraPesquisar">
                 <input class="inputPesquisar" type="text" placeholder="Pesquisar">
             </div>
-            <div class="colunasCard">
-                <div class="cardPersonagem">
-                    <div class="divImgCard">
-                        <img src="./assets/imgs/personagens/imgCoringa.webp" class="imgCard" alt="">
-                    </div>
-                    <div class="infosPersonagem">
-                        <span class="nomePersonagem">O Coringa</span>
-                        <span class="descPersonagem">O mestre do caos e maior inimigo do Batman, um psicopata
-                            imprevisível que enxerga o crime como uma grande piada macabra.</span>
-                        <a class="botaoVerDetalhes" href="detalhesPersonagem.html"><span>Ver detalhes</span></a>
-                    </div>
-                </div>
-                <div class="cardPersonagem">
-                    <div class="divImgCard">
-                        <img src="./assets/imgs/personagens/imgDuasCaras.jpeg" class="imgCard" alt="">
-                    </div>
-                    <div class="infosPersonagem">
-                        <span class="nomePersonagem">Duas Caras</span>
-                        <span class="descPersonagem">O ex-promotor de justiça que teve o rosto deformado e se tornou um
-                            criminoso refém da sorte, decidindo o destino de suas vítimas no giro de uma moeda. </span>
-                        <a class="botaoVerDetalhes" href="detalhesPersonagem.html"><span>Ver detalhes</span></a>
-                    </div>
-                </div>
+            <div id="divParaCards" class="colunasCard">
             </div>
         </div>
 

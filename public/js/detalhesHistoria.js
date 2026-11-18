@@ -1,6 +1,6 @@
-let parametros = new URLSearchParams(location.search);
-let idHistoria = parametros.get("idHistoria");
-console.log(idHistoria);
+let parametros = new URLSearchParams(location.search); // Procurando parametros na URL
+let idHistoria = parametros.get("idHistoria"); // Selecionando o parametro do idHistoria na URL.
+
 function historiaEspecifica(idHistoria) {
   fetch(`/historias/detalhesHistoria/${idHistoria}`)
     .then(function (resposta) {
@@ -13,9 +13,8 @@ function historiaEspecifica(idHistoria) {
       return resposta.json();
     })
     .then(function (historiaEncontrada) {
-      console.log(`aaaaa `, historiaEncontrada);
-      console.log(`aaaaaass `, historiaEncontrada[0].idHistoria);
-    
+      // Pegando o resultado (que vem como um array que contém um objeto) e selecionando as informações que devem aparecer.
+
       bannerHistoria.src = historiaEncontrada[0].bannerHistoria;
       capaHistoria.src = historiaEncontrada[0].capaHistoria;
       tituloHistoria.textContent = historiaEncontrada[0].tituloHistoria;
@@ -28,8 +27,13 @@ function historiaEspecifica(idHistoria) {
       universoHistoria.textContent = historiaEncontrada[0].universoHistoria;
       generoDaHistoria.textContent = historiaEncontrada[0].generoHistoria;
       midiaHistoria.textContent = historiaEncontrada[0].tipoHistoria;
-      lancamentoHistoria.textContent = historiaEncontrada[0].anoHistoria
-      comenEditor.textContent = historiaEncontrada[0].textoComentarioEditor;
+      lancamentoHistoria.textContent = historiaEncontrada[0].anoHistoria;
+      if (historiaEncontrada[0].textoComentarioEditor == undefined) {
+        containerEditor.innerHTML = "";
+        containerEditor.classList.remove("containerEditor");
+      } else {
+        comenEditor.textContent = historiaEncontrada[0].textoComentarioEditor;
+      }
     })
     .catch(function (erro) {
       console.log("Erro ao ver detalhes da história: ", erro);
