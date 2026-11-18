@@ -28,7 +28,7 @@ CREATE TABLE historia (
     criadorHistoria VARCHAR(45),
     generoHistoria VARCHAR(30),
     universoHistoria VARCHAR(45),
-    sinopseHistoria VARCHAR(500),
+    sinopseHistoria VARCHAR(1000),
     bannerHistoria VARCHAR(250),
     capaHistoria VARCHAR(250)
 );
@@ -138,19 +138,15 @@ CREATE TABLE alternativaEscolhida (
     CONSTRAINT fk_alternativaEscolhida_pergunta FOREIGN KEY (fkPergunta) REFERENCES pergunta(idPergunta),
     CONSTRAINT fk_alternativaEscolhida_quiz FOREIGN KEY (fkQuizPergunta) REFERENCES quiz(idQuiz)
 );
-
--- INSERT : Historia
 INSERT INTO historia (tituloHistoria, resumoHistoria, anoHistoria, tipoHistoria, criadorHistoria, generoHistoria, universoHistoria, sinopseHistoria, bannerHistoria, capaHistoria) VALUES
-(
-    'Batman Absoluto',
+(	'Batman Absoluto',
     'Um Bruce Wayne da classe trabalhadora enfrenta uma Gotham brutal sem sua fortuna.',
     2024,
     'Quadrinho',
     'Scott Snyder e Nick Dragotta',
     'Ação / Suspense',
     'Universo Absoluto',
-    'Sem a mansão, sem o dinheiro e sem o mordomo, esta versão reimaginada apresenta um Bruce Wayne engenheiro civil que usa pura brutalidade, engenhosidade e um traje tático improvisado para combater a violenta gangue dos Animais e a corrupção sistêmica de Gotham.',
-	'./assets/imgs/historias/bannerBatmanAbs.jpeg',
+'Em uma realidade moldada pela energia sombria de Darkseid, os pilares fundamentais do Cavaleiro das Trevas foram completamente subvertidos. Aqui, Bruce Wayne não é um bilionário filantropo: ele é um jovem engenheiro civil de 24 anos, criado no coração do perigoso distrito de Crime Alley, que carrega o trauma do assassinato de seu pai, um professor dedicado, durante uma excursão escolar. Sem a Mansão Wayne, sem acesso a tecnologias bilionárias e sem Alfred Pennyworth como mordomo — que nesta versão atua como um agente de inteligência implacável enviado para observar Gotham —, Bruce precisa confiar exclusivamente em sua força física descomunal, inteligência tática e equipamentos improvisados a partir de sua experiência na construção civil. Enfrentando a violenta e organizada gangue dos Animais, liderada pelo sádico Máscara Negra, este Batman surge como um símbolo bruto e implacável de resistência contra um sistema construído para esmagar os mais fracos.',	'./assets/imgs/historias/bannerBatmanAbs.jpeg',
     './assets/imgs/detalhesHistoria/capaDetalhes.webp'
 ),
 (
@@ -161,8 +157,7 @@ INSERT INTO historia (tituloHistoria, resumoHistoria, anoHistoria, tipoHistoria,
     'Brandon Vietti e Judd Winick',
     'Ação / Drama',
     'DC Universe Animated Original Movies',
-    'Cinco anos após a trágica morte de Jason Todd nas mãos do Coringa, um misterioso e implacável vigilante conhecido como Capuz Vermelho assume o controle do submundo de Gotham. Ao tentar detê-lo, Batman descobre uma verdade devastadora que coloca seu código moral à prova.',
-    './assets/imgs/historias/bannerBatmanCapuzVermelho.avif',
+'Cinco anos após o brutal assassinato de Jason Todd, o segundo Robin, nas mãos do Coringa em Sarajevo, Batman continua assombrado pela culpa de não ter conseguido salvar seu antigo parceiro. A rotina de Gotham City vira de cabeça para baixo com a chegada do Capuz Vermelho, um misterioso e letal senhor do crime que reúne os principais chefões do tráfico sob uma regra rígida: ele controla os negócios, elimina quem desobedece e proíbe a venda de drogas para crianças. À medida que Batman e Asa Noturna investigam as operações desse novo antagonista — enfrentando até mesmo o mercenário Amazo e os capangas do Máscara Negra —, as habilidades marciais e o conhecimento tático do vilão revelam uma verdade devastadora. O confronto final força Bruce Wayne a encarar a ressurreição de Jason através do Poço de Lázaro e a responder à pergunta mais dolorosa de sua cruzada: por que o Coringa ainda está vivo?',    './assets/imgs/historias/bannerBatmanCapuzVermelho.avif',
     './assets/imgs/detalhesHistoria/capaContraCapuz.jpg'
 ),
 (
@@ -173,7 +168,7 @@ INSERT INTO historia (tituloHistoria, resumoHistoria, anoHistoria, tipoHistoria,
     'Rocksteady Studios',
     'Ação / Aventura',
     'Arkhamverse',
-    'Um ano após a morte do Coringa, o Espantalho ameaça detonar uma toxina do medo letal em Gotham, forçando a evacuação da cidade. Com a ajuda de um exército militar liderado pelo misterioso Cavaleiro de Arkham, os vilões unem forças para acabar definitivamente com o Batman.',
-	'./assets/imgs/historias/bannerBatmanArkham.jpg',
+'Nove meses após a morte do Coringa e o fechamento da mega-prisão Arkham City, Gotham vive um período inédito de queda nos índices de criminalidade. No entanto, na noite de Halloween, o Espantalho retorna com uma nova e devastadora variante da toxina do medo, ameaçando detonar dispositivos químicos por toda a metrópole e forçando a evacuação imediata de seis milhões de civis. Com apenas criminosos, policiais e o próprio Batman restantes nas ruas tomadas pela chuva, o Cavaleiro das Trevas precisa enfrentar uma coalizão formada por Pinguim, Duas-Caras, Arlequina e Charada, todos financiados e coordenados por uma misteriosa força militar liderada pelo Cavaleiro de Arkham — um comandante tático que conhece cada movimento, fraqueza e equipamento do herói. Enquanto utiliza a versão mais avançada de seu traje e o recém-construído Batmóvel de combate, Bruce ainda luta contra a própria sanidade ao ser assombrado por alucinações contínuas do Coringa causadas pelo sangue infectado em suas veias.',	'./assets/imgs/historias/bannerBatmanArkham.jpg',
     './assets/imgs/detalhesHistoria/bannerBatmanArkham.jpg'
 );
+

@@ -24,7 +24,7 @@ function listarHistorias() {
                 <span class="spanCriador">${historia.criadorHistoria}</span>
               </div>
               <span class="resumoHistoria">${historia.resumoHistoria}</span>
-              <a class="botaoVerDetalhes" href="./detalhesHistoria.html?id=${historia.idHistoria}">
+              <a class="botaoVerDetalhes" href="./detalhesHistoria.html?idHistoria=${historia.idHistoria}">
                 <span class="textoVerDetalhes">Ver detalhes</span>
               </a>
             </div>

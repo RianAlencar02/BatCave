@@ -31,29 +31,30 @@
                 <a class="botaoLogin" href="./login.html">Login</a>
             </div>
             <div class="usuarioLogado" id="logado" style="display: none;">
-                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span> <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
+                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span>
+                    <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
             </div>
         </nav>
         <script src="./js/navBar.js"></script>
     </header>
 
     <div class="bannerDetalhes">
-        <img class="imgBannerDetalhes" src="./assets/imgs/DetalhesHistoria/bannerDetalhes.png"
+        <img id="bannerHistoria" class="imgBannerDetalhes" src="./assets/imgs/DetalhesHistoria/bannerDetalhes.png"
             alt="Banner de Batman Absoluto">
     </div>
 
     <div class="containerDetalhes">
         <div class="divCapaHistoria">
-            <img class="imgCapaHistoria" src="./assets/imgs/DetalhesHistoria/capaDetalhes.webp"
+            <img id="capaHistoria" class="imgCapaHistoria" src="./assets/imgs/DetalhesHistoria/capaDetalhes.webp"
                 alt="Capa de Batman Absoluto">
         </div>
         <div class="divInformacoesHistoria">
             <div class="divCabecalhoHistoria">
-                <span class="tagTipo">Quadrinho</span>
-                <span class="tituloDetalhes">Batman Absoluto</span>
+                <span id="tipoHistoria" class="tagTipo">Quadrinho</span>
+                <span id="tituloHistoria" class="tituloDetalhes"></span>
                 <div class="linhaMeta">
-                    <span class="spanMeta">Ano: 2024</span>
-                    <span class="spanMeta">Gênero: Ação</span>
+                    <span id="anoHistoria" class="spanMeta">Ano: 2024</span>
+                    <span id="generoHistoria" class="spanMeta">Gênero: Ação</span>
                 </div>
                 <span class="notaHistoria">★ 4.8</span>
             </div>
@@ -67,12 +68,12 @@
             <div class="cardInformacoes">
                 <span class="tituloCardInformacoes">Informações:</span>
                 <div class="listaInformacoes">
-                    <span class="itemInformacao"><strong>Nome:</strong> Batman Absoluto</span>
-                    <span class="itemInformacao"><strong>Lançamento:</strong> 2024</span>
-                    <span class="itemInformacao"><strong>Tipo:</strong> Quadrinho</span>
-                    <span class="itemInformacao"><strong>Criador:</strong> Scott Snyder</span>
-                    <span class="itemInformacao"><strong>Gênero:</strong> Ação</span>
-                    <span class="itemInformacao"><strong>Universo:</strong> Absoluto</span>
+                    <span  class="itemInformacao"><strong>Nome:</strong> <span id="nomeHistoria"> </span></span>
+                    <span  class="itemInformacao"><strong>Lançamento:</strong> <span id="lancamentoHistoria"> </span></span>
+                    <span  class="itemInformacao"><strong>Tipo:</strong> <span id="midiaHistoria">   </span></span>
+                    <span  class="itemInformacao"><strong>Criador:</strong> <span id="criadorHistoria">  </span></span>
+                    <span  class="itemInformacao"><strong>Gênero:</strong> <span id="generoDaHistoria"> </span></span>
+                    <span  class="itemInformacao"><strong>Universo:</strong> <span id="universoHistoria">  </span></span>
                 </div>
             </div>
         </div>
@@ -80,10 +81,7 @@
 
     <div class="secaoSinopse">
         <span class="tituloSinopse">Sinopse</span>
-        <span class="textoSinopse">Bruce Wayne é um engenheiro de classe trabalhadora em Gotham City, vivendo sem os
-            bilhões de sua família e sem a ajuda tradicional de um mordomo. Sem seus recursos financeiros ilimitados e
-            aparatos tecnológicos de ponta, ele precisa confiar puramente em sua força, inteligência e brutalidade para
-            conseguir proteger uma cidade que está ainda mais caótica e violenta.</span>
+        <span id="sinopseHistoria" class="textoSinopse"></span>
     </div>
 
     <div class="containerEditor">
@@ -93,11 +91,12 @@
             <span class="nomeEditor">Rian Alencar Souza</span>
         </div>
         <div class="textoEditor">
-            <p>Essa é uma das versões mais interessantes do Batman que já surgiram nos quadrinhos. Sem toda a
+            <p id="comenEditor">Essa é uma das versões mais interessantes do Batman que já surgiram nos quadrinhos. Sem toda a
                 infraestrutura da Wayne Enterprises, Bruce Wayne precisa provar que, mesmo sem dinheiro, o espírito do
                 Cavaleiro das Trevas permanece intacto.</p>
         </div>
     </div>
+    <script src="./js/detalhesHistoria.js"></script>
 </body>
 
 </html>

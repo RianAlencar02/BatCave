@@ -9,7 +9,7 @@ function buscarHistorias() {
 
 function buscarHistoriaEspecifica(idHistoria) {
   // Preparando a query para logar.
-  let querySQL = `SELECT * FROM historia WHERE idHistoria = ${idHistoria};`;
+  let querySQL = `SELECT h.*, comenEditor.textoComentarioEditor FROM historia AS h LEFT JOIN comentarioEditor AS comenEditor ON comenEditor.fkHistoria = h.idHistoria WHERE idHistoria = ${idHistoria};`;
   console.log(`Buscando uma história pelo idHistoria ${idHistoria}: \n`, querySQL);
   return database.executar(querySQL);
 }
