@@ -50,10 +50,9 @@ CREATE TABLE personagem (
 );
 
 CREATE TABLE historiasFavoritadas (
-    idHistoriasFavoritadas INT,
+    idHistoriasFavoritadas INT  PRIMARY KEY AUTO_INCREMENT,
     fkUsuario INT,
     fkHistoria INT,
-    PRIMARY KEY (idHistoriasFavoritadas, fkUsuario, fkHistoria),
     CONSTRAINT fk_historiasFavoritadas_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     CONSTRAINT fk_historiasFavoritadas_historia FOREIGN KEY (fkHistoria) REFERENCES historia(idHistoria)
 );
@@ -73,17 +72,16 @@ CREATE TABLE avaliacaoHistoria (
 
 
 CREATE TABLE personagensFavoritados (
-    idPersonagensFavoritados INT,
+    idPersonagensFavoritados INT PRIMARY KEY AUTO_INCREMENT,
     fkUsuario INT,
     fkPersonagem INT,
-    PRIMARY KEY (idPersonagensFavoritados, fkUsuario, fkPersonagem),
     CONSTRAINT fk_personagensFavoritados_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     CONSTRAINT fk_personagensFavoritados_personagem FOREIGN KEY (fkPersonagem) REFERENCES personagem(idPersonagem)
 );
 
 CREATE TABLE comentarioEditor (
     idComentarioEditor INT PRIMARY KEY AUTO_INCREMENT,
-    textoComentarioEditor VARCHAR(500),
+    textoComentarioEditor VARCHAR(1000),
     fkAdm INT,
     fkPersonagem INT,
     fkHistoria INT,
@@ -282,3 +280,4 @@ INSERT INTO personagem (
     './assets/imgs/personagens/imgDuasCaras.jpeg',
     ''
 );
+

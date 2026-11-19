@@ -92,7 +92,67 @@ function logar(req, res) {
   }
 }
 
+function favoritar(req, res) {
+  let idUsuario = req.body.idUsuario;
+  let tipo = req.params.tipo;
+  let idFavoritado = req.body.idFavoritado;
+
+  if (!idUsuario || !idFavoritado) {
+    res.status(400).send("Alguma informação não chegou. ");
+  } else {
+    usuarioModel
+      .favoritar(idUsuario, tipo, idFavoritado)
+      .then(function (resultadoFavoritado) {
+        console.log(`Favoritando o/a ${tipo} com o id ${idFavoritado}.`);
+        res.json({ resultadoFavoritado });
+      });
+  }
+}
+
+function removerFavorito(req, res) {
+  let tipo = req.params.tipo; // recebendo as 3 variaveis do parametro passado pela route
+  let idFavoritado = req.params.idFavoritado;
+  let idUsuario = req.params.idUsuario;
+
+  if (!idUsuario || !idFavoritado || !tipo) {
+    res.status(400).send("Alguma informação não chegou.");
+  } else {
+    usuarioModel
+      .removerFavorito(idUsuario, tipo, idFavoritado)
+      .then(function (resultado) {
+        res.json(resultado); 
+      })
+      .catch(function (erro) {
+        console.log(erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+}
+
+function verificarFavoritado(req, res) {
+  let tipo = req.params.tipo; // recebendo as 3 variaveis do parametro passado pela route
+  let idFavoritado = req.params.idFavoritado;
+  let idUsuario = req.params.idUsuario;
+
+  if (!idUsuario || !idFavoritado || !tipo) {
+    res.status(400).send("Alguma informação não chegou.");
+  } else {
+    usuarioModel
+      .verificarFavoritado(idUsuario, tipo, idFavoritado)
+      .then(function (resultado) {
+        res.json(resultado); // retorna um json, onde nele está algum registro caso o usuário tenha favoritado a historia
+      })
+      .catch(function (erro) {
+        console.log(erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+}
+
 module.exports = {
   cadastrar,
   logar,
+  favoritar,
+  verificarFavoritado,
+  removerFavorito
 };

@@ -12,4 +12,16 @@ router.post("/logar", function(req, res) {
     usuarioController.logar(req, res)
 })
 
+router.post("/favoritar/:tipo", function(req, res){
+    usuarioController.favoritar(req, res)
+})
+
+router.get("/verificarFavoritado/:tipo/:idFavoritado/:idUsuario", function (req, res) { // get com 3 parametros para verificar se o usuario ja favoritou o item.
+  usuarioController.verificarFavoritado(req, res);
+});
+
+router.delete("/desfavoritar/:tipo/:idFavoritado/:idUsuario", function (req, res) {
+  usuarioController.removerFavorito(req, res);
+});
+
 module.exports = router;  
