@@ -52,6 +52,8 @@ function verificarFavoritado(tipo, idFavoritado) {
       if (resultadoVerificacao.length > 0) {
         jaFavoritado = true;
         textoBotaoFavoritar.innerHTML = "Já Favoritado";
+        botaoFavoritar.classList.add("botaoFavoritado");
+
       } else {
         jaFavoritado = false;
         textoBotaoFavoritar.innerHTML = "Favoritar";
