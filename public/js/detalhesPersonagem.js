@@ -12,7 +12,7 @@ function favoritar(tipo, idPersonagem) {
 
   if (jaFavoritado) {
     // Validação onde, se já estiver favoritado ao carregar a pagina, ele usa um fetch com DELETE para remover o favorito ao clicar no botao.
-    textoBotaoFavoritar.innerHTML = "Favoritar";
+    textoBotao.innerHTML = "Favoritar";
     console.log("Desfavoritando");
     jaFavoritado = false;
     botaoFavoritar.classList.remove("botaoFavoritado");
@@ -20,7 +20,7 @@ function favoritar(tipo, idPersonagem) {
       method: "DELETE",
     });
   } else {
-    textoBotaoFavoritar.innerHTML = "Já favoritado";
+    textoBotao.innerHTML = "Já favoritado";
     console.log("Favoritando.");
     jaFavoritado = true;
     botaoFavoritar.classList.add("botaoFavoritado");
@@ -51,12 +51,12 @@ function verificarFavoritado(tipo, idFavoritado) {
       console.log("Já favoritou?", resultadoVerificacao.length > 0);
       if (resultadoVerificacao.length > 0) {
         jaFavoritado = true;
-        textoBotaoFavoritar.innerHTML = "Já Favoritado";
+        textoBotao.innerHTML = "Já Favoritado";
         botaoFavoritar.classList.add("botaoFavoritado");
 
       } else {
         jaFavoritado = false;
-        textoBotaoFavoritar.innerHTML = "Favoritar";
+        textoBotao.innerHTML = "Favoritar";
       }
     })
     .catch(function (erro) {
@@ -78,7 +78,7 @@ function personagemEspecifico(idPersonagem) {
     })
     .then(function (personagemEncontrado) {
       // Pegando o resultado (que vem como um array que contém um objeto) e selecionando as informações que devem aparecer.
-
+      verificarFavoritado("personagem", idPersonagem)
       bannerPersonagem.src = personagemEncontrado[0].bannerPersonagem;
       capaPersonagem.src = personagemEncontrado[0].capaPersonagem;
       botaoFavoritar.onclick = function () {
