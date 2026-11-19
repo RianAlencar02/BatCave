@@ -12,9 +12,10 @@ function favoritar(tipo, idHistoria) {
 
   if (jaFavoritado) {
     // Validação onde, se já estiver favoritado ao carregar a pagina, ele usa um fetch com DELETE para remover o favorito ao clicar no botao.
-    textoBotaoFavoritar.innerHTML = "Favoritado";
+    textoBotaoFavoritar.innerHTML = "Favoritar";
     console.log("Desfavoritando");
     jaFavoritado = false;
+    botaoFavoritar.classList.remove("botaoFavoritado");
     return fetch(`/usuarios/desfavoritar/${tipo}/${idHistoria}/${idUsuario}`, {
       method: "DELETE",
     });
@@ -22,6 +23,7 @@ function favoritar(tipo, idHistoria) {
     textoBotaoFavoritar.innerHTML = "Já favoritado";
     console.log("Favoritando.");
     jaFavoritado = true;
+    botaoFavoritar.classList.add("botaoFavoritado");
     return fetch(`/usuarios/favoritar/${tipo}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -36,7 +38,6 @@ function verificarFavoritado(tipo, idFavoritado) {
 
   if (!idUsuario) {
     console.log("Usuário não está logado.");
-    return;
   }
 
   fetch(`/usuarios/verificarFavoritado/${tipo}/${idFavoritado}/${idUsuario}`)
@@ -53,7 +54,7 @@ function verificarFavoritado(tipo, idFavoritado) {
         textoBotaoFavoritar.innerHTML = "Já Favoritado";
       } else {
         jaFavoritado = false;
-        textoBotaoFavoritar.innerHTML = "Favoritar"
+        textoBotaoFavoritar.innerHTML = "Favoritar";
       }
     })
     .catch(function (erro) {
