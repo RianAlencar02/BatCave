@@ -61,11 +61,11 @@
             <div class="containerBotoesAcao">
                 <button id="botaoFavoritar" class="botaoAcao">♡ <span id="textoBotaoFavoritar" class="iconeBotao">
                     </span></button>
-                <div id="abrirModalAvaliar" class="botaoAcao">☆<span class="iconeBotao" id="textoBotaoAvaliar">Avaliar</span></div>
+                <div id="abrirModalAvaliar" class="botaoAcao">☆<span class="iconeBotao"
+                        id="textoBotaoAvaliar">Avaliar</span></div>
                 <dialog id="modalAvaliacao" class="modalAvaliacao">
                     <div class="divModal">
-                        <span id="tituloAvaliarHistoria"></span>
-                        Escolha uma nota para essa história:
+                        <span id="tituloAvaliarHistoria"> Escolha uma nota para essa história:</span>
                         <div class="opcoesModal">
                             <input id="estrela1" name="valorAvaliacao" value="1" type="radio">
                             <input id="estrela2" name="valorAvaliacao" value="2" type="radio">
@@ -73,10 +73,20 @@
                             <input id="estrela4" name="valorAvaliacao" value="4" type="radio">
                             <input id="estrela5" name="valorAvaliacao" value="5" type="radio">
                         </div>
-                        <button id="avaliarFechar">Avaliar história</button>
+                        <button class="botaoModal" id="avaliarFechar">Avaliar história</button>
                     </div>
                 </dialog>
-                <div class="botaoAcao"><span class="iconeBotao">?</span> Fazer quiz</div>
+                <div id="abrirQuiz" class="botaoAcao"><span class="iconeBotao">?</span> Fazer quiz</div>
+                <dialog id="modalIniciarQuiz" class="modalAvaliacao">
+                    <div class="divModal">
+                        <span id="tituloIniciarQuiz">Iniciar o quiz:</span>
+                        <div class="divSobreTentativa">
+                            <span id="texto">Sua tentativa só constará quando você responder todas as questões do
+                                quiz.</span>
+                        </div>
+                        <button class="botaoModal" id="iniciarQuiz">Iniciar Quiz</button>
+                    </div>
+                </dialog>
             </div>
 
             <div class="cardInformacoes">
@@ -112,6 +122,7 @@
     <script type="module" src="./js/detalhesHistoria.js"></script>
     <script src="./js/favoritar.js"></script>
     <script src="./js/avaliar.js"></script>
+    <script src="./js/quiz.js"></script>
 
 </body>
 
@@ -130,6 +141,15 @@
         modal.close();
     });
 
+    const abrirModalQuiz = document.getElementById("abrirQuiz");
+    const fecharIniciarQuiz = document.getElementById("iniciarQuiz");
+    const modalQuiz = document.getElementById("modalIniciarQuiz");
 
+    abrirModalQuiz.addEventListener("click", () => {
+        modalQuiz.showModal();
+    });
 
+    fecharIniciarQuiz.addEventListener("click", () => {
+        modalQuiz.close();
+    });
 </script>

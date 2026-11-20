@@ -22,7 +22,7 @@ function listarHistorias() {
               <div class="colunaTituloCriador">
                 <span class="spanTitulo">${historia.tituloHistoria}</span>
                 <span class="spanCriador">${historia.criadorHistoria}</span>
-              </div>
+              </div> 
               <span class="resumoHistoria">${historia.resumoHistoria}</span>
               <a class="botaoVerDetalhes" href="./detalhesHistoria.html?idHistoria=${historia.idHistoria}">
                 <span class="textoVerDetalhes">Ver detalhes</span>

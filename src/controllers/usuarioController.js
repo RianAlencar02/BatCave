@@ -24,9 +24,7 @@ function cadastrar(req, res) {
         "A senha está undefined. Verifique o passo a passo até chegar aqui.",
       );
   } else {
-    usuarioModel
-      .cadastrar(nomeUsuario, emailUsuario, senhaUsuario)
-      .then(function (resultado) {
+    usuarioModel.cadastrar(nomeUsuario, emailUsuario, senhaUsuario).then(function (resultado) {
         // Aqui, o resultado é preparado para ser enviado de volta ao scriptCadastro
         res.json(resultado);
       })
