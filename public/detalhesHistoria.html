@@ -40,7 +40,7 @@
 
     <div class="bannerDetalhes">
         <img id="bannerHistoria" class="imgBannerDetalhes">
-            alt="Banner de Batman Absoluto">
+        alt="Banner de Batman Absoluto">
     </div>
 
     <div class="containerDetalhes">
@@ -59,21 +59,36 @@
             </div>
 
             <div class="containerBotoesAcao">
-                <button id="botaoFavoritar" class="botaoAcao">♡ <span id="textoBotaoFavoritar" class="iconeBotao"> </span></button>
-                <div class="botaoAcao"><span class="iconeBotao">☆</span> Avaliar</div>
-                
+                <button id="botaoFavoritar" class="botaoAcao">♡ <span id="textoBotaoFavoritar" class="iconeBotao">
+                    </span></button>
+                <div id="abrirModalAvaliar" class="botaoAcao">☆<span class="iconeBotao" id="textoBotaoAvaliar">Avaliar</span></div>
+                <dialog id="modalAvaliacao" class="modalAvaliacao">
+                    <div class="divModal">
+                        <span id="tituloAvaliarHistoria"></span>
+                        Escolha uma nota para essa história:
+                        <div class="opcoesModal">
+                            <input id="estrela1" name="valorAvaliacao" value="1" type="radio">
+                            <input id="estrela2" name="valorAvaliacao" value="2" type="radio">
+                            <input id="estrela3" name="valorAvaliacao" value="3" type="radio">
+                            <input id="estrela4" name="valorAvaliacao" value="4" type="radio">
+                            <input id="estrela5" name="valorAvaliacao" value="5" type="radio">
+                        </div>
+                        <button id="avaliarFechar">Avaliar história</button>
+                    </div>
+                </dialog>
                 <div class="botaoAcao"><span class="iconeBotao">?</span> Fazer quiz</div>
             </div>
 
             <div class="cardInformacoes">
                 <span class="tituloCardInformacoes">Informações:</span>
                 <div class="listaInformacoes">
-                    <span  class="itemInformacao"><strong>Nome:</strong> <span id="nomeHistoria"> </span></span>
-                    <span  class="itemInformacao"><strong>Lançamento:</strong> <span id="lancamentoHistoria"> </span></span>
-                    <span  class="itemInformacao"><strong>Tipo:</strong> <span id="midiaHistoria">   </span></span>
-                    <span  class="itemInformacao"><strong>Criador:</strong> <span id="criadorHistoria">  </span></span>
-                    <span  class="itemInformacao"><strong>Gênero:</strong> <span id="generoDaHistoria"> </span></span>
-                    <span  class="itemInformacao"><strong>Universo:</strong> <span id="universoHistoria">  </span></span>
+                    <span class="itemInformacao"><strong>Nome:</strong> <span id="nomeHistoria"> </span></span>
+                    <span class="itemInformacao"><strong>Lançamento:</strong> <span id="lancamentoHistoria">
+                        </span></span>
+                    <span class="itemInformacao"><strong>Tipo:</strong> <span id="midiaHistoria"> </span></span>
+                    <span class="itemInformacao"><strong>Criador:</strong> <span id="criadorHistoria"> </span></span>
+                    <span class="itemInformacao"><strong>Gênero:</strong> <span id="generoDaHistoria"> </span></span>
+                    <span class="itemInformacao"><strong>Universo:</strong> <span id="universoHistoria"> </span></span>
                 </div>
             </div>
         </div>
@@ -84,7 +99,7 @@
         <span id="sinopseHistoria" class="textoSinopse"></span>
     </div>
 
-    <div  id="containerEditor" class="containerEditor">
+    <div id="containerEditor" class="containerEditor">
         <div class="infoEditor">
             <span class="tituloEditor">Comentário do editor</span>
             <img class="imgAvatarEditor" src="./assets/imgs/imgRianAlencar.jpe" alt="Avatar do editor">
@@ -96,6 +111,25 @@
     </div>
     <script type="module" src="./js/detalhesHistoria.js"></script>
     <script src="./js/favoritar.js"></script>
+    <script src="./js/avaliar.js"></script>
+
 </body>
 
 </html>
+
+<script>
+    const abrirModal = document.getElementById("abrirModalAvaliar");
+    const fecharModal = document.getElementById("avaliarFechar");
+    const modal = document.getElementById("modalAvaliacao");
+
+    abrirModal.addEventListener("click", () => {
+        modal.showModal();
+    });
+
+    fecharModal.addEventListener("click", () => {
+        modal.close();
+    });
+
+
+
+</script>

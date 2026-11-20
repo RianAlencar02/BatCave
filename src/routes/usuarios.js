@@ -24,4 +24,15 @@ router.delete("/desfavoritar/:tipo/:idFavoritado/:idUsuario", function (req, res
   usuarioController.removerFavorito(req, res);
 });
 
+router.post("/avaliar/:notaAvaliacao/:idUsuario/:idHistoria", function (req, res) {
+  usuarioController.avaliar(req, res);
+});
+
+router.put("/alterarAvaliacao/:notaAvaliacao/:idUsuario/:idHistoria", function (req, res) {
+  usuarioController.alterarAvaliacao(req, res);
+});
+router.get("/verificarAvaliacao/:idUsuario/:idHistoria", function (req, res) {
+  usuarioController.verificarAvaliacao(req, res);
+});
+
 module.exports = router;  

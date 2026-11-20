@@ -21,19 +21,25 @@ function favoritar(idUsuario, tipo, idFavoritado) {
     return database.executar(querySQL);
   } else {
     let querySQL = `INSERT INTO historiasFavoritadas (fkUsuario, fkHistoria) VALUES (${idUsuario}, ${idFavoritado})`;
-    console.log( tipo + "Executando a query de favoritar uma história: \n" + querySQL);
+    console.log(
+      tipo + "Executando a query de favoritar uma história: \n" + querySQL,
+    );
     return database.executar(querySQL);
   }
 }
 
-function removerFavorito(idUsuario, tipo, idFavoritado){
-    if (tipo == "personagem") {
+function removerFavorito(idUsuario, tipo, idFavoritado) {
+  if (tipo == "personagem") {
     let querySQL = `DELETE FROM personagensFavoritados WHERE fkUsuario = ${idUsuario} AND fkPersonagem = ${idFavoritado};`;
-    console.log("Executando a query de remover um personagem favoritado: \n" + querySQL);
+    console.log(
+      "Executando a query de remover um personagem favoritado: \n" + querySQL,
+    );
     return database.executar(querySQL);
   } else {
     let querySQL = `DELETE FROM historiasFavoritadas WHERE fkUsuario = ${idUsuario} AND fkHistoria = ${idFavoritado};`;
-    console.log( tipo + "Executando a query de favoritar uma história: \n" + querySQL);
+    console.log(
+      tipo + "Executando a query de favoritar uma história: \n" + querySQL,
+    );
     return database.executar(querySQL);
   }
 }
@@ -48,10 +54,39 @@ function verificarFavoritado(idUsuario, tipo, idFavoritado) {
   }
 }
 
+function avaliar(notaAvaliacao, idUsuario, idHistoria) {
+  let querySQL = `INSERT INTO avaliacaoHistoria (notaAvaliacao, fkUsuario, fkHistoria) VALUES (${notaAvaliacao},${idUsuario}, ${idHistoria})`;
+  console.log("Executando query de avaliar uma história.");
+  return database.executar(querySQL);
+}
+
+function avaliar(notaAvaliacao, idUsuario, idHistoria) {
+  let querySQL = `INSERT INTO avaliacaoHistoria (notaAvaliacao, fkUsuario, fkHistoria) VALUES (${notaAvaliacao},${idUsuario}, ${idHistoria})`;
+  console.log("Executando query de avaliar uma história.");
+  return database.executar(querySQL);
+}
+
+function alterarAvaliacao(notaAvaliacao, idUsuario, idHistoria) {
+  let querySQL = `UPDATE avaliacaoHistoria SET notaAvaliacao = ${notaAvaliacao} WHERE fkUsuario = ${idUsuario} AND fkHistoria = ${idHistoria}`;
+  console.log("Executando query de alterar uma avaliação.");
+  return database.executar(querySQL);
+}
+
+function verificarAvaliacao(idUsuario, idHistoria) {
+  let querySQL = `SELECT 1 FROM avaliacaoHistoria WHERE fkUsuario = ${idUsuario} AND fkHistoria = ${idHistoria}`;
+  console.log("Verificando se já avaliou.")
+  return database.executar(querySQL);
+}
+
+
+
 module.exports = {
   cadastrar,
   logar,
   favoritar,
   verificarFavoritado,
-  removerFavorito
+  removerFavorito,
+  avaliar,
+  verificarAvaliacao,
+  alterarAvaliacao
 };

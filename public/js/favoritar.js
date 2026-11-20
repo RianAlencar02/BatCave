@@ -1,9 +1,9 @@
 let jaFavoritado = false;
-let params = new URLSearchParams(window.location.search);
+let params = new URLSearchParams(window.location.search); // Pegando a url e procurando os parametros
 let categoria = undefined;
 let idFavoritado = undefined;
 
-if (params.get("idPersonagem")) {
+if (params.get("idPersonagem")) { // Caso na URL encontrada tenha idPersonagem, transforma a categoria em personagem e o id no idPersonagem passada pelo parametro
   categoria = "personagem";
   idFavoritado = params.get("idPersonagem");
 } else {

@@ -149,10 +149,72 @@ function verificarFavoritado(req, res) {
   }
 }
 
+function avaliar(req, res){
+  let notaAvaliacao = req.params.notaAvaliacao;
+  let idUsuario = req.params.idUsuario;
+  let idHistoria = req.params.idHistoria; // Pegando os três id necessário pelo parametro
+
+  if(!idUsuario || !idHistoria || !notaAvaliacao){
+    res.status(400).send("Alguma informação não chegou.")
+  }
+  else{
+    usuarioModel.avaliar(notaAvaliacao, idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
+    .then(function (resultado) { // Pegando o resultado
+      res.json(resultado);  // Transformando o resultado em JSON
+    })
+    .catch(function (erro) { // Caso um erro aconteça, ele captura
+      console.log("Erro na avaliação: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
+      res.status(500).json(erro.sqlMessage);
+    });
+  }
+}
+
+function alterarAvaliacao(req, res){
+  let notaAvaliacao = req.params.notaAvaliacao;
+  let idUsuario = req.params.idUsuario;
+  let idHistoria = req.params.idHistoria; 
+
+  if(!idUsuario || !idHistoria || !notaAvaliacao){
+    res.status(400).send("Alguma informação não chegou.")
+  }
+  else{
+    usuarioModel.alterarAvaliacao(notaAvaliacao, idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
+    .then(function (resultado) { // Pegando o resultado
+      res.json(resultado);  // Transformando o resultado em JSON
+    })
+    .catch(function (erro) { // Caso um erro aconteça, ele captura
+      console.log("Erro na alteração: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
+      res.status(500).json(erro.sqlMessage);
+    });
+  }
+}
+
+function verificarAvaliacao(req, res){
+  let idUsuario = req.params.idUsuario;
+  let idHistoria = req.params.idHistoria; // Pegando os dois id necessário pelo parametro
+
+  if(!idUsuario || !idHistoria){
+    res.status(400).send("Alguma informação não chegou.")
+  }
+  else{
+    usuarioModel.verificarAvaliacao(idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
+    .then(function (resultado) { // Pegando o resultado
+      res.json(resultado);  // Transformando o resultado em JSON
+    })
+    .catch(function (erro) { // Caso um erro aconteça, ele captura
+      console.log("Erro em verificar avaliação: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
+      res.status(500).json(erro.sqlMessage);
+    });
+  }
+}
+
 module.exports = {
   cadastrar,
   logar,
   favoritar,
   verificarFavoritado,
-  removerFavorito
+  removerFavorito,
+  avaliar,
+  alterarAvaliacao,
+  verificarAvaliacao
 };

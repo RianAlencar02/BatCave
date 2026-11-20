@@ -7,7 +7,6 @@ body {
   background-color: #0b0b0d;
 }
 
-
 /* Banner hero */
 
 .bannerDetalhes {
@@ -20,7 +19,7 @@ body {
 .imgBannerDetalhes {
   width: 100%;
   height: 100%;
-  object-fit:cover;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -116,15 +115,16 @@ body {
   font-family: "Oswald", sans-serif;
   font-size: 20px;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   border: #0b0b0d 0px solid;
-  
 }
 
-.botaoFavoritado{
+.botaoFavoritado {
   background-color: #c62839;
-  color: #f2f4f7;}
-
+  color: #f2f4f7;
+}
 
 .iconeBotao {
   font-size: 20px;
@@ -200,7 +200,7 @@ body {
   gap: 40px;
   width: 90vw;
   margin: 40px auto 60px auto;
-  background-color: #191D24;
+  background-color: #191d24;
   padding: 20px;
 }
 
@@ -243,5 +243,40 @@ body {
   font-family: "Oswald", sans-serif;
   font-size: 20px;
   color: #f2f4f7;
+}
+
+.modalAvaliacao {
+  margin: auto;  /* centraliza o modal */
+  background-color: #131923;
+  color: #f2f4f7;
+  border: 1px solid #23364d;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.divModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.opcoesModal {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#avaliarFechar{
+  width: 80%;
+  background-color: #c62839;
+  color: #f2f4f7;
+  font-family: "Oswald", sans-serif;
+  border: #23364d 2px solid;
+
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
 }
 
