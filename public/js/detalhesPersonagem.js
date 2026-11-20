@@ -22,7 +22,6 @@ function personagemEspecifico(idPersonagem) {
       identidadePersonagem.textContent = personagemEncontrado[0].identidadeSecreta;
       categoriaPersonagem.textContent = personagemEncontrado[0].categoriaPersonagem;
       primeiraAparicao.textContent = personagemEncontrado[0].primeiraAparicaoPersonagem;
-
       criadorPersonagem.textContent = personagemEncontrado[0].criadoresPersonagem;
       generoPersonagem.textContent = personagemEncontrado[0].generoPersonagem;
       afiliacaoPersonagem.textContent = personagemEncontrado[0].afiliacoesPersonagem;

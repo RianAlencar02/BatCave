@@ -59,11 +59,12 @@ CREATE TABLE historiasFavoritadas (
 
 
 CREATE TABLE avaliacaoHistoria (
-    idAvaliacaoHistoria INT,
+    idAvaliacaoHistoria INT PRIMARY KEY AUTO_INCREMENT,
     fkUsuario INT,
     fkHistoria INT,
+    UNIQUE (fkUsuario, fkHistoria),
     notaAvaliacao INT,
-    PRIMARY KEY (idAvaliacaoHistoria,fkUsuario, fkHistoria),
+    dataAvaliacao DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_avaliacaoHistoria_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     CONSTRAINT fk_avaliacaoHistoria_historia FOREIGN KEY (fkHistoria) REFERENCES historia(idHistoria)
 );
@@ -222,7 +223,7 @@ INSERT INTO personagem (
     'Um Batman que ri é um Batman que sempre vence.',
     'Originário da Terra -22 no Multiverso das Trevas, este Bruce Wayne cedeu ao seu limite após o Coringa destruir Gotham e forçá-lo a matá-lo. Ao quebrar sua regra de ouro, Bruce inalou uma toxina letal liberada pelo coração do palhaço, reescrevendo sua mente para fundir seu intelecto estratégico perfeito com a loucura sádica de seu maior inimigo. Ele exterminou toda a Bat-Família e a Liga da Justiça de seu mundo antes de liderar uma invasão sombria ao multiverso.',
     './assets/imgs/personagens/imgBatmanQueRi.jpe',
-    ''
+    './assets/imgs/personagens/capaBatmanQueRi.webp'
 ),
 (
     'Robin (Dick Grayson)',
@@ -236,7 +237,7 @@ INSERT INTO personagem (
     'Sempre há uma saída, mesmo no escuro.',
     'Jovem trapezista da família circense dos Graysons Voadores, Dick testemunhou o assassinato de seus pais pelo mafioso Tony Zucco. Adotado por Bruce Wayne, tornou-se o primeiro Robin, trazendo luz, humor e agilidade acrobática para equilibrar a cruzada sombria do Batman. Ao atingir a maturidade, Dick forjou sua própria identidade independente como Asa Noturna em Blüdhaven, consolidando-se como um dos maiores estrategistas e líderes morais de todo o universo DC.',
     './assets/imgs/personagens/imgRobinDick.webp',
-    ''
+    '/assets/imgs/personagens/imgRobinCapa.jpg'
 ),
 (
     'Capuz Vermelho',
@@ -250,7 +251,7 @@ INSERT INTO personagem (
     'Você não pode controlar o crime, Bruce. Só pode direcioná-lo.',
     'Criado nas ruas perigosas do Beco do Crime, Jason Todd foi acolhido por Bruce Wayne após tentar roubar os pneus do Batmóvel, tornando-se o segundo Robin. Impulsivo e marcado pela revolta contra a impunidade, foi brutalmente assassinado pelo Coringa. Ressuscitado anos depois através do Poço de Lázaro e treinado pela Liga dos Assassinos, retornou a Gotham como o vigilante Capuz Vermelho, usando armas de fogo e métodos letais para controlar o crime onde o código de Batman falha.',
     './assets/imgs/personagens/imgCapuz.jpg',
-    ''
+    './assets/imgs/personagens/capaCapuz.jpg'
 ),
 (
     'Coringa',
@@ -264,7 +265,7 @@ INSERT INTO personagem (
     'Tudo o que é preciso é um dia ruim para reduzir o mais são dos homens à lunático.',
     'Desfigurado após cair em um tanque de produtos químicos na fábrica Ace Chemicals, o Coringa emergiu com pele branca, cabelos verdes e um sorriso permanente que mascara uma mente brilhante e psicótica. Sem superpoderes, ele utiliza armas temáticas mortais, seu famoso gás do riso e um imprevisível senso de humor sádico. Obcecado por provar que qualquer pessoa pode enlouquecer após um único dia ruim, ele representa o caos puro contra a ordem imposta pelo Batman.',
     './assets/imgs/personagens/imgCoringa.webp',
-    ''
+    './assets/imgs/personagens/capaCoringa.jpg'
 ),
 (
     'Duas-Caras',
@@ -278,6 +279,5 @@ INSERT INTO personagem (
     'Você morre como um herói, ou vive o bastante para se tornar o vilão.',
     'Outrora o incorruptível promotor público de Gotham City e maior aliado legal do Batman e do Comissário Gordon, Harvey Dent teve metade de seu rosto desfigurado por ácido arremessado pelo mafioso Sal Maroni durante um julgamento. O trauma fraturou sua psique, despertando uma personalidade criminosa obcecada pelo número dois e pela dualidade entre o bem e o mal. Hoje, todas as suas decisões de vida ou morte são ditadas pelo cara ou coroa de sua icônica moeda de prata riscada.',
     './assets/imgs/personagens/imgDuasCaras.jpeg',
-    ''
+    './assets/imgs/personagens/capaDuasCaras.jpg'
 );
-

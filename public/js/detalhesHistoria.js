@@ -22,6 +22,7 @@ function historiaEspecifica(idHistoria) {
       tituloHistoria.textContent = historiaEncontrada[0].tituloHistoria;
       nomeHistoria.textContent = historiaEncontrada[0].tituloHistoria;
       tipoHistoria.textContent = historiaEncontrada[0].tipoHistoria;
+      notaHistoria.textContent = historiaEncontrada[0].notaAvaliacao;
       anoHistoria.textContent = historiaEncontrada[0].anoHistoria;
       tipoHistoria.textContent = historiaEncontrada[0].tipoHistoria;
       criadorHistoria.textContent = historiaEncontrada[0].criadorHistoria;
