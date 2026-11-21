@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BatCave - Detalhes da História</title>
+    <link rel="stylesheet" href="./css/detalhesHistoria.css">
+    <link rel="stylesheet" href="./css/navBar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600&family=Oswald:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="divNavBar">
+        <nav class="navBar">
+            <a href="./index.html">
+                <img class="imgLogo" src="./assets/imgs/BatCaveLogoTemporario.png" alt="">
+            </a>
+            <div class="opcoesNavBar">
+                <a class="opcoaoNavBar" href="./index.html">Home</a>
+                <a class="opcoaoNavBar opcaoSelecionada" href="./historias.html">Histórias</a>
+                <a class="opcoaoNavBar" href="./personagens.html">Personagens</a>
+                <a class="opcoaoNavBar" href="./curiosidades.html">Curiosidades</a>
+            </div>
+            <div class="butoesNavBar" id="deslogado">
+                <a class="botaoCadastro" href="./cadastro.html">Cadastre-se</a>
+                <a class="botaoLogin" href="./login.html">Login</a>
+            </div>
+            <div class="usuarioLogado" id="logado" style="display: none;">
+                <a href="./perfilLogin.html" class="divNomeIcone"> <span class="nomeUsuario" id="nomeUsuario"> </span>
+                    <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
+            </div>
+        </nav>
+        <script src="./js/navBar.js"></script>
+    </header>
+
+    <div class="bannerDetalhes">
+        <img id="bannerHistoria" class="imgBannerDetalhes">
+        alt="Banner de Batman Absoluto">
+    </div>
+
+    <div class="containerDetalhes">
+        <div class="divCapaHistoria">
+            <img id="capaHistoria" class="imgCapaHistoria" alt="Capa de Batman Absoluto">
+        </div>
+        <div class="divInformacoesHistoria">
+            <div class="divCabecalhoHistoria">
+                <span id="tipoHistoria" class="tagTipo">Quadrinho</span>
+                <span id="tituloHistoria" class="tituloDetalhes"></span>
+                <div class="linhaMeta">
+                    <span id="anoHistoria" class="spanMeta">Ano: 2024</span>
+                    <span id="generoHistoria" class="spanMeta">Gênero: Ação</span>
+                </div>
+                <span class="notaHistoria">★ <span id="notaHistoria"></span> </span>
+            </div>
+
+            <div class="containerBotoesAcao">
+                <button id="botaoFavoritar" class="botaoAcao">♡ <span id="textoBotaoFavoritar" class="iconeBotao">
+                    </span></button>
+                <div id="abrirModalAvaliar" class="botaoAcao">☆<span class="iconeBotao"
+                        id="textoBotaoAvaliar">Avaliar</span></div>
+                <dialog id="modalAvaliacao" class="modalAvaliacao">
+                    <div class="divModal">
+                        <span id="tituloAvaliarHistoria"> Escolha uma nota para essa história:</span>
+                        <div class="opcoesModal">
+                            <input id="estrela1" name="valorAvaliacao" value="1" type="radio">
+                            <input id="estrela2" name="valorAvaliacao" value="2" type="radio">
+                            <input id="estrela3" name="valorAvaliacao" value="3" type="radio">
+                            <input id="estrela4" name="valorAvaliacao" value="4" type="radio">
+                            <input id="estrela5" name="valorAvaliacao" value="5" type="radio">
+                        </div>
+                        <button class="botaoModal" id="avaliarFechar">Avaliar história</button>
+                    </div>
+                </dialog>
+                <div id="abrirQuiz" class="botaoAcao"><span class="iconeBotao">?</span> Fazer quiz</div>
+                <dialog id="modalIniciarQuiz" class="modalAvaliacao">
+                    <div class="divModal">
+                        <span id="tituloIniciarQuiz">Iniciar o quiz:</span>
+                        <div class="divSobreTentativa">
+                            <span id="texto">Sua tentativa só constará quando você responder todas as questões do
+                                quiz.</span>
+                        </div>
+                        <button class="botaoModal" id="iniciarQuiz">Iniciar Quiz</button>
+                    </div>
+                </dialog>
+            </div>
+
+            <div class="cardInformacoes">
+                <span class="tituloCardInformacoes">Informações:</span>
+                <div class="listaInformacoes">
+                    <span class="itemInformacao"><strong>Nome:</strong> <span id="nomeHistoria"> </span></span>
+                    <span class="itemInformacao"><strong>Lançamento:</strong> <span id="lancamentoHistoria">
+                        </span></span>
+                    <span class="itemInformacao"><strong>Tipo:</strong> <span id="midiaHistoria"> </span></span>
+                    <span class="itemInformacao"><strong>Criador:</strong> <span id="criadorHistoria"> </span></span>
+                    <span class="itemInformacao"><strong>Gênero:</strong> <span id="generoDaHistoria"> </span></span>
+                    <span class="itemInformacao"><strong>Universo:</strong> <span id="universoHistoria"> </span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="secaoSinopse">
+        <span class="tituloSinopse">Sinopse</span>
+        <span id="sinopseHistoria" class="textoSinopse"></span>
+    </div>
+
+    <div id="containerEditor" class="containerEditor">
+        <div class="infoEditor">
+            <span class="tituloEditor">Comentário do editor</span>
+            <img class="imgAvatarEditor" src="./assets/imgs/imgRianAlencar.jpe" alt="Avatar do editor">
+            <span class="nomeEditor">Rian Alencar Souza</span>
+        </div>
+        <div class="textoEditor">
+            <p id="comenEditor"></p>
+        </div>
+    </div>
+    <script type="module" src="./js/detalhesHistoria.js"></script>
+    <script src="./js/favoritar.js"></script>
+    <script src="./js/avaliar.js"></script>
+    <script src="./js/quiz.js"></script>
+
+</body>
+
+</html>
+
+<script>
+
+</script>

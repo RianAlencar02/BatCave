@@ -1,9 +1,11 @@
 let parametros = new URLSearchParams(location.search); // Procurando parametros na URL
 let idHistoria = parametros.get("idHistoria"); // Selecionando o parametro do idHistoria na URL.
 let jaAvaliado = false;
+let idUsuario = sessionStorage.getItem("idUsuario");
+
+
 
 function verificarAvaliacao(idHistoria) {
-  let idUsuario = sessionStorage.getItem("idUsuario");
 
   if (!idUsuario) {
     console.log("Verificando avaliação: Usuário não logado.");
@@ -37,7 +39,6 @@ function avaliar(idHistoria) {
     'input[name="valorAvaliacao"]:checked',
   );
   let notaAvaliacao = Number(opcaoSelecionada.value);
-  let idUsuario = sessionStorage.getItem("idUsuario");
 
   if (!idUsuario) {
     // Caso o usuário não esteja logado, é redirecionado pra login
@@ -47,11 +48,11 @@ function avaliar(idHistoria) {
 
   if (jaAvaliado) {
     return fetch(
-      `/usuarios/alterarAvaliacao/${notaAvaliacao}/${idUsuario}/${idHistoria}`,{
-        method: "PUT"
-      }
+      `/usuarios/alterarAvaliacao/${notaAvaliacao}/${idUsuario}/${idHistoria}`,
+      {
+        method: "PUT",
+      },
     );
-    
   } else {
     textoBotaoAvaliar.innerHTML = "Alterar avaliação";
     abrirModalAvaliar.classList.add("botaoFavoritado");
