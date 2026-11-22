@@ -18,6 +18,7 @@ var app = express();
 var usuarioRouter = require("./src/routes/usuarios");
 var historiasRouter = require("./src/routes/historias");
 var personagensRouter = require("./src/routes/personagens");
+var quizRouter = require("./src/routes/quiz")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +29,8 @@ app.use(cors());
 app.use("/usuarios", usuarioRouter);
 app.use("/historias", historiasRouter);
 app.use("/personagens", personagensRouter);
+app.use("/quiz", quizRouter);
+
 
 
 app.listen(PORTA_APP, function () {

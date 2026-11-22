@@ -1,19 +1,50 @@
 var quizModel = require("../models/quizModel");
 
 function buscarPerguntas(req, res) {
-    let idHistoriaOuPersonagem = req.params.idHistoriaOuPersonagem;
-    let tipo = req.params.idHistoriaOuPersonagem;
+  let tipo = req.params.tipo;
+  let idHistoriaOuPersonagem = Number(req.params.idHistoriaOuPersonagem);
 
-    quizModel.buscarPerguntas(tipo, idHistoriaOuPersonagem).then((resultado) =>
-    {
-        console.log("Perguntas encontradas: ", resultado)
-        res.status(200).json(resultado);
+  if (
+    (tipo != "historia" && tipo != "personagem") ||
+    !Number.isInteger(idHistoriaOuPersonagem)
+  ) {
+    return res.status(400).send("Parâmetros inválidos.");
+  }
+  quizModel
+    .buscarPerguntas(tipo, idHistoriaOuPersonagem)
+    .then(function (resultado) {
+      console.log("Perguntas encontradas: ", resultado);
+      res.status(200).json(resultado);
     })
-    
-    
+    .catch(function (erro) {
+      console.log("Erro ao buscar perguntas:", erro.sqlMessage || erro);
+      res.status(500).json(erro.sqlMessage);
+    });
 }
 
+function buscarAlternativas(req, res) {
+  let tipo = req.params.tipo;
+  let idHistoriaOuPersonagem = Number(req.params.idHistoriaOuPersonagem);
+
+  if (
+    (tipo != "historia" && tipo != "personagem") ||
+    !Number.isInteger(idHistoriaOuPersonagem)
+  ) {
+    return res.status(400).send("Parâmetros inválidos.");
+  }
+  quizModel
+    .buscarAlternativas(tipo, idHistoriaOuPersonagem)
+    .then(function (resultado) {
+      console.log("Alternativas encontradas: ", resultado);
+      res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+      console.log("Erro ao buscar alternativas:", erro.sqlMessage || erro);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
 
 module.exports = {
-    buscarPerguntas
+  buscarPerguntas,
+  buscarAlternativas
 };

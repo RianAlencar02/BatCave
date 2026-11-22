@@ -40,43 +40,27 @@
 
     <main class="containerQuiz">
         <div class="cabecalhoProgresso">
-            <span class="numeroQuestao">QUESTÃO 1/5</span>
-            <span class="categoriaQuestao">Categoria</span>
+            <span class="numeroQuestao">QUESTÃO <span id="contadorPergunta"></span>/5</span>
+            <span id="categoriaQuiz" class="categoriaQuestao">Categoria</span>
         </div>
 
         <div class="enunciadoQuestao">
-            <span class="textoEnunciado">Enunciado da questão placeholder — texto ilustrativo da pergunta do quiz
-                exibido neste bloco centralizado.</span>
+            <span id="textoPergunta" class="textoEnunciado"></span>
         </div>
 
-        <div class="listaAlternativas">
+        <div id="listagemAlternativas" class="listaAlternativas">
             <div class="alternativaQuestao">
                 <span class="letraAlternativa">A</span>
                 <span class="textoAlternativa">Alternativa A — Texto placeholder da primeira opção de resposta.</span>
             </div>
-            <div class="alternativaQuestao">
-                <span class="letraAlternativa">B</span>
-                <span class="textoAlternativa">Alternativa B — Texto placeholder da segunda opção de resposta.</span>
-            </div>
-            <div class="alternativaQuestao">
-                <span class="letraAlternativa">C</span>
-                <span class="textoAlternativa">Alternativa C — Texto placeholder da terceira opção de resposta.</span>
-            </div>
-            <div class="alternativaQuestao">
-                <span class="letraAlternativa">D</span>
-                <span class="textoAlternativa">Alternativa D — Texto placeholder da quarta opção de resposta.</span>
-            </div>
-            <div class="alternativaQuestao">
-                <span class="letraAlternativa">E</span>
-                <span class="textoAlternativa">Alternativa E — Texto placeholder da quinta opção de resposta.</span>
-            </div>
+
         </div>
 
         <div class="rodapeQuiz">
-            <button type="button" class="botaoProximaQuestao">Próxima questão</button>
+            <button type="button" id="botaoProximaQuestao" class="botaoProximaQuestao">Próxima questão</button>
         </div>
     </main>
-
+<script type="module" src="./js/quiz.js"></script>
 </body>
 
 </html>
