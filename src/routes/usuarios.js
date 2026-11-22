@@ -35,4 +35,6 @@ router.get("/verificarAvaliacao/:idUsuario/:idHistoria", function (req, res) {
   usuarioController.verificarAvaliacao(req, res);
 });
 
+
+
 module.exports = router;  

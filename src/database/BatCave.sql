@@ -106,8 +106,8 @@ CREATE TABLE pergunta (
   CONSTRAINT fk_pergunta_quiz FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz)
 );
 
-CREATE TABLE alternativas (
-  idAlternativas     INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE alternativa (
+  idAlternativa     INT PRIMARY KEY AUTO_INCREMENT,
   textoAlternativa   VARCHAR(100),
   alternativaCorreta TINYINT NOT NULL DEFAULT 0,
   fkPergunta         INT NOT NULL,
@@ -125,12 +125,12 @@ CREATE TABLE tentativa (
 
 CREATE TABLE alternativaEscolhida (
     fkTentativa INT,
-    fkAlternativas INT,
+    fkAlternativa INT,
     fkPergunta INT,
     fkQuizPergunta INT,
-    PRIMARY KEY (fkTentativa, fkAlternativas, fkPergunta, fkQuizPergunta),
+    PRIMARY KEY (fkTentativa, fkAlternativa, fkPergunta, fkQuizPergunta),
     CONSTRAINT fk_alternativaEscolhida_tentativa FOREIGN KEY (fkTentativa) REFERENCES tentativa(idTentativa),
-    CONSTRAINT fk_alternativaEscolhida_alternativas FOREIGN KEY (fkAlternativas) REFERENCES alternativas(idAlternativas),
+    CONSTRAINT fk_alternativaEscolhida_alternativa FOREIGN KEY (fkAlternativa) REFERENCES alternativa(idAlternativa),
     CONSTRAINT fk_alternativaEscolhida_pergunta FOREIGN KEY (fkPergunta) REFERENCES pergunta(idPergunta),
     CONSTRAINT fk_alternativaEscolhida_quiz FOREIGN KEY (fkQuizPergunta) REFERENCES quiz(idQuiz)
 );
@@ -281,7 +281,7 @@ INSERT INTO personagem (
 
 -- =====================================================
 -- QUIZZES: 1 por história e 1 por personagem
--- 5 perguntas por quiz, 5 alternativas por pergunta
+-- 5 perguntas por quiz, 5 alternativa por pergunta
 -- Assume banco recém-criado (ids começando em 1).
 -- =====================================================
 
@@ -352,7 +352,7 @@ INSERT INTO pergunta (idPergunta, textoPergunta, fkQuiz) VALUES
 (44, 'Qual número obceca o Duas-Caras?', 9),
 (45, 'O que dita as decisões de vida ou morte do Duas-Caras?', 9);
 
-INSERT INTO alternativas (textoAlternativa, alternativaCorreta, fkPergunta) VALUES
+INSERT INTO alternativa (textoAlternativa, alternativaCorreta, fkPergunta) VALUES
 -- Batman Absoluto (quiz 1)
 ('Médico legista', 0, 1),
 ('Detetive da polícia', 0, 1),
@@ -587,3 +587,50 @@ INSERT INTO alternativas (textoAlternativa, alternativaCorreta, fkPergunta) VALU
 ('Uma roleta', 0, 45),
 ('Um relógio quebrado', 0, 45),
 ('Uma moeda de prata riscada', 1, 45);
+
+
+
+
+-- SELECT de infos do usuario para o perfil
+SELECT u.* FROM usuario AS u WHERE u.idUsuario = 1;
+
+-- SELECT de historias de um usuario especifico para o perfil.
+SELECT h.tituloHistoria, h.bannerHistoria FROM usuario AS u 
+LEFT JOIN historiasFavoritadas AS hf ON hf.fkUsuario = u.idUsuario LEFT JOIN historia AS h ON h.idHistoria = hf.fkHistoria 
+WHERE idUsuario = 1;
+
+
+-- SELECT de personagens favoritados de um usuario especifico para o perfil.
+SELECT p.nomePersonagem, p.bannerPersonagem  FROM usuario AS u 
+JOIN personagensFavoritados AS pf ON pf.fkusuario = u.idUsuario JOIN personagem AS p ON p.idPersonagem = pf.fkPersonagem
+WHERE idUsuario = 1;
+
+
+-- SELECT para a listagem de quizes respondidos de historia no perfil
+SELECT h.tituloHistoria, h.bannerHistoria, t.idTentativa, SUM(a.alternativaCorreta) AS questoesAcertadas, 
+SUM(a.alternativaCorreta) / 5 * 100 AS 'porcentagemAcerto'
+FROM tentativa AS t 
+JOIN quiz AS q on t.fkQuiz = q.idQuiz
+JOIN historia AS h ON q.fkHistoria = h.idHistoria
+JOIN alternativaEscolhida AS ae ON ae.fkTentativa = t.idTentativa
+JOIN alternativa AS a ON ae.fkAlternativa = a.idAlternativa
+WHERE t.fkUsuario = 1 
+GROUP BY t.idTentativa, q.idQuiz, h.idHistoria, h.tituloHistoria, h.bannerHistoria
+HAVING COUNT(*) = 5; -- Serve para filtrar e só trazer os quizes respondidos, pois após o agrupamento pelo idTentativa, ele só trara as tentativas com 5 registros (ou seja, quizes que foram concluidos).
+
+-- SELECT para a listagem de quizes respondidos de personagem no perfil
+SELECT p.nomePersonagem, p.bannerPersonagem, t.idTentativa, SUM(a.alternativaCorreta) AS questoesAcertadas, 
+SUM(a.alternativaCorreta) / 5 * 100 AS 'porcentagemAcerto'
+FROM tentativa AS t 
+JOIN quiz AS q on t.fkQuiz = q.idQuiz
+JOIN personagem AS p ON q.fkPersonagem = p.idPersonagem
+JOIN alternativaEscolhida AS ae ON ae.fkTentativa = t.idTentativa
+JOIN alternativa AS a ON ae.fkAlternativa = a.idAlternativa
+WHERE t.fkUsuario = 1 
+GROUP BY t.idTentativa, q.idQuiz, p.idPersonagem, p.nomePersonagem, p.bannerPersonagem
+HAVING COUNT(*) = 5;
+
+-- SELECT de historias avaliadas para o perfil
+SELECT  h.tituloHistoria, h.bannerHistoria, ah.notaAvaliacao, ah.dataAvaliacao FROM historia AS h
+JOIN avaliacaoHistoria AS ah ON ah.fkHistoria = h.idHistoria
+WHERE ah.fkUsuario = 1;

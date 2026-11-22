@@ -74,11 +74,15 @@ function alterarAvaliacao(notaAvaliacao, idUsuario, idHistoria) {
 
 function verificarAvaliacao(idUsuario, idHistoria) {
   let querySQL = `SELECT 1 FROM avaliacaoHistoria WHERE fkUsuario = ${idUsuario} AND fkHistoria = ${idHistoria}`;
-  console.log("Verificando se já avaliou.")
+  console.log("Verificando se já avaliou.");
   return database.executar(querySQL);
 }
 
-
+function puxarInformacoesUsuario(idUsuario) {
+  let querySQL = `SELECT * FROM usuario WHERE idUsuario = ${idUsuario}`;
+  console.log("Executando a query de pegar todas as informações: \n" + querySQL);
+  return database.executar(querySQL);
+}
 
 module.exports = {
   cadastrar,
@@ -88,5 +92,5 @@ module.exports = {
   removerFavorito,
   avaliar,
   verificarAvaliacao,
-  alterarAvaliacao
+  alterarAvaliacao,
 };
