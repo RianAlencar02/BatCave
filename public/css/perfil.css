@@ -1,0 +1,433 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0b0b0d;
+}
+
+/* Botões da navbar (Meu perfil / Sair) */
+
+.butoesPerfil {
+  display: flex;
+  width: 35%;
+  height: 70%;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.botaoMeuPerfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  background-color: #c62839;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.botaoSair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  background-color: transparent;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  border: 2px #23364d solid;
+  border-radius: 10px;
+}
+
+/* Estrutura geral */
+
+.containerPerfil {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 90vw;
+  margin: 40px auto 60px auto;
+}
+
+.tituloPerfil {
+  font-family: "Oswald", sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  color: #c62839;
+}
+
+/* Barra de abas */
+
+.barraAbas {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background-color: #1a2230;
+  border-radius: 15px;
+}
+
+.botaoAba {
+  flex: 1;
+  padding: 16px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #f2f4f7;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.botaoAba.abaAtiva {
+  background-color: #c62839;
+  color: #f2f4f7;
+}
+
+/* Painéis das abas */
+
+.abaPerfil {
+  display: none;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.abaPerfil.abaAtiva {
+  display: flex;
+}
+
+/* Aba 1 - Dados pessoais */
+
+.cardDadosPessoais {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 30px;
+  background-color: #191d24;
+  border-radius: 15px;
+}
+
+.cabecalhoCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tituloCard {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.botaoEditarPerfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  background-color: #0b0b0d;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  border: 1px #23364d solid;
+  border-radius: 8px;
+}
+
+.gridDados {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.campoDado {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background-color: #0b0b0d;
+  border: 1px #23364d solid;
+  border-radius: 10px;
+}
+
+.rotuloDado {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: #9aa5b1;
+}
+
+.valorDado {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+}
+
+/* Aba 1 - Métricas */
+
+.gridMetricas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.cardMetrica {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px 25px;
+  background-color: #23364d;
+  border-radius: 15px;
+}
+
+.numeroMetrica {
+  font-family: "Oswald", sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.descricaoMetrica {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+}
+
+/* Cabeçalhos das abas de listagem */
+
+.cabecalhoSecao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tituloSecao {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.contadorSecao {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: #9aa5b1;
+}
+
+.filtroFavoritos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rotuloFiltro {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: #9aa5b1;
+}
+
+.selectFiltro {
+  padding: 12px 20px;
+  background-color: #f2f4f7;
+  color: #0b0b0d;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Listas scrolláveis */
+
+.listaPerfis {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  background-color: #1a2230;
+  border-radius: 15px;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+.listaSemFundo {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Aba 2 - Favoritos */
+
+.itemFavorito {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 10px 0;
+}
+
+.miniaturaItem {
+  width: 200px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.tituloItem {
+  flex: 1;
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.tagCategoria {
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  color: #6cb6ff;
+}
+
+.botaoVerDetalhesSolido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 40px;
+  background-color: #c62839;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  border-radius: 8px;
+}
+
+/* Aba 3 - Avaliações / Aba 4 - Quizzes */
+
+.cabecalhoTabela {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.2fr;
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.rotuloColuna {
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #9aa5b1;
+}
+
+.itemAvaliacao,
+.itemQuiz {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.2fr;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  background-color: #0b0b0d;
+  border-radius: 10px;
+}
+
+.celulaPrincipal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.categoriaItem {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: #9aa5b1;
+}
+
+.nomeItem {
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.dataItem {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: #9aa5b1;
+}
+
+.celulaNota {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.notaGrande {
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.textoNota {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  color: #9aa5b1;
+}
+
+.tagConcluido {
+  font-family: "Oswald", sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #c62839;
+}
+
+.botaoVerDetalhesEscuro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 30px;
+  background-color: #131923;
+  color: #f2f4f7;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  border: 1px #23364d solid;
+  border-radius: 8px;
+}
+
+/* Aba 4 - Banner de métricas */
+
+.bannerQuizzes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 35px 40px;
+  background-color: #23364d;
+  border-radius: 15px;
+}
+
+.metricaBanner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.numeroBanner {
+  font-family: "Oswald", sans-serif;
+  font-size: 44px;
+  font-weight: bold;
+  color: #f2f4f7;
+}
+
+.descricaoBanner {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: #f2f4f7;
+}
