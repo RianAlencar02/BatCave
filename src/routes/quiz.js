@@ -3,7 +3,7 @@ var router = express.Router();
 
 var quizController = require("../controllers/quizController");
 
-// Aqui, estamos recebendo as informações do HTML e enviando para a function cadastrar de usuarioController
+// Recebendo um id para ir atrás das questões daquele
 router.get(`/buscarPerguntas/:tipo/:idHistoriaOuPersonagem`, function (req, res) {
     quizController.buscarPerguntas(req, res);
 })

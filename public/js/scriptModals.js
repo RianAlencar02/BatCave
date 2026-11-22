@@ -1,7 +1,8 @@
 // Constantes para o modal de quiz
 const abrirModalQuiz = document.getElementById("abrirQuiz");
-const fecharIniciarQuiz = document.getElementById("iniciarQuiz");
+const iniciarQuiz = document.getElementById("iniciarQuiz");
 const modalQuiz = document.getElementById("modalIniciarQuiz");
+
 abrirModalQuiz.addEventListener("click", () => {
   if (!idUsuario) {
     window.location = "login.html";
@@ -10,9 +11,9 @@ abrirModalQuiz.addEventListener("click", () => {
   }
 });
 
-fecharIniciarQuiz.addEventListener("click", () => {
-  modalQuiz.close();
-});
+iniciarQuiz.addEventListener("click", () => {
+  window.location.href = "telaQuiz.html" + window.location.search;
+  });
 
 // Constantes para abrir o modal de avaliação.
 const abrirModal = document.getElementById("abrirModalAvaliar");
