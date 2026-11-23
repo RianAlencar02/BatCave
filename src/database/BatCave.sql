@@ -22,7 +22,7 @@ CREATE TABLE adm (
 CREATE TABLE historia (
     idHistoria INT PRIMARY KEY AUTO_INCREMENT,
     tituloHistoria VARCHAR(100),
-    resumoHistoria VARCHAR(100),
+    resumoHistoria VARCHAR(200),
     anoHistoria YEAR,
     tipoHistoria VARCHAR(20),
     criadorHistoria VARCHAR(45),
@@ -166,7 +166,89 @@ INSERT INTO historia (tituloHistoria, resumoHistoria, anoHistoria, tipoHistoria,
     'Arkhamverse',
 'Nove meses após a morte do Coringa e o fechamento da mega-prisão Arkham City, Gotham vive um período inédito de queda nos índices de criminalidade. No entanto, na noite de Halloween, o Espantalho retorna com uma nova e devastadora variante da toxina do medo, ameaçando detonar dispositivos químicos por toda a metrópole e forçando a evacuação imediata de seis milhões de civis. Com apenas criminosos, policiais e o próprio Batman restantes nas ruas tomadas pela chuva, o Cavaleiro das Trevas precisa enfrentar uma coalizão formada por Pinguim, Duas-Caras, Arlequina e Charada, todos financiados e coordenados por uma misteriosa força militar liderada pelo Cavaleiro de Arkham — um comandante tático que conhece cada movimento, fraqueza e equipamento do herói. Enquanto utiliza a versão mais avançada de seu traje e o recém-construído Batmóvel de combate, Bruce ainda luta contra a própria sanidade ao ser assombrado por alucinações contínuas do Coringa causadas pelo sangue infectado em suas veias.',	'./assets/imgs/historias/bannerBatmanArkham.jpg',
     './assets/imgs/detalhesHistoria/bannerBatmanArkham.jpg'
-);
+),
+('Batman: Arkham Asylum',
+    'Preso no Asilo Arkham, Batman precisa sobreviver a uma armadilha mortal preparada pelo Coringa.',
+    2009,
+    'Jogo',
+    'Rocksteady Studios e Paul Dini',
+    'Ação / Aventura',
+    'Arkhamverse',
+    'Após capturar o Coringa na Prefeitura de Gotham e escoltá-lo pessoalmente até o Asilo Arkham, Batman percebe que a rendição do vilão fazia parte de um plano meticulosamente arquitetado. Com a ajuda interna de Arlequina, o Palhaço Príncipe do Crime assume o controle total da ilha, liberta os criminosos mais perigosos da cidade e ameaça detonar bombas escondidas por toda Gotham caso alguém tente invadir o local. Isolado em meio a pacientes enlouquecidos e vilões como Espantalho, Hera Venenosa, Crocodilo e Bane, o Cavaleiro das Trevas precisa utilizar suas habilidades de detetive, furtividade e combate para impedir que o Coringa produza um exército de monstros através da fórmula experimental Titã.',
+    './assets/imgs/historias/bannerBatmanArkhamAsylum.png',
+    './assets/imgs/detalhesHistoria/capaBatmanArkhamAsylum.jpg'
+),
+(
+    'Batman: Arkham City',
+    'Encarcerado em uma megaprisão murada no coração de Gotham, Batman investiga o misterioso Protocolo 10.',
+    2011,
+    'Jogo',
+    'Rocksteady Studios e Paul Dini',
+    'Ação / Aventura',
+    'Arkhamverse',
+    'Um ano após os eventos no Asilo Arkham, o novo prefeito Quincy Sharp transforma os antigos bairros degradados de Gotham em Arkham City, uma gigantesca prisão a céu aberto cercada por muros impenetráveis e vigiada pelos mercenários da força militar TYGER. Quando Bruce Wayne é preso ao protestar publicamente contra o projeto, ele precisa vestir o manto do Batman para sobreviver às guerras de território entre Coringa, Pinguim e Duas-Caras. Enquanto corre contra o tempo para encontrar uma cura após ser infectado pelo sangue envenenado do Coringa, o herói precisa desvendar os planos sombrios do diretor Hugo Strange e impedir a execução do catastrófico Protocolo 10.',
+    './assets/imgs/historias/bannerBatmanArkhamCity.png',
+    './assets/imgs/detalhesHistoria/capaBatmanArkhamCity.jpg'
+),
+(
+    'Batman: Arkham Origins',
+    'Na véspera de Natal, um jovem Batman enfrenta oito assassinos contratados para eliminá-lo.',
+    2013,
+    'Jogo',
+    'WB Games Montréal',
+    'Ação / Aventura',
+    'Arkhamverse',
+    'Anos antes da ascensão dos maiores supervilões de Gotham, Bruce Wayne ainda é um vigilante em início de carreira, temido pelos criminosos e caçado como um fora da lei pela própria polícia corrupta da cidade. Na véspera de Natal, o poderoso chefão Máscara Negra oferece uma recompensa de cinquenta milhões de dólares pela cabeça do morcego, atraindo oito dos assassinos mais letais do mundo — incluindo Exterminador, Pistoleiro, Bane e Lady Shiva — para Gotham City. Ao longo de uma única noite congelante, Batman precisa sobreviver às emboscadas desses mercenários enquanto cruza pela primeira vez o caminho de um agente caótico que mudará sua vida para sempre: o Coringa.',
+    './assets/imgs/historias/bannerBatmanArkhamOrigins.jpg',
+    './assets/imgs/detalhesHistoria/capaBatmanArkhamOrigins.jpg'
+),
+(
+    'Batman: Asilo Arkham',
+    'Uma jornada psicológica e surreal pelos corredores mais sombrios da mente do Batman e de seus inimigos.',
+    1989,
+    'Quadrinho',
+    'Grant Morrison e Dave McKean',
+    'Terror / Psicológico',
+    'Universo DC',
+    'Liderados pelo Coringa, os internos do Asilo Arkham tomam o controle da instituição e fazem toda a equipe médica refém, exigindo apenas uma condição para libertá-los: que o Batman entre no asilo e passe uma noite entre eles. Ao atravessar os portões da antiga mansão fundada pelo perturbado Amadeus Arkham, o Cavaleiro das Trevas mergulha em um pesadelo claustrofóbico e simbólico. Confrontando reflexos distorcidos de sua própria sanidade através de encontros perturbadores com Duas-Caras, Chapeleiro Louco, Crocodilo e o próprio Coringa, Bruce Wayne precisa encarar seus traumas mais profundos para descobrir se realmente pertence ao lado de fora dos muros do hospício.',
+    './assets/imgs/historias/bannerBatmanAsiloArkham.jpg',
+    './assets/imgs/detalhesHistoria/capaBatmanAsiloArkham.jpg'
+),
+(
+    'Batman: O Cavaleiro das Trevas',
+    'Aos 55 anos, um Bruce Wayne aposentado retorna das sombras para salvar uma Gotham tomada pelo caos.',
+    1986,
+    'Quadrinho',
+    'Frank Miller e Klaus Janson',
+    'Ação / Distopia',
+    'Terra-31',
+    'Dez anos após aposentar o manto do morcego devido à morte de Jason Todd, um Bruce Wayne envelhecido e amargurado observa Gotham City sucumbir à violência extrema da gangue dos Mutantes em meio a uma onda de calor sufocante e tensões nucleares da Guerra Fria. Incapaz de ignorar o chamado de sua cidade, ele retorna à ativa ao lado de uma nova e destemida Robin, Carrie Kelley, despertando tanto a esperança dos cidadãos quanto a fúria de antigos inimigos como Duas-Caras e o Coringa. Considerado um divisor de águas nos quadrinhos, o confronto culmina em uma batalha épica entre o vigilante fora da lei e um Superman submisso às ordens do governo.',
+    './assets/imgs/historias/bannerBatmanCavaleiroDasTrevas.jpg',
+    './assets/imgs/detalhesHistoria/capaBatmanCavaleiroDasTrevas.jpg'
+),
+(
+    'Batman Begins',
+    'A jornada de Bruce Wayne pelo mundo até forjar o símbolo que enfrentará o medo e a corrupção em Gotham.',
+    2005,
+    'Filme',
+    'Christopher Nolan e David S. Goyer',
+    'Ação / Drama',
+    'Trilogia O Cavaleiro das Trevas',
+    'Marcado pelo trauma do assassinato de seus pais e pela culpa de sentir medo, o jovem bilionário Bruce Wayne abandona Gotham City e viaja pelo mundo para compreender a mente criminosa. Nas montanhas da Ásia, ele é recrutado e treinado nas artes marciais e nas sombras por Henri Ducard e Ra''s al Ghul, líderes da misteriosa Liga das Sombras. Ao recusar os métodos letais da organização e retornar à sua cidade natal, Bruce transforma seu maior medo infantil em uma arma contra o crime, contando com a lealdade de Alfred Pennyworth, a tecnologia de Lucius Fox e a honestidade do sargento Jim Gordon para deter o plano do Espantalho de envenenar Gotham com gás do medo.',
+    './assets/imgs/historias/bannerBatmanBegins.jpg',
+    './assets/imgs/detalhesHistoria/capaBatmanBegins.jpg'
+),
+(
+    'The Batman',
+    'Em seu segundo ano como vigilante, Batman investiga uma série de assassinatos brutais cometidos pelo Charada.',
+    2022,
+    'Filme',
+    'Matt Reeves e Peter Craig',
+    'Suspense / Policial',
+    'Universo The Batman',
+    'Atuando há dois anos nas ruas chuvosas e opressivas de Gotham City como a personificação da vingança, um recluso Bruce Wayne mergulha nas sombras do submundo quando um serial killer sádico conhecido como Charada passa a assassinar figuras de alto escalão da elite política e policial da cidade. Deixando enigmas macabros endereçados diretamente ao Batman em cada cena do crime, o assassino expõe uma teia profunda de corrupção que liga a máfia de Carmine Falcone ao próprio passado da família Wayne. Ao lado do tenente James Gordon e da enigmática Selina Kyle, o Cavaleiro das Trevas precisa aprimorar seu lado detetive e redefinir o verdadeiro significado de seu símbolo para salvar Gotham da destruição.',
+    './assets/imgs/historias/bannerTheBatman.jpg',
+    './assets/imgs/detalhesHistoria/capaTheBatman.jpg');
 
 
 INSERT INTO comentarioEditor(fkAdm, fkHistoria, textoComentarioEditor) VALUES
@@ -641,3 +723,5 @@ SELECT a.fkPergunta, a.idAlternativa, a.textoAlternativa, a.alternativaCorreta F
 SELECT p.idPergunta, p.textoPergunta FROM pergunta AS p JOIN quiz AS q ON q.idQuiz = p.fkQuiz
     WHERE q.fkHistoria = 1 ORDER BY p.idPergunta;
     
+SELECT * FROM tentativa;
+SELECT * FROM alternativaEscolhida;
