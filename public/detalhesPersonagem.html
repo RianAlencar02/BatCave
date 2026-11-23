@@ -54,8 +54,19 @@
             </div>
 
             <div class="containerBotoesAcao">
-                <button id="botaoFavoritar" class="botaoAcao">♡<span id="textoBotaoFavoritar" class="iconeBotao"></span></button>
-                <div class="botaoAcao"><span class="iconeBotao">?</span> Fazer quiz</div>
+                <button id="botaoFavoritar" class="botaoAcao">♡ <span id="textoBotaoFavoritar" class="iconeBotao">
+                    </span></button>
+                <div id="abrirQuiz" class="botaoAcao"><span class="iconeBotao">?</span> Fazer quiz</div>
+                <dialog id="modalIniciarQuiz" class="modalQuiz">
+                    <div class="divModal">
+                        <span id="tituloIniciarQuiz">Iniciar o quiz:</span>
+                        <div class="divSobreTentativa">
+                            <span id="texto">Sua tentativa só constará quando você responder todas as questões do
+                                quiz.</span>
+                        </div>
+                        <button class="botaoModal" id="iniciarQuiz">Iniciar Quiz</button>
+                    </div>
+                </dialog>
             </div>
 
             <div class="cardInformacoes">
@@ -91,9 +102,10 @@
             <p id="comenEditor">
         </div>
     </div>
-    <script src="./js/favoritar.js"></script>
     <script src="./js/detalhesPersonagem.js"></script>
-
+    <script src="./js/favoritar.js"></script>
+    <script src="./js/quiz.js"></script>
+    <script src="./js/scriptModals.js"></script>
 </body>
 
 </html>

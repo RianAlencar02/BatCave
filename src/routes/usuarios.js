@@ -31,9 +31,15 @@ router.post("/avaliar/:notaAvaliacao/:idUsuario/:idHistoria", function (req, res
 router.put("/alterarAvaliacao/:notaAvaliacao/:idUsuario/:idHistoria", function (req, res) {
   usuarioController.alterarAvaliacao(req, res);
 });
+
 router.get("/verificarAvaliacao/:idUsuario/:idHistoria", function (req, res) {
   usuarioController.verificarAvaliacao(req, res);
 });
+
+router.post("/inserirTentativaAlternativas", function (req, res) {
+  usuarioController.inserirTentativaAlternativas(req, res);
+});
+
 
 
 

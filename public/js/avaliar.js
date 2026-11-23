@@ -1,7 +1,6 @@
-let parametros = new URLSearchParams(location.search); // Procurando parametros na URL
-let idHistoria = parametros.get("idHistoria"); // Selecionando o parametro do idHistoria na URL.
+let parametrosAvaliar = new URLSearchParams(location.search); // Procurando parametros na URL
+let idHistoria = parametrosAvaliar.get("idHistoria"); // Selecionando o parametro do idHistoria na URL.
 let jaAvaliado = false;
-let idUsuario = sessionStorage.getItem("idUsuario");
 
 
 

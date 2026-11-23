@@ -2,6 +2,7 @@ let jaFavoritado = false;
 let params = new URLSearchParams(window.location.search); // Pegando a url e procurando os parametros
 let categoria = undefined;
 let idFavoritado = undefined;
+let idUsuario = sessionStorage.getItem("idUsuario"); // idUsuario fica somente declarado neste arquivo, já ira suprir a necessidade para personagens e historias ja que ambos tem
 
 if (params.get("idPersonagem")) { // Caso na URL encontrada tenha idPersonagem, transforma a categoria em personagem e o id no idPersonagem passada pelo parametro
   categoria = "personagem";
@@ -12,7 +13,6 @@ if (params.get("idPersonagem")) { // Caso na URL encontrada tenha idPersonagem, 
 }
 
 function favoritar(tipo, idFavoritado) {
-  let idUsuario = sessionStorage.getItem("idUsuario");
 
   if (!idUsuario) {
     window.location = "login.html";
@@ -49,7 +49,6 @@ function favoritar(tipo, idFavoritado) {
 
 function verificarFavoritado(tipo, idFavoritado) {
   // Função que é executada assim que a página carrega. Verifica se o usuário logado ja curtiu.
-  let idUsuario = sessionStorage.getItem("idUsuario");
 
   if (!idUsuario) {
     console.log("Usuário não está logado.");

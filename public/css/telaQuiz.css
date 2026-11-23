@@ -150,3 +150,76 @@ body {
 .botaoProximaQuestao:hover {
   background-color: #a91f2f;
 }
+
+/* fundo escurecido que cobre a tela e centraliza o card */
+.overlay-quiz {
+  display: none; /* começa escondido */
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay-quiz.ativo {
+  display: flex;
+}
+
+.alternativa-correta {
+  background-color: #10ad4f; /* verde fraco */
+  transition: background-color 0.2s;
+}
+
+.alternativa-errada {
+  background-color: #c62839; /* vermelho fraco */
+  transition: background-color 0.2s;
+}
+/* card que apaerece após o quiz acabar */
+.card-resultado {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: min(90%, 420px);
+  min-height: 300px;
+  padding: 28px 24px;
+  background-color: #0B0B0D;
+  border-radius: 20px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.titulo-resultado {
+  font-size: 24px;
+  color: #C62839;
+}
+
+.centro-resultado {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.acertos-resultado {
+  font-size: 32px;
+  font-weight: bold;
+  color: #F2F4F7;
+}
+
+.porcentagem-resultado {
+  font-size: 16px;
+  color: #9AA5B1;
+  opacity: 0.6;
+}
+
+/* botão no centro inferior */
+.botao-resultado {
+  padding: 12px 24px;
+  background-color: #c62839;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  
+}

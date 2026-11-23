@@ -224,3 +224,39 @@ body {
   color: #f2f4f7;
 }
 
+
+
+.modalQuiz {
+  margin: auto;  /* centraliza o modal */
+  background-color: #131923;
+  color: #f2f4f7;
+  border: 1px solid #23364d;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.divModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.opcoesModal {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.botaoModal{
+  width: 80%;
+  background-color: #c62839;
+  color: #f2f4f7;
+  font-family: "Oswald", sans-serif;
+  border: #23364d 2px solid;
+
+}
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}

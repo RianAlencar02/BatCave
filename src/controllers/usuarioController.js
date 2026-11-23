@@ -24,7 +24,9 @@ function cadastrar(req, res) {
         "A senha está undefined. Verifique o passo a passo até chegar aqui.",
       );
   } else {
-    usuarioModel.cadastrar(nomeUsuario, emailUsuario, senhaUsuario).then(function (resultado) {
+    usuarioModel
+      .cadastrar(nomeUsuario, emailUsuario, senhaUsuario)
+      .then(function (resultado) {
         // Aqui, o resultado é preparado para ser enviado de volta ao scriptCadastro
         res.json(resultado);
       })
@@ -118,7 +120,7 @@ function removerFavorito(req, res) {
     usuarioModel
       .removerFavorito(idUsuario, tipo, idFavoritado)
       .then(function (resultado) {
-        res.json(resultado); 
+        res.json(resultado);
       })
       .catch(function (erro) {
         console.log(erro.sqlMessage);
@@ -147,63 +149,93 @@ function verificarFavoritado(req, res) {
   }
 }
 
-function avaliar(req, res){
+function avaliar(req, res) {
   let notaAvaliacao = req.params.notaAvaliacao;
   let idUsuario = req.params.idUsuario;
   let idHistoria = req.params.idHistoria; // Pegando os três id necessário pelo parametro
 
-  if(!idUsuario || !idHistoria || !notaAvaliacao){
-    res.status(400).send("Alguma informação não chegou.")
-  }
-  else{
-    usuarioModel.avaliar(notaAvaliacao, idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
-    .then(function (resultado) { // Pegando o resultado
-      res.json(resultado);  // Transformando o resultado em JSON
-    })
-    .catch(function (erro) { // Caso um erro aconteça, ele captura
-      console.log("Erro na avaliação: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
-      res.status(500).json(erro.sqlMessage);
-    });
+  if (!idUsuario || !idHistoria || !notaAvaliacao) {
+    res.status(400).send("Alguma informação não chegou.");
+  } else {
+    usuarioModel
+      .avaliar(notaAvaliacao, idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
+      .then(function (resultado) {
+        // Pegando o resultado
+        res.json(resultado); // Transformando o resultado em JSON
+      })
+      .catch(function (erro) {
+        // Caso um erro aconteça, ele captura
+        console.log("Erro na avaliação: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
+        res.status(500).json(erro.sqlMessage);
+      });
   }
 }
 
-function alterarAvaliacao(req, res){
+function alterarAvaliacao(req, res) {
   let notaAvaliacao = req.params.notaAvaliacao;
   let idUsuario = req.params.idUsuario;
-  let idHistoria = req.params.idHistoria; 
+  let idHistoria = req.params.idHistoria;
 
-  if(!idUsuario || !idHistoria || !notaAvaliacao){
-    res.status(400).send("Alguma informação não chegou.")
-  }
-  else{
-    usuarioModel.alterarAvaliacao(notaAvaliacao, idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
-    .then(function (resultado) { // Pegando o resultado
-      res.json(resultado);  // Transformando o resultado em JSON
-    })
-    .catch(function (erro) { // Caso um erro aconteça, ele captura
-      console.log("Erro na alteração: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
-      res.status(500).json(erro.sqlMessage);
-    });
+  if (!idUsuario || !idHistoria || !notaAvaliacao) {
+    res.status(400).send("Alguma informação não chegou.");
+  } else {
+    usuarioModel
+      .alterarAvaliacao(notaAvaliacao, idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
+      .then(function (resultado) {
+        // Pegando o resultado
+        res.json(resultado); // Transformando o resultado em JSON
+      })
+      .catch(function (erro) {
+        // Caso um erro aconteça, ele captura
+        console.log("Erro na alteração: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
+        res.status(500).json(erro.sqlMessage);
+      });
   }
 }
 
-function verificarAvaliacao(req, res){
+function verificarAvaliacao(req, res) {
   let idUsuario = req.params.idUsuario;
   let idHistoria = req.params.idHistoria; // Pegando os dois id necessário pelo parametro
 
-  if(!idUsuario || !idHistoria){
-    res.status(400).send("Alguma informação não chegou.")
+  if (!idUsuario || !idHistoria) {
+    res.status(400).send("Alguma informação não chegou.");
+  } else {
+    usuarioModel
+      .verificarAvaliacao(idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
+      .then(function (resultado) {
+        // Pegando o resultado
+        res.json(resultado); // Transformando o resultado em JSON
+      })
+      .catch(function (erro) {
+        // Caso um erro aconteça, ele captura
+        console.log("Erro em verificar avaliação: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
+        res.status(500).json(erro.sqlMessage);
+      });
   }
-  else{
-    usuarioModel.verificarAvaliacao(idUsuario, idHistoria) // Chamando a function do model e passando os paramteros necessários
-    .then(function (resultado) { // Pegando o resultado
-      res.json(resultado);  // Transformando o resultado em JSON
+}
+
+function inserirTentativaAlternativas(req, res) {
+  let pontuacao = req.body.pontuacao;
+  let idUsuario = req.body.idUsuario;
+  let idQuiz = req.body.idQuiz;
+  let respostas = req.body.respostas; // vetor com objetos, onde tem idPergunta, idAlternativa.
+
+  usuarioModel
+    .inserirTentativa(pontuacao, idUsuario, idQuiz)
+    .then(function (resultadoInsercao) {
+      let idTentativa = resultadoInsercao.insertId; // Como o idTentativa é AUTO-INCREMENT, aqui ele pega a resposta dada do model, e seleciona esse campo "insertId" que é o id gerado automaticamente
+      for (let i = 0; i < respostas.length; i++) {
+        let idAlternativa = respostas[i].idAlternativa;
+        usuarioModel.inserirAlternativaEscolhida(idTentativa, idAlternativa);
+      }
     })
-    .catch(function (erro) { // Caso um erro aconteça, ele captura
-      console.log("Erro em verificar avaliação: ", erro.sqlMessage); // E informa aqui, devolvendo o resultado na linha de baixo.
+    .catch(function (erro) {
+      console.log(
+        "Erro ao inserir tentativa e alternativas ao banco. Erro: ",
+        erro,
+      );
       res.status(500).json(erro.sqlMessage);
     });
-  }
 }
 
 module.exports = {
@@ -214,5 +246,6 @@ module.exports = {
   removerFavorito,
   avaliar,
   alterarAvaliacao,
-  verificarAvaliacao
+  verificarAvaliacao,
+  inserirTentativaAlternativas,
 };

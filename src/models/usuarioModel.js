@@ -84,6 +84,18 @@ function puxarInformacoesUsuario(idUsuario) {
   return database.executar(querySQL);
 }
 
+function inserirTentativa(pontuacao, idUsuario, idQuiz) {
+  let querySQL = `INSERT INTO tentativa (pontuacao, fkUsuario, fkQuiz) VALUES (${pontuacao}, ${idUsuario}, ${idQuiz})`;
+  console.log("Executando a query para registrar uma tentativa após o termino do quiz: \n" + querySQL);
+  return database.executar(querySQL);
+}
+
+function inserirAlternativaEscolhida(idTentativa, idAlternativa) {
+  let querySQL = `INSERT INTO alternativaEscolhida (fkTentativa, fkAlternativa) VALUES (${idTentativa}, ${idAlternativa})`;
+  console.log("Registrando alternativa escolhida: \n" + querySQL);
+  return database.executar(querySQL);
+}
+
 module.exports = {
   cadastrar,
   logar,
@@ -93,4 +105,7 @@ module.exports = {
   avaliar,
   verificarAvaliacao,
   alterarAvaliacao,
+  puxarInformacoesUsuario,
+  inserirTentativa,
+  inserirAlternativaEscolhida
 };

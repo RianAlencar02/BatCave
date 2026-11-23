@@ -126,13 +126,9 @@ CREATE TABLE tentativa (
 CREATE TABLE alternativaEscolhida (
     fkTentativa INT,
     fkAlternativa INT,
-    fkPergunta INT,
-    fkQuizPergunta INT,
-    PRIMARY KEY (fkTentativa, fkAlternativa, fkPergunta, fkQuizPergunta),
+    PRIMARY KEY (fkTentativa, fkAlternativa),
     CONSTRAINT fk_alternativaEscolhida_tentativa FOREIGN KEY (fkTentativa) REFERENCES tentativa(idTentativa),
-    CONSTRAINT fk_alternativaEscolhida_alternativa FOREIGN KEY (fkAlternativa) REFERENCES alternativa(idAlternativa),
-    CONSTRAINT fk_alternativaEscolhida_pergunta FOREIGN KEY (fkPergunta) REFERENCES pergunta(idPergunta),
-    CONSTRAINT fk_alternativaEscolhida_quiz FOREIGN KEY (fkQuizPergunta) REFERENCES quiz(idQuiz)
+    CONSTRAINT fk_alternativaEscolhida_alternativa FOREIGN KEY (fkAlternativa) REFERENCES alternativa(idAlternativa)
 );
 
 INSERT INTO adm (nomeAdm, emailAdm, senhaAdm) VALUES
@@ -634,3 +630,14 @@ HAVING COUNT(*) = 5;
 SELECT  h.tituloHistoria, h.bannerHistoria, ah.notaAvaliacao, ah.dataAvaliacao FROM historia AS h
 JOIN avaliacaoHistoria AS ah ON ah.fkHistoria = h.idHistoria
 WHERE ah.fkUsuario = 1;
+
+
+SELECT a.fkPergunta, a.idAlternativa, a.textoAlternativa, a.alternativaCorreta FROM alternativa AS a
+    INNER JOIN pergunta AS p ON p.idPergunta = a.fkPergunta
+    INNER JOIN quiz AS q ON q.idQuiz = p.fkQuiz
+    WHERE q.fkHistoria = 1
+    ORDER BY a.fkPergunta ASC;
+    
+SELECT p.idPergunta, p.textoPergunta FROM pergunta AS p JOIN quiz AS q ON q.idQuiz = p.fkQuiz
+    WHERE q.fkHistoria = 1 ORDER BY p.idPergunta;
+    
