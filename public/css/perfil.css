@@ -33,15 +33,14 @@ body {
 
 .botaoSair {
   display: flex;
+  cursor: pointer;
   align-items: center;
   justify-content: center;
-  padding: 12px 30px;
-  background-color: transparent;
-  color: #f2f4f7;
+  color: #f2f4f77f;
+  padding: 25px;
   text-decoration: none;
   font-family: "Oswald", sans-serif;
   font-size: 20px;
-  border: 2px #23364d solid;
   border-radius: 10px;
 }
 
@@ -430,4 +429,10 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 18px;
   color: #f2f4f7;
+}
+
+.divTituloBotao{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

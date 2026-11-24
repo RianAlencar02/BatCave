@@ -31,20 +31,23 @@
                 <a class="botaoLogin" href="./login.html">Login</a>
             </div>
             <div class="usuarioLogado" id="logado" style="display: none;">
-                <a href="./perfil.html" class="divNomeIcone" id="botaoPerfil"> <span class="nomeUsuario" id="nomeUsuario"> </span> <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt=""> </a>
+                <a href="./perfil.html" class="divNomeIcone" id="botaoPerfil"> <span class="nomeUsuario"
+                        id="nomeUsuario"> </span> <img src="./assets/icon/iconUsuario.png" class="imgLogado" alt="">
+                </a>
             </div>
         </nav>
         <script src="./js/navBar.js"></script>
     </header>
 
     <main class="containerPerfil">
-        <h1 class="tituloPerfil">RIAN ALENCAR</h1>
-
+        <div class="divTituloBotao">
+            <h1 id="tituloNomeUsuario" class="tituloPerfil"></h1> <span id="botaoSair" class="botaoSair">Sair</span>
+        </div>
         <div class="barraAbas">
             <button class="botaoAba abaAtiva" data-aba="perfilInicial">Visão geral</button>
-            <button class="botaoAba" data-aba="perfilFavoritados">Favoritos (3)</button>
-            <button class="botaoAba" data-aba="perfilAvaliados">Histórias avaliadas (3)</button>
-            <button class="botaoAba" data-aba="perfilQuizConcluido">Quizzes concluídos (3)</button>
+            <button class="botaoAba" data-aba="perfilFavoritados" id="qntFavoritados"></button>
+            <button class="botaoAba" data-aba="perfilAvaliados" id="qntAvaliados"></button>
+            <button class="botaoAba" data-aba="perfilQuizConcluido" id="qntTentativas"></button>
         </div>
 
         <!-- Aba 1 - Visão geral -->
@@ -57,30 +60,30 @@
                 <div class="gridDados">
                     <div class="campoDado">
                         <span class="rotuloDado">Nome</span>
-                        <span class="valorDado">Rian Alencar</span>
+                        <span id="cardNomeUsuario" class="valorDado"></span>
                     </div>
                     <div class="campoDado">
                         <span class="rotuloDado">E-mail</span>
-                        <span class="valorDado">rian@email.com</span>
+                        <span id="cardEmailUsuario" class="valorDado"></span>
                     </div>
                     <div class="campoDado">
                         <span class="rotuloDado">Data de criação</span>
-                        <span class="valorDado">12 de outubro de 2026</span>
+                        <span id="cardDataCriacao" class="valorDado"></span>
                     </div>
                 </div>
             </div>
 
             <div class="gridMetricas">
                 <div class="cardMetrica">
-                    <span class="numeroMetrica">3</span>
+                    <span id="metricaFavoritados" class="numeroMetrica">3</span>
                     <span class="descricaoMetrica">Personagens ou histórias favoritadas</span>
                 </div>
                 <div class="cardMetrica">
-                    <span class="numeroMetrica">3</span>
+                    <span id="metricaAvaliados" class="numeroMetrica">3</span>
                     <span class="descricaoMetrica">Histórias avaliadas</span>
                 </div>
                 <div class="cardMetrica">
-                    <span class="numeroMetrica">3</span>
+                    <span id="metricaTentativas" class="numeroMetrica">3</span>
                     <span class="descricaoMetrica">Quizzes concluídos</span>
                 </div>
             </div>
@@ -100,19 +103,8 @@
                 </div>
             </div>
 
-            <div class="listaPerfis">
-                <div class="itemFavorito">
-                    <img class="miniaturaItem" src="./assets/imgs/historias/bannerBatmanCapuzVermelho.avif" alt="">
-                    <span class="tituloItem">Batman Contra o Capuz Vermelho</span>
-                    <span class="tagCategoria">História</span>
-                    <a class="botaoVerDetalhesSolido" href="./detalhesHistoria.html?idHistoria=2">Ver detalhes</a>
-                </div>
-                <div class="itemFavorito">
-                    <img class="miniaturaItem" src="./assets/imgs/personagens/imgRobinDick.webp" alt="">
-                    <span class="tituloItem">Robin (Dick Grayson)</span>
-                    <span class="tagCategoria">Personagem</span>
-                    <a class="botaoVerDetalhesSolido" href="./detalhesPersonagem.html">Ver detalhes</a>
-                </div>
+            <div id="listaFavoritos" class="listaPerfis">
+
             </div>
         </section>
 
@@ -123,60 +115,14 @@
                 <span class="contadorSecao">3 histórias avaliadas</span>
             </div>
 
-            <div class="listaPerfis">
+            <div id="listaAvaliados" class="listaPerfis">
                 <div class="cabecalhoTabela">
                     <span class="rotuloColuna">HISTÓRIA</span>
                     <span class="rotuloColuna">SUA NOTA</span>
                     <span class="rotuloColuna">AVALIAÇÃO</span>
                 </div>
 
-                <div class="itemAvaliacao">
-                    <div class="celulaPrincipal">
-                        <img class="miniaturaItem" src="./assets/imgs/imgBatmanAbsoluto.jpe" alt="">
-                        <div class="infoItem">
-                            <span class="categoriaItem">Quadrinho</span>
-                            <span class="nomeItem">Batman Absoluto</span>
-                            <span class="dataItem">Avaliada em 16 de novembro de 2026</span>
-                        </div>
-                    </div>
-                    <div class="celulaNota">
-                        <span class="notaGrande">5 / 5</span>
-                        <span class="textoNota">Nota atribuída</span>
-                    </div>
-                    <a class="botaoVerDetalhesEscuro" href="./detalhesHistoria.html?idHistoria=1">Ver detalhes</a>
-                </div>
 
-                <div class="itemAvaliacao">
-                    <div class="celulaPrincipal">
-                        <img class="miniaturaItem" src="./assets/imgs/historias/bannerBatmanCapuzVermelho.avif" alt="">
-                        <div class="infoItem">
-                            <span class="categoriaItem">Filme</span>
-                            <span class="nomeItem">Batman Contra o Capuz Vermelho</span>
-                            <span class="dataItem">Avaliada em 14 de novembro de 2026</span>
-                        </div>
-                    </div>
-                    <div class="celulaNota">
-                        <span class="notaGrande">4 / 5</span>
-                        <span class="textoNota">Nota atribuída</span>
-                    </div>
-                    <a class="botaoVerDetalhesEscuro" href="./detalhesHistoria.html?idHistoria=2">Ver detalhes</a>
-                </div>
-
-                <div class="itemAvaliacao">
-                    <div class="celulaPrincipal">
-                        <img class="miniaturaItem" src="./assets/imgs/imgBatmanArkhamKnight.jpe" alt="">
-                        <div class="infoItem">
-                            <span class="categoriaItem">Jogo</span>
-                            <span class="nomeItem">Batman Arkham Knight</span>
-                            <span class="dataItem">Avaliada em 10 de novembro de 2026</span>
-                        </div>
-                    </div>
-                    <div class="celulaNota">
-                        <span class="notaGrande">5 / 5</span>
-                        <span class="textoNota">Nota atribuída</span>
-                    </div>
-                    <a class="botaoVerDetalhesEscuro" href="./detalhesHistoria.html?idHistoria=3">Ver detalhes</a>
-                </div>
             </div>
         </section>
 
@@ -189,7 +135,7 @@
 
             <div class="bannerQuizzes">
                 <div class="metricaBanner">
-                    <span class="numeroBanner">3</span>
+                    <span id="qntQuizes" class="numeroBanner"></span>
                     <span class="descricaoBanner">Quizzes concluídos</span>
                 </div>
                 <div class="metricaBanner">
@@ -202,54 +148,8 @@
                 </div>
             </div>
 
-            <div class="listaPerfis listaSemFundo">
-                <div class="itemQuiz">
-                    <div class="celulaPrincipal">
-                        <img class="miniaturaItem" src="./assets/imgs/imgBatmanAbsoluto.jpe" alt="">
-                        <div class="infoItem">
-                            <span class="tagConcluido">CONCLUÍDO</span>
-                            <span class="nomeItem">Batman Absoluto</span>
-                            <span class="dataItem">Concluído em 16 de novembro de 2026</span>
-                        </div>
-                    </div>
-                    <div class="celulaNota">
-                        <span class="notaGrande">4 / 5</span>
-                        <span class="textoNota">80% de acertos</span>
-                    </div>
-                    <a class="botaoVerDetalhesEscuro" href="./detalhesHistoria.html?idHistoria=1">Ver detalhes</a>
-                </div>
+            <div id="listaTentativas" class="listaPerfis listaSemFundo">
 
-                <div class="itemQuiz">
-                    <div class="celulaPrincipal">
-                        <img class="miniaturaItem" src="./assets/imgs/historias/bannerBatmanCapuzVermelho.avif" alt="">
-                        <div class="infoItem">
-                            <span class="tagConcluido">CONCLUÍDO</span>
-                            <span class="nomeItem">Batman Contra o Capuz Vermelho</span>
-                            <span class="dataItem">Concluído em 14 de novembro de 2026</span>
-                        </div>
-                    </div>
-                    <div class="celulaNota">
-                        <span class="notaGrande">1 / 5</span>
-                        <span class="textoNota">20% de acertos</span>
-                    </div>
-                    <a class="botaoVerDetalhesEscuro" href="./detalhesHistoria.html?idHistoria=2">Ver detalhes</a>
-                </div>
-
-                <div class="itemQuiz">
-                    <div class="celulaPrincipal">
-                        <img class="miniaturaItem" src="./assets/imgs/imgBatmanArkhamKnight.jpe" alt="">
-                        <div class="infoItem">
-                            <span class="tagConcluido">CONCLUÍDO</span>
-                            <span class="nomeItem">Batman Arkham Knight</span>
-                            <span class="dataItem">Concluído em 10 de novembro de 2026</span>
-                        </div>
-                    </div>
-                    <div class="celulaNota">
-                        <span class="notaGrande">2 / 5</span>
-                        <span class="textoNota">40% de acertos</span>
-                    </div>
-                    <a class="botaoVerDetalhesEscuro" href="./detalhesHistoria.html?idHistoria=3">Ver detalhes</a>
-                </div>
             </div>
         </section>
     </main>

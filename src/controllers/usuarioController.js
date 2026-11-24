@@ -239,11 +239,10 @@ function inserirTentativaAlternativas(req, res) {
 }
 
 function puxarInformacoesUsuario(req, res) {
-  let idUsuario = req.body.idUsuario;
+  let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-    alert("Usuário indefinido. ", idUsuario)
-    window.location = "index.html"
+      return res.status(400).json({ erro: "Usuário indefinido" });
   }
   usuarioModel.puxarInformacoesUsuario(idUsuario).then(function (informacoesTrazidas) {
     res.json(informacoesTrazidas);
@@ -255,10 +254,10 @@ function puxarInformacoesUsuario(req, res) {
 }
 
 function puxarPersonagensFavoritados(req, res) {
-  let idUsuario = req.body.idUsuario;
+  let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-    alert("Usuário indefinido. ", idUsuario)
+      return res.status(400).json({ erro: "Usuário indefinido" });
   }
   usuarioModel.puxarPersonagensFavoritados(idUsuario).then(function (personagensFavoritados) {
     res.json(personagensFavoritados);
@@ -270,10 +269,10 @@ function puxarPersonagensFavoritados(req, res) {
 }
 
 function puxarHistoriasFavoritadas(req, res) {
-  let idUsuario = req.body.idUsuario;
+  let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-    alert("Usuário indefinido. ", idUsuario)
+      return res.status(400).json({ erro: "Usuário indefinido" });
   }
   usuarioModel.puxarHistoriasFavoritadas(idUsuario).then(function (historiasFavoritadas) {
     res.json(historiasFavoritadas);
@@ -285,10 +284,10 @@ function puxarHistoriasFavoritadas(req, res) {
 }
 
 function puxarAvaliacoesHistoria(req, res) {
-  let idUsuario = req.body.idUsuario;
+  let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-    alert("Usuário indefinido. ", idUsuario)
+      return res.status(400).json({ erro: "Usuário indefinido" });
   }
   usuarioModel.puxarAvaliacoesHistoria(idUsuario).then(function (avaliacoesHistoria) {
     res.json(avaliacoesHistoria);
@@ -300,10 +299,10 @@ function puxarAvaliacoesHistoria(req, res) {
 }
 
 function puxarTentativasUsuario(req, res) {
-  let idUsuario = req.body.idUsuario;
+  let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-    alert("Usuário indefinido. ", idUsuario)
+      return res.status(400).json({ erro: "Usuário indefinido" });
   }
   usuarioModel.puxarTentativasUsuario(idUsuario).then(function (tentativasUsuario) {
     res.json(tentativasUsuario);

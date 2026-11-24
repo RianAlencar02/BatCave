@@ -105,8 +105,8 @@ function inserirAlternativaEscolhida(idTentativa, idAlternativa) {
 
 function puxarHistoriasFavoritadas(idUsuario) {
   let querySQL = `SELECT h.idHistoria, h.tituloHistoria, h.bannerHistoria FROM usuario AS u
-   LEFT JOIN historiasFavoritadas AS hf ON hf.fkUsuario = u.idUsuario 
-   LEFT JOIN historia AS h ON h.idHistoria = hf.fkHistoria  WHERE idUsuario = ${idUsuario}`;
+  JOIN historiasFavoritadas AS hf ON hf.fkUsuario = u.idUsuario 
+  JOIN historia AS h ON h.idHistoria = hf.fkHistoria  WHERE idUsuario = ${idUsuario}`;
   console.log("Trazendo todos as histórias favoritadas: \n" + querySQL);
   return database.executar(querySQL);
 }
@@ -120,17 +120,43 @@ function puxarPersonagensFavoritados(idUsuario) {
 }
 
 function puxarTentativasUsuario(idUsuario) {
-  let querySQL = `SELECT t.idTentativa, h.tituloHistoria, h.bannerHistoria, t.pontuacao 
-  FROM tentativa AS t 
-  JOIN quiz AS q on t.fkQuiz = q.idQuiz
-  JOIN historia AS h ON q.fkHistoria = h.idHistoria
-  WHERE u.idUsuario = ${idUsuario}`;
+  let querySQL = `SELECT t.idTentativa,
+       t.pontuacao,
+       t.dataTentativa AS dataHora,
+       DATE_FORMAT(t.dataTentativa, '%d/%m/%Y') AS dataTentativa,
+       'historia' AS tipo,
+       h.idHistoria AS idItem,
+       h.tituloHistoria AS titulo,
+       h.bannerHistoria AS banner
+FROM tentativa AS t
+JOIN quiz AS q ON t.fkQuiz = q.idQuiz
+JOIN historia AS h ON q.fkHistoria = h.idHistoria
+WHERE t.fkUsuario = ${idUsuario}
+
+UNION ALL
+
+SELECT t.idTentativa,
+       t.pontuacao,
+       t.dataTentativa AS dataHora,
+       DATE_FORMAT(t.dataTentativa, '%d/%m/%Y') AS dataTentativa,
+       'personagem' AS tipo,
+       p.idPersonagem AS idItem,
+       p.nomePersonagem AS titulo,
+       p.bannerPersonagem AS banner
+FROM tentativa AS t
+JOIN quiz AS q ON t.fkQuiz = q.idQuiz
+JOIN personagem AS p ON q.fkPersonagem = p.idPersonagem
+WHERE t.fkUsuario = ${idUsuario}
+
+ORDER BY dataHora DESC`;
   console.log("Trazendo as tentativas feitas pelo usuário: \n" + querySQL);
   return database.executar(querySQL);
 }
 
+
+
 function puxarAvaliacoesHistoria(idUsuario){
-  let querySQL = `SELECT  ah.idAvaliacaoHistoria, h.tituloHistoria, h.bannerHistoria, ah.notaAvaliacao, DATE_FORMAT(ah.dataAvaliacao, ''%d/%m/%Y') AS dataAvaliacao FROM historia AS h
+  let querySQL = `SELECT  ah.idAvaliacaoHistoria, ah.fkHistoria, h.tituloHistoria, h.bannerHistoria, h.tipoHistoria, ah.notaAvaliacao, DATE_FORMAT(ah.dataAvaliacao, '%d/%m/%Y') AS dataAvaliacao FROM historia AS h
 JOIN avaliacaoHistoria AS ah ON ah.fkHistoria = h.idHistoria
 WHERE ah.fkUsuario = ${idUsuario}`;
 console.log("Trazendo as avaliações de um usuário: ", puxarAvaliacoesHistoria);
