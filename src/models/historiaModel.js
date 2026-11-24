@@ -2,7 +2,7 @@ var database = require("../database/config");
 
 function buscarHistorias() {
   // Preparando a query para criar um usuário.
-  let querySQL = `SELECT * FROM historia;`;
+  let querySQL = `SELECT * FROM historia ORDER BY tituloHistoria ASC;`;
   console.log(
     "Executando a query para buscar todas as historias: \n" + querySQL,
   );

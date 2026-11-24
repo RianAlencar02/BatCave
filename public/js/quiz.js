@@ -65,7 +65,7 @@ function carregarPerguntasAlternativas() {
 
   let pergunta = objetoPergunta.textoPergunta;
   contadorPergunta.innerHTML = contador + 1;
-  categoriaQuiz.innerHTML = categoria;
+  categoriaQuiz.innerHTML = categoria == "historia" ? 'História' : 'Personagem';
   textoPergunta.innerHTML = pergunta;
   listagemAlternativas.innerHTML = ``; // limpando a div de cards para cada vez que a pergunta trocar, as alternativas também trocarem.
   let cardsAlternativa = "";
@@ -131,12 +131,25 @@ botaoProximaQuestao.addEventListener("click", function () {
 });
 
 function finalizarQuiz() {
+  let fraseFinal = undefined;
+  if (acertos < 1){
+     fraseFinal = "Basta um quiz ruim para um homem bom ficar louco..."
+  }
+  else if (acertos <= 2){
+     fraseFinal = "Você é igual ao Robin, ainda tem muito a melhorar."
+  }
+  else if (acertos <=4){
+     fraseFinal = "Um bom vigilante, Gotham City precisa de você."
+  }
+  else{
+     fraseFinal = "Preparo absoluto. Você é o próprio cavaleiro das trevas."
+  }
   let porcentagemAcerto = ((acertos / 5) * 100).toFixed();
   document.getElementById("acertos").textContent = acertos;
   document.getElementById("total").textContent = 5;
   document.getElementById("porcentagem").textContent = porcentagemAcerto;
   document.getElementById("resultado-quiz").classList.add("ativo"); // ativa o modal para exibir o resultado.
-  
+  document.getElementById("fraseFinalQuiz").textContent = fraseFinal;
   fetch("/usuarios/inserirTentativaAlternativas", {
   method: "POST",
   headers: { "Content-Type": "application/json" },

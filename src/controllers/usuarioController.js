@@ -238,6 +238,82 @@ function inserirTentativaAlternativas(req, res) {
     });
 }
 
+function puxarInformacoesUsuario(req, res) {
+  let idUsuario = req.body.idUsuario;
+
+  if (!idUsuario) {
+    alert("Usuário indefinido. ", idUsuario)
+    window.location = "index.html"
+  }
+  usuarioModel.puxarInformacoesUsuario(idUsuario).then(function (informacoesTrazidas) {
+    res.json(informacoesTrazidas);
+    console.log("Infos puxadas: ", informacoesTrazidas)
+  }).catch(function (erroInfos) {
+    console.log("Erro ao puxar as informaçõoes: ", erroInfos)
+    res.status(500).json(erroInfos.sqlMessage);
+  })
+}
+
+function puxarPersonagensFavoritados(req, res) {
+  let idUsuario = req.body.idUsuario;
+
+  if (!idUsuario) {
+    alert("Usuário indefinido. ", idUsuario)
+  }
+  usuarioModel.puxarPersonagensFavoritados(idUsuario).then(function (personagensFavoritados) {
+    res.json(personagensFavoritados);
+    console.log("Infos puxadas: ", personagensFavoritados)
+  }).catch(function (erroInfos) {
+    console.log("Erro ao puxar personagens favoritados: ", erroInfos)
+    res.status(500).json(erroInfos.sqlMessage);
+  })
+}
+
+function puxarHistoriasFavoritadas(req, res) {
+  let idUsuario = req.body.idUsuario;
+
+  if (!idUsuario) {
+    alert("Usuário indefinido. ", idUsuario)
+  }
+  usuarioModel.puxarHistoriasFavoritadas(idUsuario).then(function (historiasFavoritadas) {
+    res.json(historiasFavoritadas);
+    console.log("Infos puxadas: ", historiasFavoritadas)
+  }).catch(function (erroInfos) {
+    console.log("Erro ao puxar as histórias favoritadas: ", erroInfos)
+    res.status(500).json(erroInfos.sqlMessage);
+  })
+}
+
+function puxarAvaliacoesHistoria(req, res) {
+  let idUsuario = req.body.idUsuario;
+
+  if (!idUsuario) {
+    alert("Usuário indefinido. ", idUsuario)
+  }
+  usuarioModel.puxarAvaliacoesHistoria(idUsuario).then(function (avaliacoesHistoria) {
+    res.json(avaliacoesHistoria);
+    console.log("Infos puxadas: ", avaliacoesHistoria)
+  }).catch(function (erroInfos) {
+    console.log("Erro ao puxar as avaliações do usuário: ", erroInfos)
+    res.status(500).json(erroInfos.sqlMessage);
+  })
+}
+
+function puxarTentativasUsuario(req, res) {
+  let idUsuario = req.body.idUsuario;
+
+  if (!idUsuario) {
+    alert("Usuário indefinido. ", idUsuario)
+  }
+  usuarioModel.puxarTentativasUsuario(idUsuario).then(function (tentativasUsuario) {
+    res.json(tentativasUsuario);
+    console.log("Infos puxadas: ", tentativasUsuario)
+  }).catch(function (erroInfos) {
+    console.log("Erro ao puxar as tentativas do usuário: ", erroInfos)
+    res.status(500).json(erroInfos.sqlMessage);
+  })
+}
+
 module.exports = {
   cadastrar,
   logar,
@@ -248,4 +324,9 @@ module.exports = {
   alterarAvaliacao,
   verificarAvaliacao,
   inserirTentativaAlternativas,
+  puxarInformacoesUsuario,
+  puxarPersonagensFavoritados,
+  puxarHistoriasFavoritadas,
+  puxarAvaliacoesHistoria,
+  puxarTentativasUsuario
 };
