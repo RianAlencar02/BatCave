@@ -59,6 +59,7 @@ body {
 
 .divPaiDashboard {
   display: flex;
+    height: 100vh;               
   flex-direction: row;
 }
 
@@ -77,6 +78,7 @@ body {
   border: #23364d 2px solid;
   border-radius: 10px;
   padding: 25px;
+  height: 10px;
 }
 
 .tituloTela {
@@ -182,6 +184,8 @@ body {
   flex-direction: column;
   flex: 1;
   width: 100%;
+    overflow-y: auto;          
+  scrollbar-color: #23364d transparent;  
 }
 
 .linhaCabecalho,
@@ -208,6 +212,8 @@ body {
   display: flex;
   align-items: center;
   padding: 12px 20px;
+  text-align: center;
+  
 }
 
 .linhaCabecalho .celula {
@@ -310,4 +316,15 @@ body {
 
 .botaoDetalhes:hover {
   background-color: #0052cc;
+}
+.opcaoSair {
+  margin-top: auto;
+  padding: 20px;
+  opacity: 50%;
+  background: transparent;
+  border: 0px;
+  color: #f2f4f7;
+  font-family: "Oswald", sans-serif;
+
+  font-size: 25px;
 }

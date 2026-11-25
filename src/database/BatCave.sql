@@ -8,16 +8,12 @@ CREATE TABLE usuario (
     nomeUsuario VARCHAR(45),
     emailUsuario VARCHAR(45),
     senhaUsuario VARCHAR(20),
+    cargoUsuario VARCHAR(15) DEFAULT 'comum',
+    CONSTRAINT chCargo CHECK (cargoUsuario IN ('comum', 'administrador')),
     dataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-
-
-CREATE TABLE adm (
-    idAdm INT PRIMARY KEY AUTO_INCREMENT,
-    nomeAdm VARCHAR(45),
-    emailAdm VARCHAR(50),
-    senhaAdm VARCHAR(20)
-);
+INSERt INTO usuario (nomeUsuario, emailUsuario, senhaUsuario, cargoUsuario) VALUES
+('Rian Alencar', 'rian@adm.com', 'senhaadm123', 'administrador');
 
 CREATE TABLE historia (
     idHistoria INT PRIMARY KEY AUTO_INCREMENT,
@@ -86,7 +82,7 @@ CREATE TABLE comentarioEditor (
     fkAdm INT,
     fkPersonagem INT,
     fkHistoria INT,
-    CONSTRAINT fk_comentarioEditor_adm FOREIGN KEY (fkAdm) REFERENCES adm(idAdm),
+    CONSTRAINT fk_comentarioEditor_adm FOREIGN KEY (fkAdm) REFERENCES usuario(idUsuario),
     CONSTRAINT fk_comentarioEditor_personagem FOREIGN KEY (fkPersonagem) REFERENCES personagem(idPersonagem),
     CONSTRAINT fk_comentarioEditor_historia FOREIGN KEY (fkHistoria) REFERENCES historia(idHistoria)
 );
@@ -95,7 +91,6 @@ CREATE TABLE quiz (
     idQuiz INT PRIMARY KEY AUTO_INCREMENT,
     fkHistoria INT,
     fkPersonagem INT,
-    dataTentativa DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_quiz_historia FOREIGN KEY (fkHistoria) REFERENCES historia(idHistoria),
     CONSTRAINT fk_quiz_personagem FOREIGN KEY (fkPersonagem) REFERENCES personagem(idPersonagem)
 );
@@ -120,6 +115,7 @@ CREATE TABLE tentativa (
     pontuacao INT,
     fkUsuario INT,
     fkQuiz INT,
+	dataTentativa DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_tentativa_usuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario),
     CONSTRAINT fk_tentativa_quiz FOREIGN KEY (fkQuiz) REFERENCES quiz(idQuiz)
 );
@@ -132,8 +128,6 @@ CREATE TABLE alternativaEscolhida (
     CONSTRAINT fk_alternativaEscolhida_alternativa FOREIGN KEY (fkAlternativa) REFERENCES alternativa(idAlternativa)
 );
 
-INSERT INTO adm (nomeAdm, emailAdm, senhaAdm) VALUES
-('Rian', 'rian@adm.com', 'rian123');
 
 INSERT INTO historia (tituloHistoria, resumoHistoria, anoHistoria, tipoHistoria, criadorHistoria, generoHistoria, universoHistoria, sinopseHistoria, bannerHistoria, capaHistoria) VALUES
 (	'Batman Absoluto',
@@ -913,73 +907,3 @@ INSERT INTO alternativa (textoAlternativa, alternativaCorreta, fkPergunta) VALUE
 ('Detetive novato', 0, 80),
 ('Chefe de polícia', 0, 80),
 ('Tenente', 1, 80);
-
-
-
--- SELECT de infos do usuario para o perfil
-SELECT u.* FROM usuario AS u WHERE u.idUsuario = 1;
-
--- SELECT de historias de um usuario especifico para o perfil.
-SELECT h.tituloHistoria, h.bannerHistoria FROM usuario AS u 
-LEFT JOIN historiasFavoritadas AS hf ON hf.fkUsuario = u.idUsuario LEFT JOIN historia AS h ON h.idHistoria = hf.fkHistoria 
-WHERE idUsuario = 1;
-
-
--- SELECT de personagens favoritados de um usuario especifico para o perfil.
-SELECT p.nomePersonagem, p.bannerPersonagem  FROM usuario AS u 
-JOIN personagensFavoritados AS pf ON pf.fkusuario = u.idUsuario JOIN personagem AS p ON p.idPersonagem = pf.fkPersonagem
-WHERE idUsuario = 1;
-
-
--- SELECT para a listagem de quizes respondidos de historia no perfil
-SELECT h.tituloHistoria, h.bannerHistoria, t.idTentativa, SUM(a.alternativaCorreta) AS questoesAcertadas, 
-SUM(a.alternativaCorreta) / 5 * 100 AS 'porcentagemAcerto'
-FROM tentativa AS t 
-JOIN quiz AS q on t.fkQuiz = q.idQuiz
-JOIN historia AS h ON q.fkHistoria = h.idHistoria
-JOIN alternativaEscolhida AS ae ON ae.fkTentativa = t.idTentativa
-JOIN alternativa AS a ON ae.fkAlternativa = a.idAlternativa
-WHERE t.fkUsuario = 1 
-GROUP BY t.idTentativa, q.idQuiz, h.idHistoria, h.tituloHistoria, h.bannerHistoria
-HAVING COUNT(*) = 5; -- Serve para filtrar e só trazer os quizes respondidos, pois após o agrupamento pelo idTentativa, ele só trara as tentativas com 5 registros (ou seja, quizes que foram concluidos).
-
--- SELECT para a listagem de quizes respondidos de personagem no perfil
-SELECT p.nomePersonagem, p.bannerPersonagem, t.idTentativa, SUM(a.alternativaCorreta) AS questoesAcertadas, 
-SUM(a.alternativaCorreta) / 5 * 100 AS 'porcentagemAcerto'
-FROM tentativa AS t 
-JOIN quiz AS q on t.fkQuiz = q.idQuiz
-JOIN personagem AS p ON q.fkPersonagem = p.idPersonagem
-JOIN alternativaEscolhida AS ae ON ae.fkTentativa = t.idTentativa
-JOIN alternativa AS a ON ae.fkAlternativa = a.idAlternativa
-WHERE t.fkUsuario = 1 
-GROUP BY t.idTentativa, q.idQuiz, p.idPersonagem, p.nomePersonagem, p.bannerPersonagem
-HAVING COUNT(*) = 5;
-
--- SELECT de historias avaliadas para o perfil
-SELECT  h.tituloHistoria, h.bannerHistoria, ah.notaAvaliacao, ah.dataAvaliacao FROM historia AS h
-JOIN avaliacaoHistoria AS ah ON ah.fkHistoria = h.idHistoria
-WHERE ah.fkUsuario = 1;
-
-
-SELECT a.fkPergunta, a.idAlternativa, a.textoAlternativa, a.alternativaCorreta FROM alternativa AS a
-    INNER JOIN pergunta AS p ON p.idPergunta = a.fkPergunta
-    INNER JOIN quiz AS q ON q.idQuiz = p.fkQuiz
-    WHERE q.fkHistoria = 1
-    ORDER BY a.fkPergunta ASC;
-    
-SELECT p.idPergunta, p.textoPergunta FROM pergunta AS p JOIN quiz AS q ON q.idQuiz = p.fkQuiz
-    WHERE q.fkHistoria = 1 ORDER BY p.idPergunta;
-
--- Teste para tentar trazes todas as informações iniciais do perfil.
-SELECT 
-    u.nomeUsuario,
-    u.emailUsuario,
-    DATE_FORMAT(u.dataCriacao, '%d/%m/%Y %H:%i:%s') AS dataHoraCriacao,
-    (
-        (SELECT COUNT(*) FROM personagensFavoritados WHERE fkUsuario = u.idUsuario) +
-        (SELECT COUNT(*) FROM historiasFavoritadas WHERE fkUsuario = u.idUsuario)
-    ) AS qntFavoritos,
-    (SELECT COUNT(*) FROM avaliacaoHistoria WHERE fkUsuario = u.idUsuario) AS qntHistoriasAvaliadas,
-    (SELECT COUNT(*) FROM tentativa WHERE fkUsuario = u.idUsuario) AS qntQuizesConcluidos
-FROM usuario u
-WHERE u.idUsuario = ${idUsuario};

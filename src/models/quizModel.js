@@ -45,7 +45,13 @@ function buscarAlternativas(tipo, idHistoriaOuPersonagem) {
   }
 }
 
+function contarQuizesConcluidos(){
+    let querySQL = `SELECT COUNT(idTentativa) AS qntQuizesConcluidos FROM tentativa;`;
+    return database.executar(querySQL);
+  
+}
 module.exports = {
   buscarPerguntas,
   buscarAlternativas,
+  contarQuizesConcluidos
 };

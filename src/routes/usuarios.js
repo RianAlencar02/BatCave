@@ -69,4 +69,6 @@ router.get("/puxarTentativasUsuario/:idUsuario", (req, res) =>
   usuarioController.puxarTentativasUsuario(req, res),
 );
 
+
+
 module.exports = router;

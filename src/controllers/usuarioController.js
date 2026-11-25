@@ -92,6 +92,52 @@ function logar(req, res) {
   }
 }
 
+function logarAdm(req, res) {
+  let emailAdm = req.body.emailAdm;
+  let senhaAdm = req.body.senhaAdm;
+
+  if (!emailAdm) {
+    res
+      .status(400)
+      .send(
+        "O e-mail está undefined. Verifique o passo a passo até chegar aqui.",
+      );
+  } else if (!senhaAdm) {
+    res
+      .status(400)
+      .send(
+        "A senha está undefined. Verifique o passo a passo até chegar aqui.",
+      );
+  } else {
+      usuarioModel.logarAdm(emailAdm, senhaAdm).then(function (resultadoLogin){
+        if(resultadoLogin.length == 1){
+          res.json({
+            idAdm : resultadoLogin[0].idAdm,
+            nomeAdm : resultadoLogin[0].nomeAdm,
+            emailAdm : resultadoLogin[0].emailAdm
+          });
+        }
+        else if(resultadoLogin==0){
+          res.status(403).send("E-mail ou senha incorretos.")
+        }
+        else{
+          res.status(403).send("Mais de um ADM com este login, verifique no banco de dados.")
+        }
+      })
+  }
+}
+
+function contarUsuarios(req, res) {
+  usuarioModel
+    .contarUsuarios().then(function (resultado) {
+      res.status(200).json(resultado[0]);
+    })
+    .catch(function (erro) {
+      console.log("Erro ao contar usuários:", erro.sqlMessage || erro);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function favoritar(req, res) {
   let idUsuario = req.body.idUsuario;
   let tipo = req.params.tipo;
@@ -242,75 +288,98 @@ function puxarInformacoesUsuario(req, res) {
   let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-      return res.status(400).json({ erro: "Usuário indefinido" });
+    return res.status(400).json({ erro: "Usuário indefinido" });
   }
-  usuarioModel.puxarInformacoesUsuario(idUsuario).then(function (informacoesTrazidas) {
-    res.json(informacoesTrazidas);
-    console.log("Infos puxadas: ", informacoesTrazidas)
-  }).catch(function (erroInfos) {
-    console.log("Erro ao puxar as informaçõoes: ", erroInfos)
-    res.status(500).json(erroInfos.sqlMessage);
-  })
+  usuarioModel
+    .puxarInformacoesUsuario(idUsuario)
+    .then(function (informacoesTrazidas) {
+      res.json(informacoesTrazidas);
+      console.log("Infos puxadas: ", informacoesTrazidas);
+    })
+    .catch(function (erroInfos) {
+      console.log("Erro ao puxar as informaçõoes: ", erroInfos);
+      res.status(500).json(erroInfos.sqlMessage);
+    });
 }
 
 function puxarPersonagensFavoritados(req, res) {
   let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-      return res.status(400).json({ erro: "Usuário indefinido" });
+    return res.status(400).json({ erro: "Usuário indefinido" });
   }
-  usuarioModel.puxarPersonagensFavoritados(idUsuario).then(function (personagensFavoritados) {
-    res.json(personagensFavoritados);
-    console.log("Infos puxadas: ", personagensFavoritados)
-  }).catch(function (erroInfos) {
-    console.log("Erro ao puxar personagens favoritados: ", erroInfos)
-    res.status(500).json(erroInfos.sqlMessage);
-  })
+  usuarioModel
+    .puxarPersonagensFavoritados(idUsuario)
+    .then(function (personagensFavoritados) {
+      res.json(personagensFavoritados);
+      console.log("Infos puxadas: ", personagensFavoritados);
+    })
+    .catch(function (erroInfos) {
+      console.log("Erro ao puxar personagens favoritados: ", erroInfos);
+      res.status(500).json(erroInfos.sqlMessage);
+    });
 }
 
 function puxarHistoriasFavoritadas(req, res) {
   let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-      return res.status(400).json({ erro: "Usuário indefinido" });
+    return res.status(400).json({ erro: "Usuário indefinido" });
   }
-  usuarioModel.puxarHistoriasFavoritadas(idUsuario).then(function (historiasFavoritadas) {
-    res.json(historiasFavoritadas);
-    console.log("Infos puxadas: ", historiasFavoritadas)
-  }).catch(function (erroInfos) {
-    console.log("Erro ao puxar as histórias favoritadas: ", erroInfos)
-    res.status(500).json(erroInfos.sqlMessage);
-  })
+  usuarioModel
+    .puxarHistoriasFavoritadas(idUsuario)
+    .then(function (historiasFavoritadas) {
+      res.json(historiasFavoritadas);
+      console.log("Infos puxadas: ", historiasFavoritadas);
+    })
+    .catch(function (erroInfos) {
+      console.log("Erro ao puxar as histórias favoritadas: ", erroInfos);
+      res.status(500).json(erroInfos.sqlMessage);
+    });
 }
 
 function puxarAvaliacoesHistoria(req, res) {
   let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-      return res.status(400).json({ erro: "Usuário indefinido" });
+    return res.status(400).json({ erro: "Usuário indefinido" });
   }
-  usuarioModel.puxarAvaliacoesHistoria(idUsuario).then(function (avaliacoesHistoria) {
-    res.json(avaliacoesHistoria);
-    console.log("Infos puxadas: ", avaliacoesHistoria)
-  }).catch(function (erroInfos) {
-    console.log("Erro ao puxar as avaliações do usuário: ", erroInfos)
-    res.status(500).json(erroInfos.sqlMessage);
-  })
+  usuarioModel
+    .puxarAvaliacoesHistoria(idUsuario)
+    .then(function (avaliacoesHistoria) {
+      res.json(avaliacoesHistoria);
+      console.log("Infos puxadas: ", avaliacoesHistoria);
+    })
+    .catch(function (erroInfos) {
+      console.log("Erro ao puxar as avaliações do usuário: ", erroInfos);
+      res.status(500).json(erroInfos.sqlMessage);
+    });
 }
 
 function puxarTentativasUsuario(req, res) {
   let idUsuario = req.params.idUsuario;
 
   if (!idUsuario) {
-      return res.status(400).json({ erro: "Usuário indefinido" });
+    return res.status(400).json({ erro: "Usuário indefinido" });
   }
-  usuarioModel.puxarTentativasUsuario(idUsuario).then(function (tentativasUsuario) {
-    res.json(tentativasUsuario);
-    console.log("Infos puxadas: ", tentativasUsuario)
-  }).catch(function (erroInfos) {
-    console.log("Erro ao puxar as tentativas do usuário: ", erroInfos)
-    res.status(500).json(erroInfos.sqlMessage);
-  })
+  usuarioModel
+    .puxarTentativasUsuario(idUsuario)
+    .then(function (tentativasUsuario) {
+      res.json(tentativasUsuario);
+      console.log("Infos puxadas: ", tentativasUsuario);
+    })
+    .catch(function (erroInfos) {
+      console.log("Erro ao puxar as tentativas do usuário: ", erroInfos);
+      res.status(500).json(erroInfos.sqlMessage);
+    });
+}
+function selecionarTodosUsuarios(req,res){
+  usuarioModel.selecionarTodosUsuarios().then(function (resultadoUsuarios){
+    res.json(resultadoUsuarios);
+  }).catch(function (erroUsuarios) {
+      console.log("Erro ao puxar todos os usuários comuns: ", erroUsuarios);
+      res.status(500).json(erroUsuarios.sqlMessage);
+    });
 }
 
 module.exports = {
@@ -327,5 +396,8 @@ module.exports = {
   puxarPersonagensFavoritados,
   puxarHistoriasFavoritadas,
   puxarAvaliacoesHistoria,
-  puxarTentativasUsuario
+  puxarTentativasUsuario,
+  logarAdm,
+  contarUsuarios,
+  selecionarTodosUsuarios
 };

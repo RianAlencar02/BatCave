@@ -21,7 +21,43 @@ LEFT JOIN comentarioEditor AS comenEditor ON comenEditor.fkHistoria = h.idHistor
   return database.executar(querySQL);
 }
 
+function contarHistorias() {
+  let querySQL = `SELECT COUNT(idHistoria) AS qntHistorias FROM historia;`;
+
+  return database.executar(querySQL);
+}
+
+function top3MelhorAvaliadas(){
+    let querySQL = `SELECT h.idHistoria, h.tituloHistoria, h.bannerHistoria, ROUND(AVG(a.notaAvaliacao),1) AS notaHistoria, COUNT(a.fkHistoria) AS qntAvaliacoes FROM historia AS h
+    INNER JOIN avaliacaoHistoria AS a ON h.idHistoria = a.fkHistoria
+    GROUP BY h.idHistoria,h.tituloHistoria,h.bannerHistoria
+    ORDER BY notaHistoria DESC
+    LIMIT 3;`;
+  return database.executar(querySQL);
+}
+
+function favoritosPorTipo(){
+    let querySQL = `SELECT h.tipoHistoria, COUNT(a.fkHistoria) AS qntAvaliacoes FROM historia AS h
+    JOIN avaliacaoHistoria AS a ON a.fkHistoria = h.idHistoria
+    GROUP BY h.tipoHistoria;`;
+  return database.executar(querySQL);
+}
+
+function selecionarTodasHistorias(){
+  let querySQL = `SELECT h.*,  CASE
+    WHEN ROUND(AVG(a.notaAvaliacao),1) > 0 THEN ROUND(AVG(a.notaAvaliacao),1)
+    ELSE 'Nenhuma avaliação'
+    END  AS notaHistoria FROM historia AS h
+    LEFT JOIN avaliacaoHistoria AS a ON h.idHistoria = a.fkHistoria
+    GROUP BY h.idHistoria,h.tituloHistoria,h.bannerHistoria`;
+  return database.executar(querySQL);
+}
+
 module.exports = {
   buscarHistorias,
   buscarHistoriaEspecifica,
+  contarHistorias,
+  favoritosPorTipo,
+  top3MelhorAvaliadas,
+  selecionarTodasHistorias
 };

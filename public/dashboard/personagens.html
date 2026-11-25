@@ -24,14 +24,14 @@
                 <a class="opcaoNavBar" href="./historias.html">Histórias</a>
                 <a class="opcaoNavBar opcaoSelecionada" href="./personagens.html">Personagens</a>
             </nav>
-            <a class="opcaoSair" href="./loginAdm.html">Sair</a>
+           <button id="botaoSairDashboard" class="opcaoSair">Sair</button>
         </div>
-        <div class="conteudoDashboard">
+        <div id="telaPersonagens" class="conteudoDashboard">
             <div class="cardTela">
                 <h1 class="tituloTela">Personagens</h1>
                 <div class="cardLista">
                     <div class="barraAcoes">
-                        <a class="botaoNovo" href="#">+ Novo personagem</a>
+                        <!-- <a class="botaoNovo" href="#">+ Novo personagem</a> -->
                         <div class="grupoFiltros">
                             <input class="campoBusca" type="text" placeholder="Buscar por nome...">
                             <select class="selectFiltro">
@@ -40,28 +40,19 @@
                             </select>
                         </div>
                     </div>
-                    <div class="tabelaListagem listaPersonagens">
+                    <div id="listaPersonagens" class="tabelaListagem listaPersonagens">
                         <div class="linhaCabecalho">
                             <div class="celula colNome">Nome</div>
                             <div class="celula colCategoria">Categoria</div>
                             <div class="celula colDetalhes">Detalhes</div>
                         </div>
-                        <div class="linhaItem">
-                            <div class="celula colNome">
-                                <img class="thumbLinha" src="../assets/imgs/personagens/imgRobinDick.webp"
-                                    alt="Robin (Dick Grayson)">
-                                <span class="nomeLinha">Robin (Dick Grayson)</span>
-                            </div>
-                            <div class="celula colCategoria">Herói</div>
-                            <div class="celula colDetalhes">
-                                <a class="botaoDetalhes" href="#">Detalhes</a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="../js/dashboard.js"></script>
 </body>
 
 </html>

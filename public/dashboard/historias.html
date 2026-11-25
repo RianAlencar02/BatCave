@@ -24,14 +24,14 @@
                 <a class="opcaoNavBar opcaoSelecionada" href="./historias.html">Histórias</a>
                 <a class="opcaoNavBar" href="./personagens.html">Personagens</a>
             </nav>
-            <a class="opcaoSair" href="./loginAdm.html">Sair</a>
+           <button id="botaoSairDashboard" class="opcaoSair">Sair</button>
         </div>
-        <div class="conteudoDashboard">
+        <div id="telaHistorias" class="conteudoDashboard">
             <div class="cardTela">
                 <h1 class="tituloTela">Histórias</h1>
                 <div class="cardLista">
                     <div class="barraAcoes">
-                        <a class="botaoNovo" href="#">+ Nova história</a>
+                            <!-- <a class="botaoNovo" href="#">+ Nova história</a> -->
                         <div class="grupoFiltros">
                             <input class="campoBusca" type="text" placeholder="Buscar por nome...">
                             <select class="selectFiltro">
@@ -46,32 +46,21 @@
                             </select>
                         </div>
                     </div>
-                    <div class="tabelaListagem listaHistorias">
+                    <div id="listaHistorias" class="tabelaListagem listaHistorias">
                         <div class="linhaCabecalho">
                             <div class="celula colNome">Nome</div>
                             <div class="celula colTipo">Tipo</div>
                             <div class="celula colNota">Nota</div>
                             <div class="celula colDetalhes">Detalhes</div>
                         </div>
-                        <div class="linhaItem">
-                            <div class="celula colNome">
-                                <img class="thumbLinha" src="../assets/imgs/historias/bannerBatmanCapuzVermelho.avif"
-                                    alt="Batman Contra o Capuz Vermelho">
-                                <span class="nomeLinha">Batman Contra o Capuz Vermelho</span>
-                            </div>
-                            <div class="celula colTipo">
-                                <span class="badgeTipo">Filme</span>
-                            </div>
-                            <div class="celula colNota">4.8</div>
-                            <div class="celula colDetalhes">
-                                <a class="botaoDetalhes" href="#">Detalhes</a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+            <script src="../js/dashboard.js"></script>
+
 </body>
 
 </html>

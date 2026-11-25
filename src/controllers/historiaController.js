@@ -8,6 +8,17 @@ function buscarHistorias(req, res) {
  });
 }
 
+
+function contarHistorias(req, res) {
+  historiaModel.contarHistorias()
+    .then(function (resultado) {
+      res.status(200).json(resultado[0]);
+    })
+    .catch(function (erro) {
+      console.log("Erro ao contar histórias:", erro.sqlMessage || erro);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
 function buscarHistoriaEspecifica(req, res){
     let idHistoria = req.params.idHistoria;
 
@@ -17,7 +28,38 @@ function buscarHistoriaEspecifica(req, res){
     })
 }
 
+function top3MelhoresAvaliadas(req,res){
+    historiaModel.top3MelhorAvaliadas().then(function (top3){
+        res.status(200).json(top3)
+    }).catch(function (erro){
+    console.log("Erro ao puxar top 3:", erro.sqlMessage || erro);
+      res.status(500).json(erro.sqlMessage);
+    })
+}
+
+function favoritosPorTipo(req,res){
+    historiaModel.favoritosPorTipo().then(function (favoritosPorTipo){
+        res.status(200).json(favoritosPorTipo)
+    }).catch(function (erro){
+    console.log("Erro ao puxar favoritos por tipo:", erro.sqlMessage || erro);
+      res.status(500).json(erro.sqlMessage);
+    })
+}
+
+function selecionarTodasHistorias(req,res){
+      historiaModel.selecionarTodasHistorias().then(function (historiasSelecionadas){
+        res.status(200).json(historiasSelecionadas)
+    }).catch(function (erro){
+    console.log("Erro ao puxar todas as histórias:", erro.sqlMessage || erro);
+      res.status(500).json(erro.sqlMessage);
+    })
+}
+
 module.exports = {
   buscarHistorias,
   buscarHistoriaEspecifica,
+  contarHistorias,
+  top3MelhoresAvaliadas,
+  favoritosPorTipo,
+  selecionarTodasHistorias
 };

@@ -83,7 +83,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../public/assets/imgs/imgLoginAdm.jpe");
+  background-image: url("../assets/imgs/imgLoginAdm.jpe");
   flex: 1;
   background-repeat: no-repeat;
   background-size: cover;

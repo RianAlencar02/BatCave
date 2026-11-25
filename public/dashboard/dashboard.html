@@ -26,107 +26,54 @@
                 <a class="opcaoNavBar" href="./historias.html">Histórias</a>
                 <a class="opcaoNavBar" href="./personagens.html">Personagens</a>
             </nav>
-            <a class="opcaoSair" href="./loginAdm.html">Sair</a>
+           <button id="botaoSairDashboard" class="opcaoSair">Sair</button>
         </div>
-        <div class="conteudoDashboard">
+        <div id="telaDashboard" class="conteudoDashboard">
             <div class="linhaKpi">
                 <div class="kpiDashboard">
                     <span class="tituloKpi">Total de usuários</span>
-                    <span class="dadoKpi">10</span>
+                    <span id="qntUsuarios" class="dadoKpi"></span>
                 </div>
                 <div class="kpiDashboard">
                     <span class="tituloKpi">Total de histórias</span>
-                    <span class="dadoKpi">10</span>
+                    <span id="qntHistorias" class="dadoKpi"></span>
                 </div>
                 <div class="kpiDashboard">
                     <span class="tituloKpi">Total de personagens:</span>
-                    <span class="dadoKpi">10</span>
+                    <span id="qntPersonagens" class="dadoKpi"></span>
                 </div>
                 <div class="kpiDashboard">
                     <span class="tituloKpi">Quizes concluidos:</span>
-                    <span class="dadoKpi">10</span>
+                    <span id="qntQuizesConcluidos" class="dadoKpi"></span>
                 </div>
             </div>
             <div class="containerGraficos">
                 <div class="graficoDashboard">
                     <span class="tituloKpi">Histórias mais bem avaliadas:</span>
-                    <div class="containerItens">
-                        <div class="item">
-                            <img src="../assets/imgs/historias/bannerBatmanAbs.jpeg" class="imgItem" alt="">
-                            <span class="dadoKpi">Batman Absoluto</span>
-                            <div class="colunaAvaliacao">
-                                <span class="dadoKpi">4.8</span>
-                                <span class="textoAvaliacoes">12 avaliações</span>
-                            </div>
-                        </div>
+                    <div id="divCardAvaliados" class="containerItens">
+
                     </div>
                 </div>
                 <div class="graficoDashboard">
                     <span class="tituloKpi">Favoritos por tipo:</span>
-                    <div>
+                    <div class="divGrafico">
                         <canvas id="graficoTipo"></canvas>
                     </div>
                 </div>
                 <div class="graficoDashboard">
                     <span class="tituloKpi">Personagens mais favoritados:</span>
-                    <div class="containerItens">
-                        <div class="itemFavoritos">
-                            <img src="../assets/imgs/personagens/imgRobinDick.webp" class="imgItem" alt="">
-                            <span class="dadoKpi">Robin (Dick Grayson)</span>
-                        </div>
+                    <div id="divPersonagensFavoritados" class="containerItens">
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="../js/dashboard.js"></script>
 </body>
 
 </html>
 
 <script>
-    const ctx = document.getElementById("graficoTipo");
 
-    const tipos = ["Quadrinhos", "Filmes", "Jogos"];
-    const favoritos = [11, 7, 4];
-
-    Chart.defaults.font.family = "Inter, sans-serif";
-    Chart.defaults.color = "#9aa5b1";
-
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: tipos,
-            datasets: [
-                {
-                    label: "Favoritados",
-                    data: favoritos,
-                    backgroundColor: ["#c62839", "#3a6ea5", "#9aa5b1"],
-                    borderRadius: 8,
-                },
-            ],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    backgroundColor: "#0b0b0d",
-                    borderColor: "#23364d",
-                    borderWidth: 1,
-                    padding: 12,
-                },
-            },
-            scales: {
-                x: {
-                    grid: { display: false },
-                    ticks: { color: "#f2f4f7", font: { size: 14 } },
-                },
-                y: {
-                    beginAtZero: true,
-                    grid: { color: "#23364d" },
-                },
-            },
-        },
-    });
 </script>

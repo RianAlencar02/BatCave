@@ -22,6 +22,18 @@ function buscarPerguntas(req, res) {
     });
 }
 
+function contarQuizesConcluidos(req, res) {
+  quizModel
+    .contarQuizesConcluidos()
+    .then(function (resultado) {
+      res.status(200).json(resultado[0]);
+    })
+    .catch(function (erro) {
+      console.log("Erro ao contar quizes concluidos:", erro.sqlMessage || erro);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function buscarAlternativas(req, res) {
   let tipo = req.params.tipo;
   let idHistoriaOuPersonagem = Number(req.params.idHistoriaOuPersonagem);
@@ -46,5 +58,6 @@ function buscarAlternativas(req, res) {
 
 module.exports = {
   buscarPerguntas,
-  buscarAlternativas
+  buscarAlternativas,
+  contarQuizesConcluidos
 };

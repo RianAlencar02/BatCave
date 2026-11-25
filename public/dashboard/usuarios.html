@@ -24,9 +24,9 @@
                 <a class="opcaoNavBar" href="./historias.html">Histórias</a>
                 <a class="opcaoNavBar" href="./personagens.html">Personagens</a>
             </nav>
-            <a class="opcaoSair" href="./loginAdm.html">Sair</a>
+           <button id="botaoSairDashboard" class="opcaoSair">Sair</button>
         </div>
-        <div class="conteudoDashboard">
+        <div id="telaUsuarios" class="conteudoDashboard">
             <div class="cardTela">
                 <h1 class="tituloTela">Usuários</h1>
                 <div class="cardLista">
@@ -39,47 +39,20 @@
                             </select>
                         </div>
                     </div>
-                    <div class="tabelaListagem listaUsuarios">
+                    <div id="listaUsuarios" class="tabelaListagem listaUsuarios">
                         <div class="linhaCabecalho">
                             <div class="celula colNome">Nome</div>
                             <div class="celula colEmail">Email</div>
                             <div class="celula colDetalhes">Detalhes</div>
                         </div>
-                        <div class="linhaItem">
-                            <div class="celula colNome">
-                                <span class="avatarUsuario">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <circle cx="12" cy="8" r="4" fill="#0b0b0d"></circle>
-                                        <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" fill="#0b0b0d"></path>
-                                    </svg>
-                                </span>
-                                <span class="nomeLinha">Rian</span>
-                            </div>
-                            <div class="celula colEmail">rian.crash@gmail.com</div>
-                            <div class="celula colDetalhes">
-                                <a class="botaoDetalhes" href="#">Detalhes</a>
-                            </div>
-                        </div>
-                        <div class="linhaItem">
-                            <div class="celula colNome">
-                                <span class="avatarUsuario">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <circle cx="12" cy="8" r="4" fill="#0b0b0d"></circle>
-                                        <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" fill="#0b0b0d"></path>
-                                    </svg>
-                                </span>
-                                <span class="nomeLinha">Rian</span>
-                            </div>
-                            <div class="celula colEmail">rian.crash@gmail.com</div>
-                            <div class="celula colDetalhes">
-                                <a class="botaoDetalhes" href="#">Detalhes</a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+        <script src="../js/dashboard.js"></script>
+
 </body>
 
 </html>

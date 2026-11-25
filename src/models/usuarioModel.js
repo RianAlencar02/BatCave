@@ -14,6 +14,12 @@ function logar(emailUsuario, senhaUsuario) {
   return database.executar(querySQL);
 }
 
+function logarAdm(emailUsuario, senhaUsuario){
+    let querySQL = `SELECT idUsuario AS idAdm, nomeUsuario AS nomeAdm, emailUsuario AS emailAdm FROM usuario WHERE emailUsuario = '${emailUsuario}' AND senhaUsuario = '${senhaUsuario}' AND cargoUsuario = 'administrador';`;
+  console.log("Executando a query de login (SELECT): \n" + querySQL);
+  return database.executar(querySQL);
+}
+
 function favoritar(idUsuario, tipo, idFavoritado) {
   if (tipo == "personagem") {
     let querySQL = `INSERT INTO personagensFavoritados (fkUsuario, fkPersonagem) VALUES (${idUsuario}, ${idFavoritado})`;
@@ -153,8 +159,6 @@ ORDER BY dataHora DESC`;
   return database.executar(querySQL);
 }
 
-
-
 function puxarAvaliacoesHistoria(idUsuario){
   let querySQL = `SELECT  ah.idAvaliacaoHistoria, ah.fkHistoria, h.tituloHistoria, h.bannerHistoria, h.tipoHistoria, ah.notaAvaliacao, DATE_FORMAT(ah.dataAvaliacao, '%d/%m/%Y') AS dataAvaliacao FROM historia AS h
 JOIN avaliacaoHistoria AS ah ON ah.fkHistoria = h.idHistoria
@@ -162,6 +166,18 @@ WHERE ah.fkUsuario = ${idUsuario}`;
 console.log("Trazendo as avaliações de um usuário: ", puxarAvaliacoesHistoria);
 return database.executar(querySQL);
 }
+
+function contarUsuarios(){
+  let querySQL = `SELECT COUNT(idUsuario) AS qntUsuarios FROM usuario;`
+  return database.executar(querySQL);
+}
+
+function selecionarTodosUsuarios(){
+    let querySQL = `SELECT * FROM usuario WHERE cargoUsuario = "comum";`
+  return database.executar(querySQL);
+}
+
+
 
 module.exports = {
   cadastrar,
@@ -178,5 +194,8 @@ module.exports = {
   puxarHistoriasFavoritadas,
   puxarPersonagensFavoritados,
   puxarTentativasUsuario,
-  puxarAvaliacoesHistoria
+  puxarAvaliacoesHistoria,
+  contarUsuarios,
+  logarAdm,
+  selecionarTodosUsuarios
 };

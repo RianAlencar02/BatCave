@@ -25,9 +25,32 @@ function buscarPersonagemEspecifico(idPersonagem){
   return database.executar(querySQL);
 }
 
+function contarPersonagens(){
+    let querySQL = `SELECT COUNT(idPersonagem) AS qntPersonagens FROM personagem;`;
+    return database.executar(querySQL);
+}
+
+function personagensMaisFavoritados(){
+      let querySQL = `SELECT p.idPersonagem, p.nomePersonagem, p.bannerPersonagem, COUNT(af.fkPersonagem) AS qntFavoritos 
+      FROM personagem AS p
+      INNER JOIN personagensFavoritados AS af ON af.fkPersonagem = p.idPersonagem
+    GROUP BY p.idPersonagem, p.nomePersonagem, p.bannerPersonagem
+      ORDER BY qntFavoritos DESC
+      LIMIT 3`;
+    return database.executar(querySQL);
+}
+
+function selecionarTodosPersonagens(){
+      let querySQL = `SELECT * FROM personagem`;
+    return database.executar(querySQL);
+}
 module.exports = {
   buscarPersonagensBatman,
   buscarPersonagensAliados,
   buscarPersonagensViloes,
-  buscarPersonagemEspecifico
+  buscarPersonagemEspecifico,
+  contarPersonagens,
+  personagensMaisFavoritados,
+  selecionarTodosPersonagens
+  
 };
