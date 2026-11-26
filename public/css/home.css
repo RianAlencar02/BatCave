@@ -33,7 +33,7 @@ body {
 
 .bannerHome {
   width: 100%;
-  height: 85vh;
+  height: 75vh;
   border-bottom: 1px #23364d solid;
 }
 
@@ -55,7 +55,7 @@ body {
   font-weight: bold;
   font-family: "Oswald", sans-serif;
   color: #c62839;
-  font-size: 6vw;
+  font-size: 90px;
 }
 
 .divCardBemVindo {
@@ -64,7 +64,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 5vh;
+  margin-top: 20px;
 }
 
 .cardBemVindo {
@@ -79,7 +79,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 35%;
 }
 
 .imgCard {
@@ -90,7 +90,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 60%;
-  height: 45vh;
+  height: 300px;
   justify-content: center;
   gap: 15px;
 }
@@ -99,14 +99,14 @@ body {
   font-family: "Bangers", cursive;
   font-style: italic;
   text-transform: uppercase;
-  font-size: 3vw;
+  font-size: 50px;
   color: #f2f4f7;
 }
 
 .textoCard {
   font-family: "Inter", sans-serif;
   color: #f2f4f7;
-  font-size: 3.5vh;
+  font-size: 23px;
 }
 
 .divSobreBatman {
@@ -116,7 +116,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 10vh;
-  gap: 5vh;
+  gap: 2vh;
 }
 
 .divTitulo {
@@ -150,14 +150,13 @@ body {
 }
 
 .divImgSobreBatman {
-  width: 65%;
   height: 70%;
   justify-content: center;
   align-items: center;
 }
 
 .imgSobreBatman {
-  width: 100%;
+  width: 400px;
 }
 
 .textoConteudoSobreBatman {
@@ -166,25 +165,24 @@ body {
   text-align: center;
   flex-direction: column;
   height: 100%;
-  width: 100%;
-  gap: 1.5vh;
+  gap: 20px;
 }
 
 .tituloVermelho {
   color: #c62839;
   font-family: "Oswald", sans-serif;
-  font-size: 2.3rem;
+  font-size: 40px;
   font-weight: 700;
 }
 
 .textoSobreBatman {
   color: #f2f4f7;
   font-family: "Oswald", sans-serif;
-  font-size: 1.4vw;
+  font-size: 20px;
 }
 
 .textoSobreBatman p {
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
 }
 
 .fraseSobreBatman {
@@ -201,7 +199,6 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 10vh;
-  gap: 3vh;
 }
 
 .divCardsCriadores {
@@ -210,7 +207,7 @@ body {
   width: 90%;
   justify-content: center;
   align-items: center;
-  gap: 10vw;
+  gap: 109px;
 }
 
 .cardCriador {
@@ -233,14 +230,14 @@ body {
 .tituloCriador {
   color: #f2f4f7;
   font-family: "Oswald", sans-serif;
-  font-size: 1.4rem;
+  font-size: 25px;
   font-weight: bolder;
 }
 
 .textoCriador {
   color: #f2f4f7;
   font-family: "Oswald", sans-serif;
-  font-size: 1.5vw;
+  font-size: 18px;
   padding: 20px;
 }
 
@@ -260,7 +257,7 @@ body {
   width: 90%;
   justify-content: center;
   align-items: center;
-  gap: 10vw;
+  gap: 90px;
 }
 
 .cardRecomendacao {
@@ -283,7 +280,7 @@ body {
 .tituloRecomendado {
   color: #f2f4f7;
   font-family: "Oswald", sans-serif;
-  font-size: 1.5vw;
+  font-size: 20px;
   margin-top: 15px;
 }
 
@@ -320,7 +317,7 @@ body {
 }
 
 .imgSobreMim {
-  height: 75%;
+  width: 25%;
   margin-left: 2vw;
   justify-content: flex-start;
 }
@@ -345,14 +342,14 @@ body {
   font-family: "Bangers", cursive;
   font-style: italic;
   text-transform: uppercase;
-  font-size: 40px;
+  font-size: 30px;
   color: #f2f4f7;
 }
 
 .descricaoSobreMim {
   color: #f2f4f7;
   font-family: "Oswald", sans-serif;
-  font-size: 1.3vw;
+  font-size: 20px;
   padding-bottom: 10px;
 }
 
@@ -360,36 +357,35 @@ body {
   display: flex;
   flex-direction: column;
   padding-bottom: 30px;
-  padding-left: 1vw;
-  margin-top: 0.5vw;
   border-bottom: 2px #23364d solid;
   gap: 2vh;
+  padding: 10px;
 }
 
 .divImgsTecnologias {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
+  width: 100%;
+  gap: 35px;
 }
 
 .imgTecnologia {
-  width: 6vw;
+  width: 80px;
 }
 
 .imgSql {
-  width: 10vw;
-  height: 5vh;
+  width: 180px;
 }
 
 .divRedesSociaisSobreMim {
   display: flex;
   flex-direction: row;
   padding: 35px;
-  gap: 2vw;
   align-items: center;
   text-decoration: none;
-}
+gap: 20px;}
 
 .cardRedeSocial {
   display: flex;
@@ -398,18 +394,18 @@ body {
   width: 30%;
   background-color: #c62839;
   flex-direction: row;
-  border-radius: 15px;
+  border-radius: 10px;
   text-decoration: none;
   gap: 1vw;
 }
 
 .imgRedeSocial {
-  width: 6vh;
   margin-left: 30px;
+  width: 35px;
 }
 
 .textoRedeSocial {
   font-family: "Oswald", sans-serif;
-  font-size: 1.5vw;
   color: #f2f4f7;
 }
+

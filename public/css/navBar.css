@@ -96,3 +96,51 @@
 .imgLogado {
   width: 50px;
 }
+.footer{
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  border-top: #23364d solid 2px;
+  margin-top: 15px;
+  padding: 10px;
+  align-items: center;
+}
+
+.imgFooter{
+  width: 250px;
+  height: 50px;
+}
+
+.imgDireitosFooter{
+  width: 100px;
+  height: 100px;
+}
+
+.divOpcoesFooter{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
+}
+
+.opcaoFooter{
+    font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  color: #f2f4f7;
+  text-decoration: none;
+}
+.fraseFooter{
+  color: #f2f4f7;
+  opacity: 50%;
+}
+
+.linkFooter{
+  text-decoration: none;
+}
+.direitosFooter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
