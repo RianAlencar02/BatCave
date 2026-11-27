@@ -1,8 +1,35 @@
 var database = require("../database/config");
 
-function buscarHistorias() {
+function buscarHistorias(filtro, tipo) {
   // Preparando a query para criar um usuário.
-  let querySQL = `SELECT * FROM historia ORDER BY tituloHistoria ASC;`;
+  let filtragem;
+  let tipagem = "";
+
+  if (filtro == "Mais recentes"){
+    filtragem = "ORDER BY h.anoHistoria DESC;"
+  }
+  else if (filtro == "Mais antigos"){
+    filtragem = "ORDER BY h.anoHistoria ASC"
+  }
+  else if (filtro == "Mais bem avaliados"){
+    filtragem = "ORDER BY notaAvaliacao DESC;"
+  }
+  else {
+    filtragem = "ORDER BY h.tituloHistoria ASC;"
+  }
+
+  if (tipo == "Quadrinhos"){
+    tipagem  = "WHERE h.tipoHistoria = 'Quadrinho'"
+  }
+  else if (tipo == "Filmes"){
+    tipagem  = "WHERE h.tipoHistoria = 'Filme'"
+  }
+  else if (tipo == "Jogos"){
+    tipagem  = "WHERE h.tipoHistoria = 'Jogo'"
+  }
+
+  let querySQL = `SELECT h.*, (SELECT IFNULL(ROUND(AVG(notaAvaliacao), 1), 0) FROM avaliacaoHistoria WHERE fkHistoria = h.idHistoria) AS notaAvaliacao
+   FROM historia AS h ${tipagem} ${filtragem}`;
   console.log(
     "Executando a query para buscar todas as historias: \n" + querySQL,
   );

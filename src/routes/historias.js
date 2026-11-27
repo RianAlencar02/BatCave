@@ -4,7 +4,7 @@ var router = express.Router();
 var historiaController = require("../controllers/historiaController");
 
 // Criando uma rota para buscar todas as histórias
-router.get("/", function (req, res) {
+router.get("/listagem/:filtro/:tipo", function (req, res) {
     historiaController.buscarHistorias(req, res);
 })
 

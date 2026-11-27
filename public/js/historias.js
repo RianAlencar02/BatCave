@@ -1,5 +1,5 @@
-function listarHistorias() {
-  fetch(`/historias/`)
+function listarHistorias(filtro, tipo) {
+  fetch(`/historias/listagem/${filtro}/${tipo}`)
     .then(function (resposta) {
       if (!resposta.ok) {
         console.log("Erro ao buscar histórias. Detalhes: ", resposta.status);
@@ -38,4 +38,17 @@ function listarHistorias() {
     });
 }
 
-listarHistorias();
+listarHistorias("A-Z"); // passando somente um paramatro, para quando chegar ao controller, 
+
+const selectFiltro = document.getElementById("selectFiltro");
+const selectTipo = document.getElementById("selectTipo");
+
+selectFiltro.addEventListener("change", function () {
+  listarHistorias(selectFiltro.value, selectTipo.value);
+});
+
+
+
+selectTipo.addEventListener("change", function () {
+  listarHistorias(selectFiltro.value, selectTipo.value);
+});

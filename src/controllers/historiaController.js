@@ -1,11 +1,17 @@
 var historiaModel = require("../models/historiaModel");
 
 function buscarHistorias(req, res) {
+    var filtro = req.params.filtro;
+    var tipo = req.params.tipo;
+
     // Buscando todas as histórias cadastradas
-    historiaModel.buscarHistorias().then((resultado) => {
+    historiaModel.buscarHistorias(filtro, tipo).then((resultado) => {
         console.log('Buscando todas as histórias:', resultado);
         res.status(200).json(resultado);
- });
+ }).catch(function (erro) {
+      console.log(erro);
+      res.status(500).json(erro.sqlMessage);
+    });;
 }
 
 
@@ -21,7 +27,7 @@ function contarHistorias(req, res) {
 }
 function buscarHistoriaEspecifica(req, res){
     let idHistoria = req.params.idHistoria;
-
+    
     historiaModel.buscarHistoriaEspecifica(idHistoria).then((resultado) => {
         console.log("História encontrada:", resultado);
         res.status(200).json(resultado);
